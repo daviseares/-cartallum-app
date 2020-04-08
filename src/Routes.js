@@ -1,8 +1,10 @@
+import { Text, TouchableOpacity } from 'react-native';
+import * as React from 'react';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 
 import Main from './pages/Main';
-import Profile from './pages/Profile';
+import CadastrarFamilia from './pages/CadastrarFamilia';
 
 const Routes = createAppContainer(
     createStackNavigator({
@@ -12,10 +14,10 @@ const Routes = createAppContainer(
                 title: 'Cartallum App'
             }
         },
-        Profile: {
-            screen: Profile,
+        CadastrarFamilia: {
+            screen: CadastrarFamilia,
             navigationOptions: {
-                title: 'Perfil no github'
+                title: 'Cadastrar Família'
             }
         }
     }, {
