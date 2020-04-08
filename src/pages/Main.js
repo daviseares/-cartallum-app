@@ -7,102 +7,47 @@ import Card from '../components/Card';
 import api from '../services/api';
 
 function Main({ navigation }) {
-    const [devs, setDevs] = useState([])
-    const [currentRegion, setCurrentRegion] = useState(null)
-    const [techs, setTechs] = useState('')
+    const [dataFamilia, setDataFamilia] = useState(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        async function loadInitialPosition() {
-            const { granted } = await requestPermissionsAsync();
-
-            if (granted) {
-                const { coords } = await getCurrentPositionAsync({
-                    enableHighAccuracy: true,
-                })
-
-                const { latitude, longitude } = coords;
-
-                setCurrentRegion({
-                    latitude,
-                    longitude,
-                    latitudeDelta: 0.02,
-                    longitudeDelta: 0.02
-                })
-            }
-
+        async function getAllFamilias() {
+            const response = await api.get('/data/get_familia');
+            //console.log(response)
+            setDataFamilia(response.data);
+            setIsVisible(true);
         }
-        loadInitialPosition()
+        getAllFamilias()
     }, []);
 
-    async function loadDevs() {
-        const { latitude, longitude } = currentRegion;
-
-        const response = await api.get('/search', {
-            params: {
-                latitude,
-                longitude,
-                techs
-            }
-        })
-        console.log(response.data.devs)
-        setDevs(response.data.devs)
-    }
-
-    function handleRegionChanged(region) {
-        setCurrentRegion(region)
-    }
-
-    if (!currentRegion) return null;
 
     return (
         <>
-            {/* <MapView
-                onRegionChangeComplete={handleRegionChanged}
-                initialRegion={currentRegion}
-                style={styles.map}
+            <TouchableOpacity
+                style={styles.cadastrar}
+                onPress={() => navigation.navigate("CadastrarFamilia")}
             >
-                {devs.map(dev => (
-                    <Marker
-                        key={dev._id}
-                        coordinate={{
-                            latitude: dev.location.coordinates[1],
-                            longitude: dev.location.coordinates[0]
-                        }}>
-                        <Image
-                            style={styles.avatar}
-                            source={{ uri: dev.avatar_url }} />
-
-                        <Callout onPress={() => {
-                            //navigation
-                            navigation.navigate('Profile', { github_username: dev.github_username })
-                        }}>
-                            < View style={styles.callout}>
-                                <Text style={styles.devName}>{dev.name}</Text>
-                                <Text style={styles.devBio}>{dev.bio}</Text>
-                                <Text style={styles.devTechs}>{dev.techs.join(', ')}</Text>
-                            </View>
-                        </Callout>
-
-                    </Marker>
-                ))}
-
-            </MapView> */}
+                <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
+                <MaterialIcons name="chevron-right" size={30} color="#272936" />
+            </TouchableOpacity>
             <View style={styles.cardContainer}>
                 <Card
-                    //data={jsonData}
+                    data={dataFamilia}
+                    isVisible={isVisible}
                 />
             </View>
             <View style={styles.searchForm}>
                 <TextInput
                     style={styles.searchInput}
-                    placeholder="Buscar devs por techs.."
+                    placeholder="Buscar família por cpf.."
                     placeholderTextColor="#999"
                     autoCapitalize="words"
                     autoCorrect={false}
-                    value={techs}
-                    onChangeText={setTechs}
+                //value={techs}
+                //onChangeText={setTechs}
                 />
-                <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
+                <TouchableOpacity //onPress={loadDevs} 
+                    style={styles.loadButton}>
                     <MaterialIcons name="search" size={30} color="#fff" />
                 </TouchableOpacity>
             </View>
@@ -111,38 +56,37 @@ function Main({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    map: {
-        flex: 1
+    cadastrar: {
+        borderRadius: 25,
+        backgroundColor: "#fff",
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        shadowColor: "#000",
+        shadowOpacity: 0.2,
+        shadowOffset: {
+            width: 4,
+            height: 4,
+        },
+        elevation: 3,
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexDirection: "row"
+    },
+    txtCadastrar: {
+        fontSize: 16,
+        color: "#333",
     },
     cardContainer: {
         marginTop: 80,
         marginHorizontal: 20,
         height: "100%"
     },
-    avatar: {
-        width: 54,
-        height: 54,
-        borderWidth: 4,
-        borderRadius: 4,
-        borderColor: "#fff"
-    },
-    callout: {
-        width: 260
-    },
-    devName: {
-        fontWeight: "bold",
-        fontSize: 16
-    },
-    devBio: {
-        color: "#666",
-        marginTop: 5
-    },
-    devTechs: {
-        marginTop: 5
-    },
     searchForm: {
         position: "absolute",
-        top: 20,
+        top: 95,
         left: 20,
         right: 20,
         zIndex: 5,
