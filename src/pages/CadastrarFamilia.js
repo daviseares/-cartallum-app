@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Form } from '@unform/mobile';
 import { setLocale } from 'yup';
-import * as constants from '../locales/yup-locale-pt-br';
 import { Scope } from '@unform/core';
 import {
     StyleSheet,
@@ -9,41 +8,65 @@ import {
     ScrollView,
     KeyboardAvoidingView,
     Platform,
-    View,
-    StatusBar,
     TouchableOpacity,
 } from 'react-native';
 import Input from '../components/Input';
 import FormData from '../components/Form';
 import * as Yup from 'yup';
+import * as constants from '../locales/yup-pt';
+import { connect } from "react-redux";
+import api from '../services/api';
 
-export default function CadastrarFamilia() {
+function CadastrarFamilia({ listaIntegrantes }) {
     const formRef = useRef(null);
 
     useEffect(() => {
         setLocale(constants.translation);
     }, [])
 
+
+
+    async function registerFamilia(data) {
+        try {
+            const response = await api.post('/register/cadastroFamilia', {
+                params: {
+                    integrantes: listaIntegrantes,
+                    rendaPercapita: data.renda,
+                    endereco: data.endereco,
+                    dataCestas: []
+                }
+            })
+
+            console.log(response);
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
     async function handleSubmit(data, { reset }) {
+        console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
         try {
             // Remove all previous errors
             formRef.current.setErrors({});
             const schema = Yup.object().shape({
-                renda: Yup.number().min(2).required(),
+                renda: Yup.number('O campo aceita apenas números').required('Este campo é obrigatório'),
                 endereco: Yup.object().shape({
-                    rua: Yup.string().min(4).required(),
-                    bairro: Yup.string().min(4).required(),
-                    numero: Yup.string().min(1),
-                    cep: Yup.number().min(8).required(),
-                    cidade: Yup.string().min(4).required(),
-                    estado: Yup.string().min(4).required(),
-                    pais: Yup.string().min(4).required(),
+                    rua: Yup.string().required('Este campo é obrigatório'),
+                    bairro: Yup.string().required('Este campo é obrigatório'),
+                    numero: Yup.string(),
+                    complemento: Yup.string(),
+                    cep: Yup.string().min(8, 'O CEP está icompleto').required('Este campo é obrigatório'),
+                    cidade: Yup.string().min(4, ' A cidade deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
+                    estado: Yup.string().min(4, 'O estado deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
+                    pais: Yup.string().min(2, 'O paísdeve ter no mímino 2 caracteres').required('Este campo é obrigatório'),
                 })
             });
             await schema.validate(data, {
                 abortEarly: false,
             });
             // Validation passed
+            registerFamilia(data)
             console.log(data);
         } catch (err) {
             const validationErrors = {};
@@ -112,3 +135,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
 });
+
+const mapStateToProps = state => {
+    return {
+        listaIntegrantes: state.reducerIntegrante.listaIntegrantes
+    };
+};
+const mapDispatchToProps = dispatch => { return {}; };
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CadastrarFamilia);

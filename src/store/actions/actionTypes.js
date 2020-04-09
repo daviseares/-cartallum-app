@@ -1,0 +1,3 @@
+export const ADD_INTEGRANTE = 'ADD_INTEGRANTE'
+export const REMOVE_INTEGRANTE = 'REMOVE_INTEGRANTE'
+export const CLEAN_ALL = 'CLEAN_ALL'

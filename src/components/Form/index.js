@@ -3,8 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
 import { MaterialIcons } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
+import { connect } from "react-redux";
+import { addIntegrante, removeIntegrante } from '../../store/actions/actionIntegrante';
 
-export default class Form extends Component {
+class FormData extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,50 +20,38 @@ export default class Form extends Component {
 
     }
     adicionarIntegrante = () => {
-        var lista = this.state.listaIntegrantes
-
-        lista.push({
+        this.props.addIntegrante({
             nome: this.state.nomeUnico,
             cpf: this.state.cpfUnico,
             dataNascimento: this.state.dataUnica
         })
 
         var recebe = this.state.countIntegrantes
-
         recebe.push(this.state.countIntegrantes.length);
-
-        this.setState({ countIntegrantes: recebe, listaIntegrantes: lista, cpfUnico: '', nomeUnico: '', dataUnica: '' })
+        this.setState({ countIntegrantes: recebe, cpfUnico: '', nomeUnico: '', dataUnica: '' })
 
     }
 
 
     retirarIntegrante(indice) {
-
-        if (this.state.listaIntegrantes[indice] !== undefined) {
-            var lista = this.state.listaIntegrantes
-            lista.splice(indice, 1)
-            this.setState({ listaIntegrantes: lista })
+        if (this.props.listaIntegrantes[indice] !== undefined) {
+            this.props.removeIntegrante(indice)
         }
 
         if (this.state.countIntegrantes.length > 1) {
             var remover = this.state.countIntegrantes
-
             remover.splice(indice, 1)
             this.setState({ countIntegrantes: remover })
         }
-
         this.setState({ cpfUnico: '', nomeUnico: '', dataUnica: '' })
     }
 
 
 
     render() {
+        console.log(this.props.listaIntegrantes)
         return (
             <View>
-                {/* <Text style={styles.txtTitle}>Dados Básicos</Text>  
-
-                  <Text style={styles.txtTitle}>Integrantes da Família</Text> */}
-
                 {
                     this.state.countIntegrantes.map((integrante, index) => {
                         return (
@@ -72,16 +62,16 @@ export default class Form extends Component {
                                 <Text style={styles.txtNome}>Nome</Text>
                                 <TextInput
                                     style={styles.campo}
-                                    editable={this.state.listaIntegrantes[index] !== undefined ? false : true}
-                                    value={this.state.listaIntegrantes[index] !== undefined ? this.state.listaIntegrantes[index].nome : null}
+                                    editable={this.props.listaIntegrantes[index] !== undefined ? false : true}
+                                    value={this.props.listaIntegrantes[index] !== undefined ? this.props.listaIntegrantes[index].nome : null}
                                     onChangeText={(text) => this.setState({ nomeUnico: text })}
                                 />
                                 <Text style={styles.txtNome}>CPF</Text>
                                 <TextInputMask
                                     style={styles.campo}
-                                    editable={this.state.listaIntegrantes[index] !== undefined ? false : true}
+                                    editable={this.props.listaIntegrantes[index] !== undefined ? false : true}
                                     type={'cpf'}
-                                    value={this.state.listaIntegrantes[index] !== undefined ? this.state.listaIntegrantes[index].cpf : this.state.cpfUnico}
+                                    value={this.props.listaIntegrantes[index] !== undefined ? this.props.listaIntegrantes[index].cpf : this.state.cpfUnico}
                                     onChangeText={(text) => this.setState({ cpfUnico: text })}
                                 />
                                 <Text style={styles.txtNome}>Data de Nascimento</Text>
@@ -91,8 +81,8 @@ export default class Form extends Component {
                                         format: 'DD/MM/AAAA'
                                     }}
                                     style={styles.campo}
-                                    editable={this.state.listaIntegrantes[index] !== undefined ? false : true}
-                                    value={this.state.listaIntegrantes[index] !== undefined ? this.state.listaIntegrantes[index].dataNascimento : this.state.dataUnica}
+                                    editable={this.props.listaIntegrantes[index] !== undefined ? false : true}
+                                    value={this.props.listaIntegrantes[index] !== undefined ? this.props.listaIntegrantes[index].dataNascimento : this.state.dataUnica}
                                     onChangeText={(text) => this.setState({ dataUnica: text })}
                                 />
                             </View>
@@ -108,6 +98,25 @@ export default class Form extends Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        listaIntegrantes: state.reducerIntegrante.listaIntegrantes
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addIntegrante: (item) => dispatch(addIntegrante(item)),
+        removeIntegrante: (item) => dispatch(removeIntegrante(item))
+    }
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FormData);
+
 
 const styles = StyleSheet.create({
     container: {
