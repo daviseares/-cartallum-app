@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Image, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
-import MapView, { Marker, Callout } from 'react-native-maps';
-import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
+import { StyleSheet,View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../components/Card';
 import api from '../services/api';
