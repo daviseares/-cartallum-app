@@ -12,10 +12,13 @@ function Main({ navigation }) {
 
     useEffect(() => {
         async function getAllFamilias() {
-            const response = await api.get('/data/get_familia');
+            const response = await api.get('data/get_familia');
             //console.log(response)
-            setDataFamilia(response.data);
-            setIsVisible(true);
+            if (response.data.success) {
+                setDataFamilia(response.data);
+                setIsVisible(true);
+            }
+
         }
         getAllFamilias()
     }, []);
