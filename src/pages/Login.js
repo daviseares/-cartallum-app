@@ -52,34 +52,22 @@ function Login({ navigation }) {
 
     async function authentication() {
         if (email != '' && password != '') {
+
             try {
                 const response = await api.post('auth/authenticate', {
-
                     login: email,
                     password: password,
-
                 })
-                console.log('authentication:', response.data.success)
+                try {
+                    api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
-                if (response.data.success) {
-                    try {
-                        api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-                        AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
-
-                    } catch (error) {
-                        setData(false)
-                        console.log('Erro AsyncStorrage:', error)
-                    }
-
-                    navigation.navigate("Main")
-
-                } else if (response.data.status) {
+                } catch (error) {
                     setData(false)
-                    Alert.alert('Email ou senha errados!')
-                } else {
-                    setData(false)
-                    Alert.alert('Falha no login!')
+                    console.log('Erro AsyncStorrage:', error)
                 }
+
+                navigation.navigate("Main")
 
             } catch (error) {
                 setData(false)

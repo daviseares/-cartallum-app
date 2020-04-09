@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet,View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../components/Card';
 import api from '../services/api';
@@ -11,13 +11,17 @@ function Main({ navigation }) {
     useEffect(() => {
         async function getAllFamilias() {
             const response = await api.get('data/get_familia');
-            //console.log(response)
+            //console.log()
             if (response.data.success) {
-                setDataFamilia(response.data);
-                setIsVisible(true);
+                setDataFamilia(response.data.familia);
+                const timer = setTimeout(() => {
+                    setIsVisible(true)
+                }, 500);
+                return () => clearTimeout(timer);
+                
             }
-
         }
+    
         getAllFamilias()
     }, []);
 

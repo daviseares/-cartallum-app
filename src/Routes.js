@@ -9,16 +9,20 @@ import Login from './pages/Login';
 
 const Routes = createAppContainer(
     createStackNavigator({
-        Login:{
-            screen:Login,
-            navigationOptions:{
-                title:'Login'
+        Login: {
+            screen: Login,
+            navigationOptions: {
+                title: 'Login',
+                headerShown: false,
+                gestureEnabled: false,
             }
         },
         Main: {
             screen: Main,
             navigationOptions: {
-                title: 'Cartallum App'
+                title: 'Cartallum App',
+                headerLeft: () => null,
+                gestureEnabled: false,
             }
         },
         CadastrarFamilia: {

@@ -28,13 +28,11 @@ function CadastrarFamilia({ listaIntegrantes }) {
 
     async function registerFamilia(data) {
         try {
-            const response = await api.post('/register/cadastroFamilia', {
-                params: {
-                    integrantes: listaIntegrantes,
-                    rendaPercapita: data.renda,
-                    endereco: data.endereco,
-                    dataCestas: []
-                }
+            const response = await api.post('register/cadastroFamilia', {
+                integrantes: listaIntegrantes,
+                rendaPercapita: data.renda,
+                endereco: data.endereco,
+                dataCestas: []
             })
 
             console.log(response);
