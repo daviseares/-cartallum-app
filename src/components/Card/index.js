@@ -10,9 +10,8 @@ export default function Card({ data, isVisible }) {
 
     return (
         <>
-
             <FlatList
-    style={styles.flatlist}
+                style={styles.flatlist}
                 data={data}
                 extraData={data}
                 keyExtractor={(item, index) => index.toString()}

@@ -29,7 +29,7 @@ function Login({ navigation }) {
             if (token) {
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                     await api.get('/projects')
+                    await api.get('/projects')
 
                     setData(null)
                     navigation.navigate("Main")
@@ -49,13 +49,16 @@ function Login({ navigation }) {
 
 
     async function authentication() {
-        if (email != '' && password != '') {
 
+        if (email != '' && password != '') {
+            console.log("chama função")
             try {
                 const response = await api.post('auth/authenticate', {
                     login: email,
                     password: password,
                 })
+                //validantion passed
+                console.log("responseLogin", response)
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
                     AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
@@ -100,8 +103,8 @@ function Login({ navigation }) {
                     <TextInput
                         style={styles.inputEmail}
                         placeholder='Email'
+                        autoCapitalize="none"
                         placeholderTextColor="#999"
-                        autoCapitalize="words"
                         autoCorrect={false}
                         onChangeText={setEmail}
                         value={email}
@@ -112,7 +115,7 @@ function Login({ navigation }) {
                         placeholder='Senha'
                         secureTextEntry={true}
                         placeholderTextColor="#999"
-                        autoCapitalize="words"
+                        autoCapitalize="none"
                         autoCorrect={false}
                         onChangeText={setPassword}
                         value={password}
