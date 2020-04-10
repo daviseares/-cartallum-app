@@ -29,13 +29,11 @@ function Login({ navigation }) {
             if (token) {
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                    const response = await api.get('/projects');
-                    if (response.data.success) {
-                        setData(null)
-                        navigation.navigate("Main")
-                    } else {
-                        setData(false)
-                    }
+                     await api.get('/projects')
+
+                    setData(null)
+                    navigation.navigate("Main")
+
 
                 } catch (error) {
                     setData(false)

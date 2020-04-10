@@ -20,9 +20,8 @@ class FormData extends Component {
 
     }
     adicionarIntegrante = () => {
-        var data = 
         this.props.addIntegrante({
-            nome: this.state.nomeUnico,
+            nomeCompleto: this.state.nomeUnico,
             cpf: this.state.cpfUnico,
             dataNascimento: this.state.dataUnica.split('/').reverse().join('-')
         })

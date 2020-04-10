@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../components/Card';
 import api from '../services/api';
@@ -18,16 +18,16 @@ function Main({ navigation }) {
                     setIsVisible(true)
                 }, 500);
                 return () => clearTimeout(timer);
-                
+
             }
         }
-    
+
         getAllFamilias()
     }, []);
 
 
     return (
-        <>
+        <ScrollView style={styles.scroll}>
             <TouchableOpacity
                 style={styles.cadastrar}
                 onPress={() => navigation.navigate("CadastrarFamilia")}
@@ -36,10 +36,13 @@ function Main({ navigation }) {
                 <MaterialIcons name="chevron-right" size={30} color="#272936" />
             </TouchableOpacity>
             <View style={styles.cardContainer}>
+
                 <Card
                     data={dataFamilia}
                     isVisible={isVisible}
                 />
+
+
             </View>
             <View style={styles.searchForm}>
                 <TextInput
@@ -56,11 +59,14 @@ function Main({ navigation }) {
                     <MaterialIcons name="search" size={30} color="#fff" />
                 </TouchableOpacity>
             </View>
-        </>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
+    scroll: {
+        
+    },
     cadastrar: {
         borderRadius: 25,
         backgroundColor: "#fff",

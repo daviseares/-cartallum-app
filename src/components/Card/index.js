@@ -5,14 +5,14 @@ import moment from 'moment';
 
 // import { Container } from './styles';
 
-export default function Card({ data,isVisible }) {
-    
+export default function Card({ data, isVisible }) {
+
 
     return (
         <>
 
             <FlatList
-                style={styles.flatlist}
+    style={styles.flatlist}
                 data={data}
                 extraData={data}
                 keyExtractor={(item, index) => index.toString()}
@@ -53,8 +53,8 @@ export default function Card({ data,isVisible }) {
                                 <Text style={styles.titulo}>Endereço:</Text>
                             </ShimmerPlaceHolder>
                             <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
-                                <Text>{item.endereco.rua + ", " + item.endereco.numero + ", "
-                                   /*  + item.endereco.complemento */ + ", " + item.endereco.bairro}</Text>
+                                <Text>{item.endereco.rua + ", " + (item.endereco.numero != null ? item.endereco.numero : 'sem número') + ", "
+                                   /*  + item.endereco.complemento  + ", "*/ + item.endereco.bairro}</Text>
                             </ShimmerPlaceHolder>
                         </View>
                     </View>
@@ -66,7 +66,7 @@ export default function Card({ data,isVisible }) {
 }
 const styles = StyleSheet.create({
     principal: {
-        marginTop: 25,
+        marginBottom: 25,
         marginHorizontal: 5,
         backgroundColor: "#fff",
         paddingVertical: 25,
@@ -79,6 +79,9 @@ const styles = StyleSheet.create({
             height: 4,
         },
         elevation: 3,
+    },
+    flatlist:{
+        marginTop: 25,
     },
     row: {
         flexDirection: "row",
