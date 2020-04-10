@@ -21,26 +21,23 @@ function Login({ navigation }) {
 
     useEffect(() => {
         async function fetchData() {
-            const token = JSON.parse(await AsyncStorage.getItem('@CodeApi:token'))
-            /**
-             * Verificação do token do usuario que esta guardado no AsyncStorege
-             * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
-             */
-            if (token) {
-                try {
+            try {
+                const token = JSON.parse(await AsyncStorage.getItem('@CodeApi:token'))
+                /**
+                 * Verificação do token do usuario que esta guardado no AsyncStorege
+                 * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
+                 */
+                if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                     await api.get('/projects')
+                    await api.get('/projects')
 
                     setData(null)
                     navigation.navigate("Main")
 
-
-                } catch (error) {
+                } else {
                     setData(false)
-                    console.log('Error AuthOrApp:', error)
                 }
-
-            } else {
+            } catch (erro) {
                 setData(false)
             }
         }
