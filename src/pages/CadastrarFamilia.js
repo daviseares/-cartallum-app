@@ -5,13 +5,14 @@ import { Scope } from '@unform/core';
 import {
     StyleSheet,
     Text,
+    View,
     ScrollView,
     KeyboardAvoidingView,
     Platform,
     TouchableOpacity,
 } from 'react-native';
 import Input from '../components/Input';
-import FormData from '../components/Form';
+import FormIntegrante from '../components/FormIntegrante';
 import * as Yup from 'yup';
 import * as constants from '../locales/yup-pt';
 import { connect } from "react-redux";
@@ -25,7 +26,10 @@ function CadastrarFamilia({ listaIntegrantes }) {
     }, [])
 
 
-
+    /**
+     * esta funç]ao faz o cadastro de família
+     * @param {Object} data / família 
+     */
     async function registerFamilia(data) {
         try {
             const response = await api.post('register/cadastroFamilia', {
@@ -42,6 +46,11 @@ function CadastrarFamilia({ listaIntegrantes }) {
 
     }
 
+    /**
+     * esta função pega os dados de endereço e salva em um objeto
+     * após isso, faz a chamada para registrar família
+     * @param {Object} data 
+     */
     async function handleSubmit(data, { reset }) {
         console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
         try {
@@ -63,6 +72,7 @@ function CadastrarFamilia({ listaIntegrantes }) {
             await schema.validate(data, {
                 abortEarly: false,
             });
+
             // Validation passed
             registerFamilia(data)
             console.log(data);
@@ -75,29 +85,32 @@ function CadastrarFamilia({ listaIntegrantes }) {
                 formRef.current.setErrors(validationErrors);
             }
         }
+        //limpa o formulário
         //reset();
     }
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} style={styles.container}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
             <ScrollView>
-                <FormData />
-                <Form ref={formRef} onSubmit={handleSubmit}>
-                    <Input name="renda" label="Renda Percapita" />
-                    <Scope path="endereco">
-                        <Input name="rua" label="Rua" />
-                        <Input name="bairro" label="Bairro" />
-                        <Input type="number" name="numero" label="Número (Opcional)" />
-                        <Input name="complemento" label="Complemento (Opcional)" />
-                        <Input name="cep" label="CEP" keyboardType="number-pad" />
-                        <Input name="cidade" label="Cidade" />
-                        <Input name="estado" label="Estado" />
-                        <Input name="pais" label="Pais" />
-                    </Scope>
-                </Form>
-                <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>
-                    <Text style={styles.submitButtonText}>Cadastrar</Text>
-                </TouchableOpacity>
+                <FormIntegrante />
+                <View style={styles.container}>
+                    <Form ref={formRef} onSubmit={handleSubmit}>
+                        <Input name="renda" label="Renda Percapita" />
+                        <Scope path="endereco">
+                            <Input name="rua" label="Rua" />
+                            <Input name="bairro" label="Bairro" />
+                            <Input type="number" name="numero" label="Número (Opcional)" />
+                            <Input name="complemento" label="Complemento (Opcional)" />
+                            <Input name="cep" label="CEP" keyboardType="number-pad" />
+                            <Input name="cidade" label="Cidade" />
+                            <Input name="estado" label="Estado" />
+                            <Input name="pais" label="Pais" />
+                        </Scope>
+                    </Form>
+                    <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>
+                        <Text style={styles.submitButtonText}>Cadastrar</Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </KeyboardAvoidingView>
     );
@@ -105,17 +118,18 @@ function CadastrarFamilia({ listaIntegrantes }) {
 
 const styles = StyleSheet.create({
     container: {
+        borderRadius: 15,
         padding: 20,
+        margin: 25,
         flex: 1,
-        backgroundColor: "#fff"
-    },
-    submitButton: {
-        backgroundColor: '#5849be',
-        borderWidth: 0,
-        borderRadius: 4,
-        padding: 10,
-        alignItems: 'center',
-        marginBottom: 20
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOpacity: 0.2,
+        shadowOffset: {
+            width: 4,
+            height: 4,
+        },
+        elevation: 3,
     },
 
     submitButton: {
@@ -124,7 +138,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         padding: 16,
         alignItems: 'center',
-        marginBottom: 40
+        marginBottom: 10
     },
 
     submitButtonText: {
