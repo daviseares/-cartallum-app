@@ -10,6 +10,7 @@ import {
     KeyboardAvoidingView,
     Platform,
     TouchableOpacity,
+    Alert,
 } from 'react-native';
 import Input from '../components/Input';
 import FormIntegrante from '../components/FormIntegrante';
@@ -18,7 +19,7 @@ import * as constants from '../locales/yup-pt';
 import { connect } from "react-redux";
 import api from '../services/api';
 
-function CadastrarFamilia({ listaIntegrantes }) {
+function CadastrarFamilia({ listaIntegrantes, navigation }) {
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -30,20 +31,27 @@ function CadastrarFamilia({ listaIntegrantes }) {
      * esta funç]ao faz o cadastro de família
      * @param {Object} data / família 
      */
-    async function registerFamilia(data) {
-        try {
-            const response = await api.post('register/cadastroFamilia', {
-                integrantes: listaIntegrantes,
-                rendaPercapita: data.renda,
-                endereco: data.endereco,
-                dataCestas: []
-            })
+    async function registerFamilia(data, reset) {
+        if (listaIntegrantes.length <= 0) {
+            Alert.alert("A família deve possuir pelo menos um integrante para ser cadastrada.")
+        } else {
+            try {
+                const response = await api.post('register/cadastroFamilia', {
+                    integrantes: listaIntegrantes,
+                    rendaPercapita: data.renda,
+                    endereco: data.endereco,
+                    dataCestas: []
+                })
+                console.log(response);
+                navigation.navigate('DetalhesFamilia',
+                    { item: response.data.success, screen: 'CadastrarFamilia' })
+                    
+                reset();
+            } catch (error) {
+                console.log(error)
+            }
 
-            console.log(response);
-        } catch (error) {
-            console.log(error)
         }
-
     }
 
     /**
@@ -74,7 +82,7 @@ function CadastrarFamilia({ listaIntegrantes }) {
             });
 
             // Validation passed
-            registerFamilia(data)
+            registerFamilia(data, reset)
             console.log(data);
         } catch (err) {
             const validationErrors = {};
@@ -85,8 +93,8 @@ function CadastrarFamilia({ listaIntegrantes }) {
                 formRef.current.setErrors(validationErrors);
             }
         }
+
         //limpa o formulário
-        //reset();
     }
 
     return (
@@ -101,10 +109,10 @@ function CadastrarFamilia({ listaIntegrantes }) {
                             <Input name="bairro" label="Bairro" />
                             <Input type="number" name="numero" label="Número (Opcional)" />
                             <Input name="complemento" label="Complemento (Opcional)" />
-                            <Input name="cep" label="CEP" keyboardType="number-pad" />
-                            <Input name="cidade" label="Cidade" />
-                            <Input name="estado" label="Estado" />
-                            <Input name="pais" label="Pais" />
+                            <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
+                            <Input name="cidade" value="Alegre" label="Cidade" />
+                            <Input name="estado" value="Espírito Santo" label="Estado" />
+                            <Input name="pais" value="Brasil" label="Pais" />
                         </Scope>
                     </Form>
                     <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, FlatList } from 'react-native';
 import * as Yup from 'yup';
+import moment from 'moment';
 import { TextInputMask } from 'react-native-masked-text'
 import { MaterialIcons } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
@@ -24,39 +25,56 @@ class FormData extends Component {
      * esta função adiciona um integrante da lista no redux
      */
     async adicionarIntegrante() {
-        var data = {
-            nomeCompleto: this.state.nomeUnico,
-            cpf: this.state.cpfUnico,
-            dataNascimento: this.state.dataUnica.split('/').reverse().join('-')
-        }
         try {
-            const schema = Yup.object().shape({
-                nomeCompleto: Yup.string().required('Este campo é obrigatório'),
-                cpf: Yup.string().required('Este campo é obrigatório'),
-                dataNascimento: Yup.string().required('Este campo é obrigatório')
-            })
-            //função de validação
-            await schema.validate(data, {
-                abortEarly: false,
-            });
-            //validation passed
-            console.log(data);
-            this.setState({ data: {} })
-            this.props.addIntegrante(data);
+            var formatDate = moment(this.state.dataUnica.split('/').reverse().join('-')).format('YYYY-MM-DD')
+            if (formatDate == 'Invalid date') {
+                this.setState({ data: { dataNascimento: "Por favor, insira uma data válida." } })
+            } else {
+                var isValid = new Date(formatDate);
+                var currentDate = new Date();
 
-            this.setState({ cpfUnico: '', nomeUnico: '', dataUnica: '' })
+                if (currentDate < isValid) {
+                    this.setState({ data: { dataNascimento: "A data de nascimento deve ser menor ou igual ao dia de hoje." } })
+                } else {
+                    var data = {
+                        nomeCompleto: this.state.nomeUnico,
+                        cpf: this.state.cpfUnico,
+                        dataNascimento: this.state.dataUnica.split('/').reverse().join('-')
+                    }
+                    try {
+                        const schema = Yup.object().shape({
+                            nomeCompleto: Yup.string().required('Este campo é obrigatório'),
+                            cpf: Yup.string().required('Este campo é obrigatório'),
+                            dataNascimento: Yup.date().required('Este campo é obrigatório')
+                        })
+                        //função de validação
+                        await schema.validate(data, {
+                            abortEarly: false,
+                        });
+                        //validation passed
+                        console.log(data);
+                        this.setState({ data: {} })
+                        this.props.addIntegrante(data);
 
-        } catch (err) {
-            const validationErrors = {};
-            if (err instanceof Yup.ValidationError) {
-                err.inner.forEach(error => {
-                    validationErrors[error.path] = error.message;
-                });
-                //formRef.current.setErrors(validationErrors);
-                this.setState({ data: validationErrors })
-                console.log(validationErrors)
+                        this.setState({ cpfUnico: '', nomeUnico: '', dataUnica: '' })
+
+                    } catch (err) {
+                        const validationErrors = {};
+                        if (err instanceof Yup.ValidationError) {
+                            err.inner.forEach(error => {
+                                validationErrors[error.path] = error.message;
+                            });
+                            //formRef.current.setErrors(validationErrors);
+                            this.setState({ data: validationErrors })
+                            console.log(validationErrors)
+                        }
+                    }
+                }
             }
+        } catch (e) {
+            console.log(e)
         }
+
     }
 
 

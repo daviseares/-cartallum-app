@@ -1,12 +1,12 @@
-import { Text, TouchableOpacity } from 'react-native';
 import * as React from 'react';
-import { createAppContainer } from 'react-navigation'
+import { createAppContainer, NavigationActions } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-
 import Main from './pages/Main';
 import CadastrarFamilia from './pages/CadastrarFamilia';
 import DetalhesFamilia from './pages/DetalhesFamilia';
 import Login from './pages/Login';
+
+ 
 
 const Routes = createAppContainer(
     createStackNavigator({
@@ -26,10 +26,11 @@ const Routes = createAppContainer(
                 gestureEnabled: false,
             }
         },
-        DetalhesFamilia:{
+        DetalhesFamilia: {
             screen: DetalhesFamilia,
             navigationOptions: {
                 title: 'Detalhes',
+                
             }
         },
         CadastrarFamilia: {
@@ -37,8 +38,8 @@ const Routes = createAppContainer(
             navigationOptions: {
                 title: 'Cadastrar Família'
             }
-        }
-        
+        },
+
     }, {
         defaultNavigationOptions: {
             headerTintColor: '#fff',
@@ -49,5 +50,7 @@ const Routes = createAppContainer(
         }
     })
 )
+
+
 
 export default Routes;

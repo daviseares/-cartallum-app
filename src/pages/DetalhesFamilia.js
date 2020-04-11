@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage } from 'react-native';
 import moment from 'moment';
+import { MaterialIcons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 export default function DetalhesFamilia({ navigation }) {
     const [isVisible, setIsVisible] = useState(false);
-    const [nomeInstituicao, setNomeInstituicao] = useState('');
+    const [instituicao, setInstituicao] = useState({});
     const item = navigation.getParam('item');
+    const screen = navigation.getParam('screen');
+    console.log(item);
+
     const date = new Date();
 
+
     useEffect(() => {
-        async function getNomeInstituicao() {
+        if (screen != undefined) {
+            Alert.alert("Família cadastrada com sucesso!");
+        }
+        async function getInstituicao() {
             try {
-                const nome = JSON.parse(await AsyncStorage.getItem('@nomeInstituicao'));
-                //console.log(nome);
-                setNomeInstituicao(nome);
+
+                const instituição = JSON.parse(await AsyncStorage.getItem('@instituicao'));
+
+
+                setInstituicao(instituição);
             } catch (error) {
                 console.log(error)
             }
         };
-        getNomeInstituicao()
+        getInstituicao()
 
         const timer = setTimeout(() => {
             setIsVisible(true)
@@ -38,8 +48,8 @@ export default function DetalhesFamilia({ navigation }) {
             'Atenção',
             'Para doar a Cesta para esta família clique em CONFIRMAR, senão clique em cancelar.',
             [
-                { text: 'CANCELAR', onPress: () => console.log('Cancel Pressed') },
-                { text: 'CONFIRMAR', onPress: () => console.log('Doar Cesta') },
+                { text: 'CANCELAR', onPress: () => { } },
+                { text: 'CONFIRMAR', onPress: () => donation() },
             ]
         )
     }
@@ -49,13 +59,18 @@ export default function DetalhesFamilia({ navigation }) {
      */
     async function donation() {
         try {
-            const response = await api.post('/data/update_cesta', {
+            const response = await api.post('data/update_cesta', {
                 //Guilherme, como eu nao sabia os parâmetros certos montei igual vc me mandou no whats
-                nomeInstituicao: nomeInstituicao, //nome da instituição que vem do AsyncStorage.
-                data: moment(date).format('YYYY-MM-DD') //data do dia de hoje que a cesta está sendo doada.
+                id: instituicao._id, //nome da instituição que vem do AsyncStorage.
+                cesta: [
+                    {
+                        nomeInstituicao: instituicao.nomeInstituicao,
+                        data: moment(date).format('YYYY-MM-DD')
+                    }
+                ]
             })
-
-            console.log(response);//falta testar a api // por favor testar hoje.
+            console.log(response);
+            Alert.alert("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
         } catch (error) {
             console.log(error)
         }
@@ -63,91 +78,108 @@ export default function DetalhesFamilia({ navigation }) {
 
 
     return (
-        <ScrollView>
-            <View style={styles.principal}>
-                <Text style={styles.h1}>Dados Básicos</Text>
-                <View style={styles.container}>
-                    <View style={styles.row}>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
-                            <Text style={styles.titulo}>Última Cesta:</Text>
-                        </ShimmerPlaceHolder>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
-                            <Text>
-                                {
-                                    item.dataCestas.length > 0 ?
-                                        moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")
-                                        : <Text style={{ color: "red" }}>Ainda não receberam</Text>
+        <>
+            <MaterialIcons name="chevron-left" size={40} color="#fff"
+                //onPress={() => dispatch(backAction)}
+                style={{ position: "absolute", top: 0 }}
+            />
+            <ScrollView>
+                <View style={styles.principal}>
+                    <Text style={styles.h1}>Dados Básicos</Text>
+                    <View style={styles.container}>
+                        <View style={styles.row}>
+
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
+                                <Text style={styles.titulo}>Última Cesta:</Text>
+                            </ShimmerPlaceHolder>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
+                                {item.dataCestas.length > 0 && item.dataCestas != undefined ?
+                                    <Text style={{ color: "green" }}>
+                                        Recebida em {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")}
+                                    </Text>
+                                    : <Text style={{ color: "red" }}>Ainda não receberam</Text>
                                 }
-                            </Text>
-                        </ShimmerPlaceHolder>
-                    </View>
-                    <View style={styles.row}>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                            <Text style={styles.titulo}>Renda Percapita:</Text>
-                        </ShimmerPlaceHolder>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
-                            <Text>{"R$ " + item.rendaPercapita}</Text>
-                        </ShimmerPlaceHolder>
-                    </View>
-                    <View style={[styles.row, { marginBottom: 20 }]}>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                            <Text style={styles.titulo}>Endereço:</Text>
-                        </ShimmerPlaceHolder>
-                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
-                            <Text>{item.endereco.rua + ", " + (item.endereco.numero != null ? item.endereco.numero : 'sem número') + ", "
-                                   /*  + item.endereco.complemento  + ", "*/ + item.endereco.bairro}</Text>
-                        </ShimmerPlaceHolder>
+                            </ShimmerPlaceHolder>
+                        </View>
+                        <View style={styles.row}>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                <Text style={styles.titulo}>Renda Percapita:</Text>
+                            </ShimmerPlaceHolder>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                                <Text>{"R$ " + item.rendaPercapita}</Text>
+                            </ShimmerPlaceHolder>
+                        </View>
+                        <View style={[styles.row, { marginBottom: 20 }]}>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                <Text style={styles.titulo}>Endereço:</Text>
+                            </ShimmerPlaceHolder>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
+                                <Text>{item.endereco.rua + ", " +
+                                    (item.endereco.numero != null ? item.endereco.numero : 's/n') + ", " +
+                                    (item.endereco.complemento !== "" && item.endereco.complemento !== undefined ?
+                                        item.endereco.complemento + ", " : '') + item.endereco.bairro}
+                                </Text>
+                            </ShimmerPlaceHolder>
+                        </View>
                     </View>
                 </View>
-            </View>
-            <View style={styles.principal}>
-                <TouchableOpacity
-                    style={styles.submitButton} onPress={() => confirmDonation()}
-                    disabled={!isVisible}
-                >
-                    <Text style={styles.submitButtonText}>Doar Cesta</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={[styles.principal, { marginBottom: 50 }]}>
-                <Text style={styles.h1}>Integrantes da Família</Text>
-                <View style={styles.container}>
-                    <FlatList
-                        style={styles.flatlist}
-                        data={item.integrantes}
-                        extraData={item.integrantes}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item, index }) =>
-                            <View>
-                                <View style={styles.row}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                                        <Text style={styles.titulo}>Nome Completo:</Text>
-                                    </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
-                                        <Text>{item.nomeCompleto}</Text>
-                                    </ShimmerPlaceHolder>
-                                </View>
-                                <View style={styles.row}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
-                                        <Text style={styles.titulo}>CPF:</Text>
-                                    </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
-                                        <Text>{item.cpf}</Text>
-                                    </ShimmerPlaceHolder>
-                                </View>
-                                <View style={[styles.row, { marginBottom: 20 }]}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
-                                        <Text style={styles.titulo}>Data de Nascimento:</Text>
-                                    </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
-                                        <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
-                                    </ShimmerPlaceHolder>
-                                </View>
+                <View style={styles.principal}>
+                    {
+                        item.dataCestas.length > 0 && (
+                            moment(date).format('MM/YYYY') == moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") || moment(date).format('MM/YYYY') < moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY")) ?
+                            <View style={[styles.submitButton, { backgroundColor: '#999' }]} onPress={() => confirmDonation()}>
+                                <Text style={[styles.submitButtonText, { color: '#272936' }]}>Doar Cesta</Text>
                             </View>
-                        }
-                    />
+                            :
+                            <TouchableOpacity style={[styles.submitButton, { backgroundColor: '#272936' }]} onPress={() => confirmDonation()}>
+                                <Text style={[styles.submitButtonText, { color: '#fff' }]}>Doar Cesta</Text>
+                            </TouchableOpacity>
+
+
+                    }
+
                 </View>
-            </View>
-        </ScrollView>
+                <View style={[styles.principal, { marginBottom: 50 }]}>
+                    <Text style={styles.h1}>Integrantes da Família</Text>
+                    <View style={styles.container}>
+                        <FlatList
+                            style={styles.flatlist}
+                            data={item.integrantes}
+                            extraData={item.integrantes}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={({ item, index }) =>
+                                <View>
+                                    <View style={styles.row}>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                            <Text style={styles.titulo}>Nome Completo:</Text>
+                                        </ShimmerPlaceHolder>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
+                                            <Text>{item.nomeCompleto}</Text>
+                                        </ShimmerPlaceHolder>
+                                    </View>
+                                    <View style={styles.row}>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
+                                            <Text style={styles.titulo}>CPF:</Text>
+                                        </ShimmerPlaceHolder>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
+                                            <Text>{item.cpf}</Text>
+                                        </ShimmerPlaceHolder>
+                                    </View>
+                                    <View style={[styles.row, { marginBottom: 20 }]}>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
+                                            <Text style={styles.titulo}>Data de Nascimento:</Text>
+                                        </ShimmerPlaceHolder>
+                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                            <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
+                                        </ShimmerPlaceHolder>
+                                    </View>
+                                </View>
+                            }
+                        />
+                    </View>
+                </View>
+            </ScrollView >
+        </>
     );
 }
 const styles = StyleSheet.create({
@@ -190,7 +222,7 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
     submitButton: {
-        backgroundColor: '#272936',
+
         borderWidth: 0,
         borderRadius: 4,
         padding: 16,
@@ -200,7 +232,7 @@ const styles = StyleSheet.create({
 
     submitButtonText: {
         fontWeight: 'bold',
-        color: '#fff',
+
         fontSize: 15,
     },
 

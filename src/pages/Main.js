@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
     StyleSheet,
     View,
@@ -9,8 +9,7 @@ import {
     ScrollView,
     FlatList
 } from 'react-native';
-import { TextInputMask } from 'react-native-masked-text'
-
+import { TextInputMask } from 'react-native-masked-text';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../components/Card';
 import api from '../services/api';
@@ -23,13 +22,14 @@ function Main({ navigation }) {
     const [isBusca, setBusca] = useState(false);
 
     useEffect(() => {
+       
         getAllFamilias()
     }, []);
 
     async function getAllFamilias() {
         try {
             const response = await api.get('data/get_familia');
-            //console.log()
+            console.log("response",response)
             if (response.data.success) {
                 setDataFamilia(response.data.familia);
                 const timer = setTimeout(() => {
