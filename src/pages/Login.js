@@ -26,8 +26,8 @@ function Login({ navigation }) {
                  * Verificação do token do usuario que esta guardado no AsyncStorege
                  * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
                  */
-                setData(false)
-               /*  if (token) {
+                
+                if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                     await api.get('/projects')
 
@@ -36,7 +36,7 @@ function Login({ navigation }) {
 
                 } else {
                     setData(false)
-                } */
+                } 
             } catch (erro) {
                 setData(false)
             }
