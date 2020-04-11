@@ -6,7 +6,7 @@ import CadastrarFamilia from './pages/CadastrarFamilia';
 import DetalhesFamilia from './pages/DetalhesFamilia';
 import Login from './pages/Login';
 
- 
+
 
 const Routes = createAppContainer(
     createStackNavigator({
@@ -30,7 +30,8 @@ const Routes = createAppContainer(
             screen: DetalhesFamilia,
             navigationOptions: {
                 title: 'Detalhes',
-                
+                headerShown: false,
+                gestureEnabled: false,
             }
         },
         CadastrarFamilia: {

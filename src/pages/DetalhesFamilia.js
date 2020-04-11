@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage } from 'react-native';
+import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage, Platform } from 'react-native';
 import moment from 'moment';
-import { MaterialIcons } from '@expo/vector-icons';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Arrow from '@expo/vector-icons/Feather';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
+
 
 export default function DetalhesFamilia({ navigation }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -79,10 +81,21 @@ export default function DetalhesFamilia({ navigation }) {
 
     return (
         <>
-            <MaterialIcons name="chevron-left" size={40} color="#fff"
-                //onPress={() => dispatch(backAction)}
-                style={{ position: "absolute", top: 0 }}
-            />
+
+            <View style={styles.toolbar}>
+                {Platform.OS == 'ios' ?
+                    <Icon name="angle-left" size={38} color="#fff"
+                        style={styles.toolbarIcon}
+                        onPress={() => navigation.navigate('Main')}
+                    />
+                    :
+                    <Arrow name="arrow-left" size={25} color="#fff"
+                        style={styles.toolbarIcon}
+                        onPress={() => navigation.navigate('Main')}
+                    />
+                }
+                <Text style={styles.txtToolbar}>Detalhes</Text>
+            </View>
             <ScrollView>
                 <View style={styles.principal}>
                     <Text style={styles.h1}>Dados Básicos</Text>
@@ -179,7 +192,9 @@ export default function DetalhesFamilia({ navigation }) {
                     </View>
                 </View>
             </ScrollView >
+
         </>
+
     );
 }
 const styles = StyleSheet.create({
@@ -187,7 +202,25 @@ const styles = StyleSheet.create({
         marginTop: 25,
         marginHorizontal: 25,
     },
-
+    toolbar: {
+        height: Platform.OS == 'ios' ? 88 : 55,
+        backgroundColor: '#272936',
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        justifyContent: Platform.OS == 'ios' ? "center" : "flex-start"
+    },
+    toolbarIcon: {
+        position: "absolute",
+        bottom: Platform.OS == 'ios' ? 2 : 12,
+        left: Platform.OS == 'ios' ? 7 : 15,
+    },
+    txtToolbar: {
+        fontSize: 20,
+        color: "#fff",
+        fontWeight: "500",
+        marginBottom: Platform.OS == 'ios' ? 8 : 12,
+        marginLeft: Platform.OS == 'ios' ? 0 : 80
+    },
     container: {
         backgroundColor: "#fff",
         paddingTop: 20,
