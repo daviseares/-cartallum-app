@@ -3,9 +3,10 @@ import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage
 import moment from 'moment';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
-
+import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 export default function DetalhesFamilia({ navigation }) {
+    const [isVisible, setIsVisible] = useState(false);
     const [nomeInstituicao, setNomeInstituicao] = useState('');
     const item = navigation.getParam('item');
     const date = new Date();
@@ -21,6 +22,12 @@ export default function DetalhesFamilia({ navigation }) {
             }
         };
         getNomeInstituicao()
+
+        const timer = setTimeout(() => {
+            setIsVisible(true)
+        }, 1000);
+        return () => clearTimeout(timer);
+
     }, [])
 
     /**
@@ -61,28 +68,43 @@ export default function DetalhesFamilia({ navigation }) {
                 <Text style={styles.h1}>Dados Básicos</Text>
                 <View style={styles.container}>
                     <View style={styles.row}>
-                        <Text style={styles.titulo}>Última Cesta:</Text>
-                        <Text>
-                            {
-                                item.dataCestas.length > 0 ?
-                                    moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")
-                                    : <Text style={{ color: "red" }}>Ainda não receberam</Text>
-                            }
-                        </Text>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
+                            <Text style={styles.titulo}>Última Cesta:</Text>
+                        </ShimmerPlaceHolder>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
+                            <Text>
+                                {
+                                    item.dataCestas.length > 0 ?
+                                        moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")
+                                        : <Text style={{ color: "red" }}>Ainda não receberam</Text>
+                                }
+                            </Text>
+                        </ShimmerPlaceHolder>
                     </View>
                     <View style={styles.row}>
-                        <Text style={styles.titulo}>Renda Percapita:</Text>
-                        <Text>{"R$ " + item.rendaPercapita}</Text>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                            <Text style={styles.titulo}>Renda Percapita:</Text>
+                        </ShimmerPlaceHolder>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                            <Text>{"R$ " + item.rendaPercapita}</Text>
+                        </ShimmerPlaceHolder>
                     </View>
                     <View style={[styles.row, { marginBottom: 20 }]}>
-                        <Text style={styles.titulo}>Endereço:</Text>
-                        <Text>{item.endereco.rua + ", " + (item.endereco.numero != null ? item.endereco.numero : 'sem número') + ", "
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                            <Text style={styles.titulo}>Endereço:</Text>
+                        </ShimmerPlaceHolder>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
+                            <Text>{item.endereco.rua + ", " + (item.endereco.numero != null ? item.endereco.numero : 'sem número') + ", "
                                    /*  + item.endereco.complemento  + ", "*/ + item.endereco.bairro}</Text>
+                        </ShimmerPlaceHolder>
                     </View>
                 </View>
             </View>
             <View style={styles.principal}>
-                <TouchableOpacity style={styles.submitButton} onPress={() => confirmDonation()}>
+                <TouchableOpacity
+                    style={styles.submitButton} onPress={() => confirmDonation()}
+                    disabled={!isVisible}
+                >
                     <Text style={styles.submitButtonText}>Doar Cesta</Text>
                 </TouchableOpacity>
             </View>
@@ -97,16 +119,28 @@ export default function DetalhesFamilia({ navigation }) {
                         renderItem={({ item, index }) =>
                             <View>
                                 <View style={styles.row}>
-                                    <Text style={styles.titulo}>Nome Completo:</Text>
-                                    <Text>{item.nomeCompleto}</Text>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Nome Completo:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
+                                        <Text>{item.nomeCompleto}</Text>
+                                    </ShimmerPlaceHolder>
                                 </View>
                                 <View style={styles.row}>
-                                    <Text style={styles.titulo}>CPF:</Text>
-                                    <Text>{item.cpf}</Text>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>CPF:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
+                                        <Text>{item.cpf}</Text>
+                                    </ShimmerPlaceHolder>
                                 </View>
                                 <View style={[styles.row, { marginBottom: 20 }]}>
-                                    <Text style={styles.titulo}>Data de Nascimento:</Text>
-                                    <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Data de Nascimento:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                        <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
+                                    </ShimmerPlaceHolder>
                                 </View>
                             </View>
                         }
