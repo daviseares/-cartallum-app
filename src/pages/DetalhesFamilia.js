@@ -48,7 +48,12 @@ export default function DetalhesFamilia({ navigation }) {
             const response = await api.post('data/update_cesta', {
                 //Guilherme, como eu nao sabia os parâmetros certos montei igual vc me mandou no whats
                 id: instituicao._id, //nome da instituição que vem do AsyncStorage.
-                data: moment(date).format('YYYY-MM-DD') //data do dia de hoje que a cesta está sendo doada.
+                cesta: [
+                    {
+                        nomeInstituicao: instituicao.nomeInstituicao,
+                        data:moment(date).format('YYYY-MM-DD') 
+                    }
+                ]
             })
             // Tem que pensar o que fazer aqui... Se vai voltar para a tela anterior ou se so vai atualizar os dados da familia nessa tela.
             console.log(response);//falta testar a api // por favor testar hoje.

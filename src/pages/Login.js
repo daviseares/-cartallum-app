@@ -17,6 +17,7 @@ function Login({ navigation }) {
     const [data, setData] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -26,7 +27,7 @@ function Login({ navigation }) {
                  * Verificação do token do usuario que esta guardado no AsyncStorege
                  * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
                  */
-                
+
                 if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                     await api.get('/projects')
@@ -36,7 +37,7 @@ function Login({ navigation }) {
 
                 } else {
                     setData(false)
-                } 
+                }
             } catch (erro) {
                 setData(false)
             }
@@ -51,6 +52,7 @@ function Login({ navigation }) {
     async function authentication() {
 
         if (email != '' && password != '') {
+            setIsLoading(true)
             try {
                 const response = await api.post('auth/authenticate', {
                     login: email,
@@ -71,8 +73,9 @@ function Login({ navigation }) {
                 }
 
                 navigation.navigate("Main")
-
+                setIsLoading(false)
             } catch (error) {
+                setIsLoading(false)
                 setData(false)
                 console.log('Erro Login:', error)
                 Alert.alert('Falha no login!')
@@ -90,7 +93,6 @@ function Login({ navigation }) {
     if (data == null) {
         return (
             <View style={styles.container1}>
-                {/* <Image style={{ resizeMode: "center" }} source={require("../Imagens/ic_vertical.png")} /> */}
                 <ActivityIndicator size='large' />
             </View>
         )
@@ -123,13 +125,18 @@ function Login({ navigation }) {
                         value={password}
 
                     />
-                    <TouchableOpacity onPress={authentication} style={styles.buttom}>
-                        <Text style={styles.textButom}>Entrar</Text>
-                    </TouchableOpacity>
+                    {
+                        !isLoading ?
+                            <TouchableOpacity onPress={authentication} style={styles.buttom}>
+                                <Text style={styles.textButom}>Entrar</Text>
+                            </TouchableOpacity>
+                            :
+                            <View style={styles.container1}>
+                                {/* <Image style={{ resizeMode: "center" }} source={require("../Imagens/ic_vertical.png")} /> */}
+                                <ActivityIndicator size='small' />
+                            </View>
+                    }
 
-                    {/* <TouchableOpacity onPress={() => { }} style={{ alignItems: 'center' }}>
-                        <Text style={{ marginTop: 20, fontSize: 18, color: '#8190A5', height: 60 }}>Esqueceu sua senha?</Text>
-                    </TouchableOpacity> */}
 
                 </View>
             </View>
