@@ -26,7 +26,8 @@ function Login({ navigation }) {
                  * Verificação do token do usuario que esta guardado no AsyncStorege
                  * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
                  */
-                if (token) {
+                setData(false)
+               /*  if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                     await api.get('/projects')
 
@@ -35,7 +36,7 @@ function Login({ navigation }) {
 
                 } else {
                     setData(false)
-                }
+                } */
             } catch (erro) {
                 setData(false)
             }
@@ -50,21 +51,20 @@ function Login({ navigation }) {
     async function authentication() {
 
         if (email != '' && password != '') {
-            console.log("chama função")
             try {
                 const response = await api.post('auth/authenticate', {
                     login: email,
                     password: password,
                 })
                 //validantion passed
-                console.log("responseLogin", response)
+                //console.log("responseLogin", response)
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
                     //salva token no AsynStorage
                     AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
                     //salva nome da instituição no AsynStorage
-                    AsyncStorage.setItem('@nomeInstituicao', JSON.stringify(response.data.instituicao.nomeInstituicao))
+                    AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
                 } catch (error) {
                     setData(false)
                     console.log('Erro AsyncStorrage:', error)

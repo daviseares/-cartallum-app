@@ -6,21 +6,24 @@ import api from '../services/api';
 
 
 export default function DetalhesFamilia({ navigation }) {
-    const [nomeInstituicao, setNomeInstituicao] = useState('');
+    const [instituicao, setInstituicao] = useState({});
     const item = navigation.getParam('item');
     const date = new Date();
 
+
     useEffect(() => {
-        async function getNomeInstituicao() {
+        async function getInstituicao() {
             try {
-                const nome = JSON.parse(await AsyncStorage.getItem('@nomeInstituicao'));
-                //console.log(nome);
-                setNomeInstituicao(nome);
+
+                const instituição = JSON.parse(await AsyncStorage.getItem('@instituicao'));
+
+
+                setInstituicao(instituição);
             } catch (error) {
                 console.log(error)
             }
         };
-        getNomeInstituicao()
+        getInstituicao()
     }, [])
 
     /**
@@ -31,8 +34,8 @@ export default function DetalhesFamilia({ navigation }) {
             'Atenção',
             'Para doar a Cesta para esta família clique em CONFIRMAR, senão clique em cancelar.',
             [
-                { text: 'CANCELAR', onPress: () => console.log('Cancel Pressed') },
-                { text: 'CONFIRMAR', onPress: () => console.log('Doar Cesta') },
+                { text: 'CANCELAR', onPress: () => { } },
+                { text: 'CONFIRMAR', onPress: () => donation() },
             ]
         )
     }
@@ -42,12 +45,12 @@ export default function DetalhesFamilia({ navigation }) {
      */
     async function donation() {
         try {
-            const response = await api.post('/data/update_cesta', {
+            const response = await api.post('data/update_cesta', {
                 //Guilherme, como eu nao sabia os parâmetros certos montei igual vc me mandou no whats
-                nomeInstituicao: nomeInstituicao, //nome da instituição que vem do AsyncStorage.
+                id: instituicao._id, //nome da instituição que vem do AsyncStorage.
                 data: moment(date).format('YYYY-MM-DD') //data do dia de hoje que a cesta está sendo doada.
             })
-
+            // Tem que pensar o que fazer aqui... Se vai voltar para a tela anterior ou se so vai atualizar os dados da familia nessa tela.
             console.log(response);//falta testar a api // por favor testar hoje.
         } catch (error) {
             console.log(error)
@@ -62,13 +65,17 @@ export default function DetalhesFamilia({ navigation }) {
                 <View style={styles.container}>
                     <View style={styles.row}>
                         <Text style={styles.titulo}>Última Cesta:</Text>
-                        <Text>
-                            {
-                                item.dataCestas.length > 0 ?
-                                    moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")
-                                    : <Text style={{ color: "red" }}>Ainda não receberam</Text>
-                            }
-                        </Text>
+
+                        {
+
+                            item.dataCestas.length > 0 ?
+                                moment(date).format('MM/YYYY') == moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") || moment(date).format('MM/YYYY') < moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") ?
+                                    <Text style={{ color: "green" }}>Recebida {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")} </Text>
+                                    : <Text style={{ color: "red" }}>Última vez que Recebeu: {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")}</Text>
+
+                                : <Text style={{ color: "red" }}>Ainda não receberam</Text>
+                        }
+
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.titulo}>Renda Percapita:</Text>
@@ -82,9 +89,17 @@ export default function DetalhesFamilia({ navigation }) {
                 </View>
             </View>
             <View style={styles.principal}>
-                <TouchableOpacity style={styles.submitButton} onPress={() => confirmDonation()}>
-                    <Text style={styles.submitButtonText}>Doar Cesta</Text>
-                </TouchableOpacity>
+                {
+                    moment(date).format('MM/YYYY') == moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") || moment(date).format('MM/YYYY') < moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") ?
+                        <View style={[styles.submitButton, { backgroundColor: '#555' }]} onPress={() => confirmDonation()}>
+                            <Text style={[styles.submitButtonText, { color: '#272936' }]}>Doar Cesta</Text>
+                        </View>
+                        :
+                        <TouchableOpacity style={[styles.submitButton, { backgroundColor: '#272936' }]} onPress={() => confirmDonation()}>
+                            <Text style={[styles.submitButtonText, { color: '#fff' }]}>Doar Cesta</Text>
+                        </TouchableOpacity>
+                }
+
             </View>
             <View style={[styles.principal, { marginBottom: 50 }]}>
                 <Text style={styles.h1}>Integrantes da Família</Text>
@@ -156,7 +171,7 @@ const styles = StyleSheet.create({
         marginBottom: 15
     },
     submitButton: {
-        backgroundColor: '#272936',
+
         borderWidth: 0,
         borderRadius: 4,
         padding: 16,
@@ -166,7 +181,7 @@ const styles = StyleSheet.create({
 
     submitButtonText: {
         fontWeight: 'bold',
-        color: '#fff',
+
         fontSize: 15,
     },
 
