@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 import Main from './pages/Main';
 import CadastrarFamilia from './pages/CadastrarFamilia';
+import DetalhesFamilia from './pages/DetalhesFamilia';
 import Login from './pages/Login';
 
 const Routes = createAppContainer(
@@ -25,12 +26,19 @@ const Routes = createAppContainer(
                 gestureEnabled: false,
             }
         },
+        DetalhesFamilia:{
+            screen: DetalhesFamilia,
+            navigationOptions: {
+                title: 'Detalhes',
+            }
+        },
         CadastrarFamilia: {
             screen: CadastrarFamilia,
             navigationOptions: {
                 title: 'Cadastrar Família'
             }
         }
+        
     }, {
         defaultNavigationOptions: {
             headerTintColor: '#fff',

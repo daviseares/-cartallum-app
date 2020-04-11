@@ -7,7 +7,7 @@ import storeConfig from './src/store/storeConfig';
 YellowBox.ignoreWarnings([
   'Unrecognized WebSocket'
 ])
-
+console.disableYellowBox = true;
 
 const storeConf = storeConfig()
 

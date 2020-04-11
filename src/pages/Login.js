@@ -7,7 +7,6 @@ import {
     ActivityIndicator,
     StyleSheet,
     AsyncStorage,
-    StatusBar,
     Alert,
 } from 'react-native';
 import api from '../services/api';
@@ -45,6 +44,9 @@ function Login({ navigation }) {
     }, []);
 
 
+    /**
+     * faz o login da instituição
+     */
     async function authentication() {
 
         if (email != '' && password != '') {
@@ -58,8 +60,11 @@ function Login({ navigation }) {
                 console.log("responseLogin", response)
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+                    //salva token no AsynStorage
                     AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
+                    //salva nome da instituição no AsynStorage
+                    AsyncStorage.setItem('@nomeInstituicao', JSON.stringify(response.data.instituicao.nomeInstituicao))
                 } catch (error) {
                     setData(false)
                     console.log('Erro AsyncStorrage:', error)

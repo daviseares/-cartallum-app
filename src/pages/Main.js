@@ -5,7 +5,9 @@ import {
     Text,
     TouchableOpacity,
     Alert,
-    ScrollView
+    SafeAreaView,
+    ScrollView,
+    FlatList
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text'
 
@@ -72,79 +74,82 @@ function Main({ navigation }) {
 
                     return () => clearTimeout(timer);
                 } else {
-                    setErro('Nenhuma familia foi encontrada')
+                    setErro('Nenhuma família foi encontrada')
                 }
 
 
                 setBusca(true)
             } catch (error) {
-                setErro('Erro! Não foi possivel encontrar integrante/familia')
+                setErro('Erro! Não foi possivel encontrar integrante/familía')
                 getAllFamilias()
                 setBusca(false)
                 console.log(error)
             }
         } else {
-            Alert.alert('Insira um cpf valido e busque novamente')
+            Alert.alert('Insira um CPF válido e tente novamente')
         }
 
     }
 
+
     return (
-        <ScrollView style={styles.scroll}>
-            <TouchableOpacity
-                style={styles.cadastrar}
-                onPress={() => navigation.navigate("CadastrarFamilia")}
-            >
-                <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
-                <MaterialIcons name="chevron-right" size={30} color="#272936" />
-            </TouchableOpacity>
-            <View style={styles.cardContainer}>
-                {
-                    isErro ?
-                        <View style={styles.loading}>
-                            <Text>{isErro}</Text>
-                        </View>
-                        :
-                        <Card
-                            data={dataFamilia}
-                            isVisible={isVisible}
-                        />
-                }
-
-
-
-            </View>
-
-            <View style={styles.searchForm}>
-                <View style={styles.searchInput}>
-
-                    <TextInputMask
-                        style={{ flex: 1 }}
-                        type={'cpf'}
-                        value={isvalue}
-
-                        onChangeText={setIsValue}
-                    />
-
-                    <View>
-                        {
-                            isvalue.length > 0 ?
-                                <MaterialIcons name="close" size={20} color="#000" onPress={limparTex} />
-                                :
-                                <></>
-                        }
-                    </View>
-
-
-                </View>
-
-                <TouchableOpacity onPress={buscarFamilia}
-                    style={styles.loadButton}>
-                    <MaterialIcons name="search" size={30} color="#fff" />
+        <SafeAreaView>
+            <ScrollView style={styles.scroll}>
+                <TouchableOpacity
+                    style={styles.cadastrar}
+                    onPress={() => navigation.navigate("CadastrarFamilia")}
+                >
+                    <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
+                    <MaterialIcons name="chevron-right" size={30} color="#272936" />
                 </TouchableOpacity>
-            </View>
+                <View style={styles.cardContainer}>
+                    {
+                        isErro ?
+                            <View style={styles.loading}>
+                                <Text>{isErro}</Text>
+                            </View>
+                            :
 
-        </ScrollView>
+                            < FlatList
+                                style={styles.flatlist}
+                                data={dataFamilia}
+                                extraData={dataFamilia}
+                                keyExtractor={(item, index) => index.toString()}
+                                renderItem={({ item }) =>
+                                    <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
+                                        <Card item={item} isVisible={isVisible} />
+                                    </TouchableOpacity>
+
+                                }
+                            />
+                    }
+                </View>
+                <View style={styles.searchForm}>
+                    <View style={styles.searchInput}>
+                        <TextInputMask
+                            style={{ flex: 1 }}
+                            type={'cpf'}
+                            value={isvalue}
+                            placeholderTextColor="#666"
+                            placeholder="Busque uma família por CPF.."
+                            onChangeText={setIsValue}
+                        />
+                        <View>
+                            {
+                                isvalue.length > 0 ?
+                                    <MaterialIcons name="close" size={20} color="#000" onPress={limparTex} />
+                                    :
+                                    <></>
+                            }
+                        </View>
+                    </View>
+                    <TouchableOpacity onPress={buscarFamilia}
+                        style={styles.loadButton}>
+                        <MaterialIcons name="search" size={30} color="#fff" />
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
@@ -152,7 +157,7 @@ const styles = StyleSheet.create({
     loading: {
 
         marginTop: 50,
-        alignSelf:'center'
+        alignSelf: 'center'
 
     },
     scroll: {
@@ -230,7 +235,10 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         alignItems: 'center',
         fontSize: 18,
-    }
+    },
+    flatlist: {
+        marginTop: 25,
+    },
 })
 
 export default Main;
