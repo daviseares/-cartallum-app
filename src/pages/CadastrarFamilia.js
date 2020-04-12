@@ -11,6 +11,7 @@ import {
     Platform,
     TouchableOpacity,
     Alert,
+  
 } from 'react-native';
 import Input from '../components/Input';
 import FormIntegrante from '../components/FormIntegrante';
@@ -18,8 +19,9 @@ import * as Yup from 'yup';
 import * as constants from '../locales/yup-pt';
 import { connect } from "react-redux";
 import api from '../services/api';
+import { cleanAll } from '../store/actions/actionIntegrante';
 
-function CadastrarFamilia({ listaIntegrantes, navigation }) {
+function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -45,8 +47,11 @@ function CadastrarFamilia({ listaIntegrantes, navigation }) {
                 console.log(response);
                 navigation.navigate('DetalhesFamilia',
                     { item: response.data.success, screen: 'CadastrarFamilia' })
-                    
+
+                //reseta formulário
                 reset();
+                //limpa lista integrantes
+                cleanAll();
             } catch (error) {
                 console.log(error)
             }
@@ -159,9 +164,13 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
     return {
         listaIntegrantes: state.reducerIntegrante.listaIntegrantes
-    };
+    }
 };
-const mapDispatchToProps = dispatch => { return {}; };
+const mapDispatchToProps = dispatch => {
+    return {
+        cleanAll: () => dispatch(cleanAll())
+    }
+};
 export default connect(
     mapStateToProps,
     mapDispatchToProps
