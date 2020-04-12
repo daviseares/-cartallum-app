@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         //add item in ListLocation    
         case ADD_INTEGRANTE:
-            console.log('Elemento para adicionar: ', action.payload)
+            //console.log('Elemento para adicionar: ', action.payload)
             return {
                 ...state,
                 listaIntegrantes: state.listaIntegrantes.concat(action.payload),
@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
             }
         //remove item for list
         case REMOVE_INTEGRANTE:
-            console.log('Elemento a Remover', action.key)
+            //console.log('Elemento a Remover', action.key)
             return {
                 listaIntegrantes: [
                     ...state.listaIntegrantes.slice(0, action.key),
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
                 ]
             }
         case CLEAN_ALL:
-            console.log('CLEAN ')
+            //console.log('CLEAN ')
             return {
                 ...state,
                 listaIntegrantes: [],

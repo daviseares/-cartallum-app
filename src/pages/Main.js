@@ -13,8 +13,11 @@ import { TextInputMask } from 'react-native-masked-text';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../components/Card';
 import api from '../services/api';
+import { connect } from "react-redux";
 
-function Main({ navigation }) {
+import { familiaAll } from '../store/actions/actionFamilia';
+
+function Main({ navigation, listaFamilia, familiaAll }) {
     const [dataFamilia, setDataFamilia] = useState(null);
     const [isVisible, setIsVisible] = useState(false);
     const [isvalue, setIsValue] = useState('');
@@ -22,27 +25,24 @@ function Main({ navigation }) {
     const [isBusca, setBusca] = useState(false);
 
     useEffect(() => {
-       
-        getAllFamilias()
-    }, []);
-
-    async function getAllFamilias() {
-        try {
-            const response = await api.get('data/get_familia');
-            console.log("response",response)
-            if (response.data.success) {
-                setDataFamilia(response.data.familia);
+        async function getAllFamilias() {
+            try {
+                await familiaAll()
                 const timer = setTimeout(() => {
                     setIsVisible(true)
                 }, 500);
                 return () => clearTimeout(timer);
 
+            } catch (error) {
+                console.log(error)
+                setErro('Erro ao carrega familias')
             }
-        } catch (error) {
-            setErro('Erro ao carrega familias')
+
         }
 
-    }
+        getAllFamilias()
+    }, []);
+
 
     function limparTex() {
         if (isBusca) {
@@ -112,8 +112,8 @@ function Main({ navigation }) {
 
                             < FlatList
                                 style={styles.flatlist}
-                                data={dataFamilia}
-                                extraData={dataFamilia}
+                                data={listaFamilia}
+                                extraData={listaFamilia}
                                 keyExtractor={(item, index) => index.toString()}
                                 renderItem={({ item }) =>
                                     <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
@@ -241,4 +241,18 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Main;
+
+const mapStateToProps = state => {
+    return {
+        listaFamilia: state.reducerFamilia.listaFamilia
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    familiaAll: () => dispatch(familiaAll())
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Main);

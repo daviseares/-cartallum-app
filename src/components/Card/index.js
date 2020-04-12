@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
-import moment from 'moment';
 
-// import { Container } from './styles';
 
 export default function Card({ item, isVisible }) {
 
@@ -20,7 +18,7 @@ export default function Card({ item, isVisible }) {
                         <Text>
                             {
                                 item.dataCestas.length > 0 ?
-                                    moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")
+                                   item.dataCestas[item.dataCestas.length - 1].data
                                     : <Text style={{ color: "red" }}>Ainda não receberam</Text>
                             }
                         </Text>

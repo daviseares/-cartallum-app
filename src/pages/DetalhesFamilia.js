@@ -6,9 +6,11 @@ import Arrow from '@expo/vector-icons/Feather';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
+import { familiaAll } from '../store/actions/actionFamilia';
+import { connect } from "react-redux";
 
 
-export default function DetalhesFamilia({ navigation }) {
+ function DetalhesFamilia({ navigation,familiaAll }) {
 
     const [isVisible, setIsVisible] = useState(false);
     const [instituicao, setInstituicao] = useState({});
@@ -71,7 +73,7 @@ export default function DetalhesFamilia({ navigation }) {
                 ]
             })
             setItem(response.data.familia[0])
-
+            familiaAll()
             Alert.alert("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
         } catch (error) {
             console.log(error)
@@ -270,3 +272,18 @@ const styles = StyleSheet.create({
     },
 
 })
+
+const mapStateToProps = state => {
+    return {
+       
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    familiaAll: () => dispatch(familiaAll())
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(DetalhesFamilia);

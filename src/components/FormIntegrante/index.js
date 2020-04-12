@@ -39,7 +39,7 @@ class FormData extends Component {
                     var data = {
                         nomeCompleto: this.state.nomeUnico,
                         cpf: this.state.cpfUnico,
-                        dataNascimento: this.state.dataUnica.split('/').reverse().join('-')
+                        dataNascimento: this.state.dataUnica
                     }
                     try {
                         const schema = Yup.object().shape({

@@ -65,7 +65,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
      * @param {Object} data 
      */
     async function handleSubmit(data, { reset }) {
-        console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
+       // console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
         try {
             // Remove all previous errors
             formRef.current.setErrors({});
