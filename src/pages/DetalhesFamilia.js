@@ -7,15 +7,15 @@ import api from '../services/api';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 export default function DetalhesFamilia({ navigation }) {
+
     const [isVisible, setIsVisible] = useState(false);
     const [instituicao, setInstituicao] = useState({});
-    const item = navigation.getParam('item');
+    const [item, setItem] = useState(navigation.getParam('item'))
+    //const item = navigation.getParam('item');
     const screen = navigation.getParam('screen');
-    console.log(item);
 
     const date = new Date();
-
-
+    moment().locale('pt-BR')
     useEffect(() => {
         if (screen != undefined) {
             Alert.alert("Família cadastrada com sucesso!");
@@ -60,22 +60,21 @@ export default function DetalhesFamilia({ navigation }) {
     async function donation() {
         try {
             const response = await api.post('data/update_cesta', {
-                //Guilherme, como eu nao sabia os parâmetros certos montei igual vc me mandou no whats
-                id: instituicao._id, //nome da instituição que vem do AsyncStorage.
+                id: item._id, //id que vem do item no params.
                 cesta: [
                     {
                         nomeInstituicao: instituicao.nomeInstituicao,
-                        data: moment(date).format('YYYY-MM-DD')
+                        data: moment().format('YYYY-MM-DD')
                     }
                 ]
             })
-            console.log(response);
+            setItem(response.data.familia[0])
+
             Alert.alert("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
         } catch (error) {
             console.log(error)
         }
     }
-
 
     return (
         <>
@@ -93,11 +92,12 @@ export default function DetalhesFamilia({ navigation }) {
                                 <Text style={styles.titulo}>Última Cesta:</Text>
                             </ShimmerPlaceHolder>
                             <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
-                                {item.dataCestas.length > 0 && item.dataCestas != undefined ?
-                                    <Text style={{ color: "green" }}>
-                                        Recebida em {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")}
-                                    </Text>
-                                    : <Text style={{ color: "red" }}>Ainda não receberam</Text>
+                                {
+                                    item.dataCestas.length > 0 && item.dataCestas != undefined ?
+                                        <Text style={{ color: "green" }}>
+                                            Recebida em {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")}
+                                        </Text>
+                                        : <Text style={{ color: "red" }}>Ainda não receberam</Text>
                                 }
                             </ShimmerPlaceHolder>
                         </View>
