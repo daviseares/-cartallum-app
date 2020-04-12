@@ -52,7 +52,7 @@ function Login({ navigation }) {
     async function authentication() {
 
         if (email != '' && password != '') {
-            setIsLoading(true)
+            setData(null)
             try {
                 const response = await api.post('auth/authenticate', {
                     login: email,
@@ -71,11 +71,10 @@ function Login({ navigation }) {
                     setData(false)
                     console.log('Erro AsyncStorrage:', error)
                 }
-
                 navigation.navigate("Main")
-                setIsLoading(false)
+                setData(false)
+
             } catch (error) {
-                setIsLoading(false)
                 setData(false)
                 console.log('Erro Login:', error)
                 Alert.alert('Falha no login!')
@@ -94,6 +93,7 @@ function Login({ navigation }) {
         return (
             <View style={styles.container1}>
                 <ActivityIndicator size='large' />
+                <Text>Carregando..</Text>
             </View>
         )
     } else if (data == false) {
@@ -125,19 +125,9 @@ function Login({ navigation }) {
                         value={password}
 
                     />
-                    {
-                        !isLoading ?
-                            <TouchableOpacity onPress={authentication} style={styles.buttom}>
-                                <Text style={styles.textButom}>Entrar</Text>
-                            </TouchableOpacity>
-                            :
-                            <View style={styles.container1}>
-                                {/* <Image style={{ resizeMode: "center" }} source={require("../Imagens/ic_vertical.png")} /> */}
-                                <ActivityIndicator size='small' />
-                            </View>
-                    }
-
-
+                    <TouchableOpacity onPress={authentication} style={styles.buttom}>
+                        <Text style={styles.textButom}>Entrar</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         )

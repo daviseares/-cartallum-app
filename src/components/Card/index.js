@@ -15,13 +15,14 @@ export default function Card({ item, isVisible }) {
                         <Text style={styles.titulo}>Última Cesta:</Text>
                     </ShimmerPlaceHolder>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
-                        <Text>
-                            {
-                                item.dataCestas.length > 0 ?
-                                   item.dataCestas[item.dataCestas.length - 1].data
-                                    : <Text style={{ color: "red" }}>Ainda não receberam</Text>
-                            }
-                        </Text>
+                        {
+                            item.dataCestas.length > 0 ?
+                                <Text style={{ color: "green" }}>
+                                    Recebida em {item.dataCestas[item.dataCestas.length - 1].data}
+                                </Text>
+
+                                : <Text style={{ color: "red" }}>Ainda não receberam</Text>
+                        }
                     </ShimmerPlaceHolder>
                 </View>
                 <View style={styles.row}>

@@ -19,7 +19,7 @@ import { connect } from "react-redux";
     const screen = navigation.getParam('screen');
 
     const date = new Date();
-    moment().locale('pt-BR')
+
     useEffect(() => {
         if (screen != undefined) {
             Alert.alert("Família cadastrada com sucesso!");
@@ -68,7 +68,7 @@ import { connect } from "react-redux";
                 cesta: [
                     {
                         nomeInstituicao: instituicao.nomeInstituicao,
-                        data: moment().format('YYYY-MM-DD')
+                        data: moment().format('DD/MM/YYYY')
                     }
                 ]
             })
