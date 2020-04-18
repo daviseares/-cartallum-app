@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, FlatList } from 'react
 import * as Yup from 'yup';
 import moment from 'moment';
 import { TextInputMask } from 'react-native-masked-text'
-import { MaterialIcons } from '@expo/vector-icons';
+import  Icon  from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native-gesture-handler';
 import { connect } from "react-redux";
 import { addIntegrante, removeIntegrante } from '../../store/actions/actionIntegrante';
@@ -104,7 +104,7 @@ class FormData extends Component {
                     renderItem={({ item, index }) =>
                         <View style={styles.card}>
                             <View style={styles.option}>
-                                <MaterialIcons name="delete" size={25}
+                                <Icon name="delete" size={25}
                                     style={styles.iconeDelete}
                                     onPress={() => this.retirarIntegrante(index)}
                                 />
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     flatlist: {
-        marginTop: 25,
+        marginTop: 15,
         marginHorizontal: 20
     },
     row: {

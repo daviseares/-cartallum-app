@@ -11,7 +11,6 @@ import {
     Platform,
     TouchableOpacity,
     Alert,
-  
 } from 'react-native';
 import Input from '../components/Input';
 import FormIntegrante from '../components/FormIntegrante';
@@ -20,6 +19,8 @@ import * as constants from '../locales/yup-pt';
 import { connect } from "react-redux";
 import api from '../services/api';
 import { cleanAll } from '../store/actions/actionIntegrante';
+import Toolbar from '../components/Toolbar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     const formRef = useRef(null);
@@ -65,7 +66,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
      * @param {Object} data 
      */
     async function handleSubmit(data, { reset }) {
-       // console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
+        // console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
         try {
             // Remove all previous errors
             formRef.current.setErrors({});
@@ -103,29 +104,37 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     }
 
     return (
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
-            <ScrollView>
-                <FormIntegrante />
-                <View style={styles.container}>
-                    <Form ref={formRef} onSubmit={handleSubmit}>
-                        <Input name="renda" label="Renda Percapita" />
-                        <Scope path="endereco">
-                            <Input name="rua" label="Rua" />
-                            <Input name="bairro" label="Bairro" />
-                            <Input type="number" name="numero" label="Número (Opcional)" />
-                            <Input name="complemento" label="Complemento (Opcional)" />
-                            <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
-                            <Input name="cidade" value="Alegre" label="Cidade" />
-                            <Input name="estado" value="Espírito Santo" label="Estado" />
-                            <Input name="pais" value="Brasil" label="Pais" />
-                        </Scope>
-                    </Form>
-                    <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>
-                        <Text style={styles.submitButtonText}>Cadastrar</Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
-        </KeyboardAvoidingView>
+        <>
+            <Toolbar
+                title="Cadastrar Família"
+                navigation={() => navigation.goBack()}
+
+            />
+
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
+                <ScrollView>
+                    <FormIntegrante />
+                    <View style={styles.container}>
+                        <Form ref={formRef} onSubmit={handleSubmit}>
+                            <Input name="renda" label="Renda Percapita" />
+                            <Scope path="endereco">
+                                <Input name="rua" label="Rua" />
+                                <Input name="bairro" label="Bairro" />
+                                <Input type="number" name="numero" label="Número (Opcional)" />
+                                <Input name="complemento" label="Complemento (Opcional)" />
+                                <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
+                                <Input name="cidade" value="Alegre" label="Cidade" />
+                                <Input name="estado" value="Espírito Santo" label="Estado" />
+                                <Input name="pais" value="Brasil" label="Pais" />
+                            </Scope>
+                        </Form>
+                        <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>
+                            <Text style={styles.submitButtonText}>Cadastrar</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
+        </>
     );
 }
 
@@ -134,6 +143,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         padding: 20,
         margin: 25,
+        marginBottom: 100,
         flex: 1,
         backgroundColor: "#fff",
         shadowColor: "#000",

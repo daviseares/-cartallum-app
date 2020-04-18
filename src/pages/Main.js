@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     StyleSheet,
     View,
@@ -7,44 +7,51 @@ import {
     Alert,
     SafeAreaView,
     ScrollView,
-    FlatList
+    FlatList,
+    TouchableHighlight
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
-import { MaterialIcons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Card from '../components/Card';
 import api from '../services/api';
 import { connect } from "react-redux";
+import { familiaAll, familiaFilter } from '../store/actions/actionFamilia';
+import SideMenu from 'react-native-side-menu';
+import Menu from '../components/Menu';
+import Toolbar from '../components/Toolbar';
 
-import { familiaAll } from '../store/actions/actionFamilia';
-
-function Main({ navigation, listaFamilia, familiaAll }) {
-    const [dataFamilia, setDataFamilia] = useState(null);
+function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
+    const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isvalue, setIsValue] = useState('');
     const [isErro, setErro] = useState('');
     const [isBusca, setBusca] = useState(false);
 
+    const menu = <Menu navigator={navigator} />;
+
     useEffect(() => {
-        async function getAllFamilias() {
-            try {
-                await familiaAll()
-                const timer = setTimeout(() => {
-                    setIsVisible(true)
-                }, 500);
-                return () => clearTimeout(timer);
 
-            } catch (error) {
-                console.log(error)
-                setErro('Erro ao carrega familias')
-            }
+        getAllFamilias();
 
-        }
-
-        getAllFamilias()
     }, []);
 
+    async function getAllFamilias() {
+        try {
+            await familiaAll()
+            const timer = setTimeout(() => {
+                setIsVisible(true)
+            }, 500);
+            return () => clearTimeout(timer);
+
+        } catch (error) {
+            console.log(error)
+            setErro('Erro ao carrega familias')
+        }
+
+    }
 
     function limparTex() {
+        console.log("fooooi", isBusca)
         if (isBusca) {
             setIsVisible(false)
             setIsValue('')
@@ -65,20 +72,24 @@ function Main({ navigation, listaFamilia, familiaAll }) {
                 const response = await api.post('data/busca_familia', {
                     cpf: isvalue
                 })
-
+                console.log('response', response);
                 if (response.data.length > 0) {
-                    setDataFamilia(response.data);
+
+                    familiaFilter(response.data);
+                    setBusca(true);
+
                     const timer = setTimeout(() => {
                         setIsVisible(true)
                     }, 1000);
 
                     return () => clearTimeout(timer);
+
                 } else {
                     setErro('Nenhuma família foi encontrada')
                 }
 
 
-                setBusca(true)
+
             } catch (error) {
                 setErro('Erro! Não foi possivel encontrar integrante/familía')
                 getAllFamilias()
@@ -90,17 +101,25 @@ function Main({ navigation, listaFamilia, familiaAll }) {
         }
 
     }
+    function updateMenuState(isOpen) {
+        console.log(isOpen);
+    }
 
 
     return (
-        <SafeAreaView>
-            <ScrollView style={styles.scroll}>
+        <>
+            <Toolbar
+                title="Família Alegre"
+                navigation={() => navigation.toggleDrawer()}
+                menu={true}
+            />
+            <ScrollView style={styles.scrollView}>
                 <TouchableOpacity
                     style={styles.cadastrar}
-                    onPress={() => navigation.navigate("CadastrarFamilia")}
+                    onPress={() => navigation.navigate('CadastrarFamilia')}
                 >
                     <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
-                    <MaterialIcons name="chevron-right" size={30} color="#272936" />
+                    <Icon name="chevron-right" size={30} color="#272936" />
                 </TouchableOpacity>
                 <View style={styles.cardContainer}>
                     {
@@ -110,7 +129,7 @@ function Main({ navigation, listaFamilia, familiaAll }) {
                             </View>
                             :
 
-                            < FlatList
+                            <FlatList
                                 style={styles.flatlist}
                                 data={listaFamilia}
                                 extraData={listaFamilia}
@@ -132,12 +151,12 @@ function Main({ navigation, listaFamilia, familiaAll }) {
                             value={isvalue}
                             placeholderTextColor="#666"
                             placeholder="Busque uma família por CPF.."
-                            onChangeText={setIsValue}
+                            onChangeText={(value) => setIsValue(value)}
                         />
                         <View>
                             {
                                 isvalue.length > 0 ?
-                                    <MaterialIcons name="close" size={20} color="#000" onPress={limparTex} />
+                                    <Icon name="close" size={20} color="#000" onPress={() => limparTex()} />
                                     :
                                     <></>
                             }
@@ -145,11 +164,11 @@ function Main({ navigation, listaFamilia, familiaAll }) {
                     </View>
                     <TouchableOpacity onPress={buscarFamilia}
                         style={styles.loadButton}>
-                        <MaterialIcons name="search" size={30} color="#fff" />
+                        <Icon name="search" size={30} color="#fff" />
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </>
     )
 }
 
@@ -158,10 +177,9 @@ const styles = StyleSheet.create({
 
         marginTop: 50,
         alignSelf: 'center'
-
     },
-    scroll: {
-
+    scrollView: {
+        backgroundColor: "#eee"
     },
     cadastrar: {
         borderRadius: 25,
@@ -239,8 +257,7 @@ const styles = StyleSheet.create({
     flatlist: {
         marginTop: 25,
     },
-})
-
+});
 
 const mapStateToProps = state => {
     return {
@@ -249,10 +266,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    familiaAll: () => dispatch(familiaAll())
+    familiaAll: () => dispatch(familiaAll()),
+    familiaFilter: (value) => dispatch(familiaFilter(value))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Main);
+)(Main);  

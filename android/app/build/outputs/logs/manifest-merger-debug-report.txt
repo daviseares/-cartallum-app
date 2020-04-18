@@ -1,0 +1,249 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-linear-gradient] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-community_masked-view] /Users/davi/Desktop/projetos/cartallumapp/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-gesture-handler] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-screens] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/davi/.gradle/caches/transforms-2/files-2.1/c7e61bb91955141bf7fd2499bef7ec09/AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r245459] /Users/davi/.gradle/caches/transforms-2/files-2.1/00dba81acabedc9dda61deaa59b0c9ee/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621654d7c730f218aa205cf6533274d9/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0f3b3b2d7694fcb684ec71732f58fab7/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/067d26eee57d46359959353a2892348e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9a054ea6c97afeccf6d1c3279f00cce0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b6fb4b4eac2019e0b74d3d9b11f813b8/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/6eb3274205340db734417c88fdde276c/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64122f24f176fdf343845bf2e8a8ea78/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/59f1158c95abb44e20296fcbef1ee5c3/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621711183ae31b22a964f861cb115991/AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8852cc0f037661bc19dcc398f2326976/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b5288b91745689113e47b71c07ece0f4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/davi/.gradle/caches/transforms-2/files-2.1/d009b36c220d10f237626b4e1b1d5274/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/d4c5b03f8afa688c08b31efee8f6f84b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e1018f8178fc62d99175814fa306faaf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9ef7f94c01b97c992138fdedbb6de5d9/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/169d3f9fef2b1988ff488d415160ad2a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/df1071e44ad940f49218b7d785b9cd56/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/56f1ab58c7856264983040d87f4ad81d/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/2db36615b7653aaa5d430453667d9c15/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/5f55644487477df301f60f40d1f24c7a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/073b8966234da8acca0b3ba7881d6fa3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c3306641f6bb5fa2aeeb2bbacc5faa0c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e8e89c283ed691109c66a8fe49fa7cca/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/f77e7fd8dc45847720863a3928d421e3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/57cf5adb2aafaaac8a39c262aa48be43/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/7ceafc0c409384a2d1eec048ee6919a8/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a4739e53354e8e9b6652f1c7f5b813f5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/cb9cd3754d51fe86dad7f162e045da8a/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/fc63fcaa678a4965033a2203b081ae47/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c16c4a8561861ed0f07b291238e0c93f/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/571641f15031b1922412ee4a37de4582/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64c35c82cd6722ce9b5a39d052832862/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8334ffec2c5ce8232e696a5b5367774e/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/ebc61aec9344e8d189068dac77b013db/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0b2347dda564fe804afd8eda410e98b5/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:2:3-29
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:2:3-29
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/davi/.gradle/caches/transforms-2/files-2.1/c7e61bb91955141bf7fd2499bef7ec09/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/davi/.gradle/caches/transforms-2/files-2.1/c7e61bb91955141bf7fd2499bef7ec09/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621711183ae31b22a964f861cb115991/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621711183ae31b22a964f861cb115991/AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/7ceafc0c409384a2d1eec048ee6919a8/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/7ceafc0c409384a2d1eec048ee6919a8/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:8:7-39
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:8:7-39
+	tools:ignore
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:7:75-114
+	android:roundIcon
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:10:7-52
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:10:7-52
+	tools:targetApi
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:7:54-74
+	android:icon
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:9:7-41
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:9:7-41
+	android:allowBackup
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:11:7-34
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:12:7-38
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:12:7-38
+	android:usesCleartextTraffic
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:7:18-53
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:7:7-38
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:7:7-38
+activity#com.cartallumapp.MainActivity
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-linear-gradient] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_masked-view] /Users/davi/Desktop/projetos/cartallumapp/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] /Users/davi/Desktop/projetos/cartallumapp/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-screens] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/davi/Desktop/projetos/cartallumapp/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/davi/.gradle/caches/transforms-2/files-2.1/c7e61bb91955141bf7fd2499bef7ec09/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/davi/.gradle/caches/transforms-2/files-2.1/c7e61bb91955141bf7fd2499bef7ec09/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/davi/.gradle/caches/transforms-2/files-2.1/00dba81acabedc9dda61deaa59b0c9ee/AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] /Users/davi/.gradle/caches/transforms-2/files-2.1/00dba81acabedc9dda61deaa59b0c9ee/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621654d7c730f218aa205cf6533274d9/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621654d7c730f218aa205cf6533274d9/AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0f3b3b2d7694fcb684ec71732f58fab7/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0f3b3b2d7694fcb684ec71732f58fab7/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/067d26eee57d46359959353a2892348e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/067d26eee57d46359959353a2892348e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9a054ea6c97afeccf6d1c3279f00cce0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9a054ea6c97afeccf6d1c3279f00cce0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b6fb4b4eac2019e0b74d3d9b11f813b8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b6fb4b4eac2019e0b74d3d9b11f813b8/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/6eb3274205340db734417c88fdde276c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/6eb3274205340db734417c88fdde276c/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64122f24f176fdf343845bf2e8a8ea78/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64122f24f176fdf343845bf2e8a8ea78/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/59f1158c95abb44e20296fcbef1ee5c3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/59f1158c95abb44e20296fcbef1ee5c3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621711183ae31b22a964f861cb115991/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/621711183ae31b22a964f861cb115991/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8852cc0f037661bc19dcc398f2326976/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8852cc0f037661bc19dcc398f2326976/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b5288b91745689113e47b71c07ece0f4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/b5288b91745689113e47b71c07ece0f4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/davi/.gradle/caches/transforms-2/files-2.1/d009b36c220d10f237626b4e1b1d5274/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] /Users/davi/.gradle/caches/transforms-2/files-2.1/d009b36c220d10f237626b4e1b1d5274/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/d4c5b03f8afa688c08b31efee8f6f84b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/d4c5b03f8afa688c08b31efee8f6f84b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e1018f8178fc62d99175814fa306faaf/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e1018f8178fc62d99175814fa306faaf/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9ef7f94c01b97c992138fdedbb6de5d9/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/9ef7f94c01b97c992138fdedbb6de5d9/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/169d3f9fef2b1988ff488d415160ad2a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/169d3f9fef2b1988ff488d415160ad2a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/df1071e44ad940f49218b7d785b9cd56/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/df1071e44ad940f49218b7d785b9cd56/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/56f1ab58c7856264983040d87f4ad81d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/56f1ab58c7856264983040d87f4ad81d/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/2db36615b7653aaa5d430453667d9c15/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/2db36615b7653aaa5d430453667d9c15/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/5f55644487477df301f60f40d1f24c7a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/5f55644487477df301f60f40d1f24c7a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/073b8966234da8acca0b3ba7881d6fa3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/073b8966234da8acca0b3ba7881d6fa3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c3306641f6bb5fa2aeeb2bbacc5faa0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c3306641f6bb5fa2aeeb2bbacc5faa0c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e8e89c283ed691109c66a8fe49fa7cca/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/e8e89c283ed691109c66a8fe49fa7cca/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/f77e7fd8dc45847720863a3928d421e3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/f77e7fd8dc45847720863a3928d421e3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/57cf5adb2aafaaac8a39c262aa48be43/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/57cf5adb2aafaaac8a39c262aa48be43/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/7ceafc0c409384a2d1eec048ee6919a8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/7ceafc0c409384a2d1eec048ee6919a8/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a4739e53354e8e9b6652f1c7f5b813f5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/a4739e53354e8e9b6652f1c7f5b813f5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/cb9cd3754d51fe86dad7f162e045da8a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/cb9cd3754d51fe86dad7f162e045da8a/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/fc63fcaa678a4965033a2203b081ae47/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/fc63fcaa678a4965033a2203b081ae47/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c16c4a8561861ed0f07b291238e0c93f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/c16c4a8561861ed0f07b291238e0c93f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/571641f15031b1922412ee4a37de4582/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/571641f15031b1922412ee4a37de4582/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64c35c82cd6722ce9b5a39d052832862/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/64c35c82cd6722ce9b5a39d052832862/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8334ffec2c5ce8232e696a5b5367774e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/8334ffec2c5ce8232e696a5b5367774e/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/ebc61aec9344e8d189068dac77b013db/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/ebc61aec9344e8d189068dac77b013db/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0b2347dda564fe804afd8eda410e98b5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/davi/.gradle/caches/transforms-2/files-2.1/0b2347dda564fe804afd8eda410e98b5/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from /Users/davi/Desktop/projetos/cartallumapp/android/app/src/debug/AndroidManifest.xml:5:22-75

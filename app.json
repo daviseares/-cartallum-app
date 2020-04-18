@@ -1,36 +1,4 @@
 {
-  "expo": {
-    "name": "Cartallum",
-    "slug": "cartallum-app",
-    "privacy": "public",
-    "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "package": "br.com.prefeitura.cartallum",
-      "versionCode": 1
-    },
-    "description": "Aplicativo desenvolvido para auxiliar a distribuição de cestas bácias à famílias necessitadas.",
-    "githubUrl": "https://github.com/daviseares/-cartallum-app"
-  }
+  "name": "cartallumapp",
+  "displayName": "cartallumapp"
 }

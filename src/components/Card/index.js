@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Card({ item, isVisible }) {
 
@@ -46,6 +46,14 @@ export default function Card({ item, isVisible }) {
                 </View>
                 <View style={styles.row}>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                        <Text style={styles.titulo}>Telefone:</Text>
+                    </ShimmerPlaceHolder>
+                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                        <Text>(28) 99959-8776</Text>
+                    </ShimmerPlaceHolder>
+                </View>
+                <View style={styles.row}>
+                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                         <Text style={styles.titulo}>Endereço:</Text>
                     </ShimmerPlaceHolder>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
@@ -56,6 +64,11 @@ export default function Card({ item, isVisible }) {
                         </Text>
                     </ShimmerPlaceHolder>
                 </View>
+                <View style={styles.verMais}>
+
+                    <Text style={styles.txtDetalhes}>VER DETALHES</Text>
+                    <Icon name="chevron-right" size={30} color="#272936" />
+                </View>
             </View>
         </>
     );
@@ -65,7 +78,7 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         marginHorizontal: 5,
         backgroundColor: "#fff",
-        paddingVertical: 25,
+        paddingTop: 25,
         paddingHorizontal: 20,
         borderRadius: 15,
         shadowColor: "#000",
@@ -84,6 +97,18 @@ const styles = StyleSheet.create({
     titulo: {
         fontWeight: "bold",
         marginRight: 5
+    },
+    verMais: {
+        marginTop: 20,
+        paddingVertical: 15,
+        borderTopWidth: 1,
+        borderTopColor: '#272936',
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between"
+    },
+    txtDetalhes: {
+        //marginTop: 20
     }
 
 })

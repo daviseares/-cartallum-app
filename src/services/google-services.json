@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "724918397147",
+    "firebase_url": "https://cartallum-d3092.firebaseio.com",
+    "project_id": "cartallum-d3092",
+    "storage_bucket": "cartallum-d3092.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724918397147:android:14b06bdb6eb2bfbb56c4fe",
+        "android_client_info": {
+          "package_name": "br.com.cartallum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724918397147-ehd33ju4apgmfufhnfrhf5ajetcksaqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg95c3oT8xSifgqPP9c2byWITXPhLqVuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724918397147-ehd33ju4apgmfufhnfrhf5ajetcksaqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

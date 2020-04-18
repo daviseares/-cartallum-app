@@ -19,11 +19,33 @@ export const familiaAll = () => {
                     })
                 })
                 .catch(err => {
-                    console.log('Action: ',err)
+                    console.log('Action: ', err)
                 })
         }
     } catch (error) {
         setErro('Erro ao carrega familias')
+    }
+
+}
+
+/**
+ * Lista de familia
+ * @param {}  
+ */
+export const familiaFilter = (familia) => {
+
+    try {
+        return (dispath) => {
+
+            dispath({
+                type: FAMILIA_ALL,
+                payload: familia
+            })
+        }
+
+
+    } catch (error) {
+        setErro('Erro ao buscar família')
     }
 
 }

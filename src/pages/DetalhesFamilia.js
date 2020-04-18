@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage, Platform } from 'react-native';
 import moment from 'moment';
-import Icon from '@expo/vector-icons/FontAwesome';
-import Arrow from '@expo/vector-icons/Feather';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { familiaAll } from '../store/actions/actionFamilia';
 import { connect } from "react-redux";
+import Toolbar from '../components/Toolbar';
 
 
- function DetalhesFamilia({ navigation,familiaAll }) {
+function DetalhesFamilia({ navigation, familiaAll }) {
 
     const [isVisible, setIsVisible] = useState(false);
     const [instituicao, setInstituicao] = useState({});
     const [item, setItem] = useState(navigation.getParam('item'))
-    //const item = navigation.getParam('item');
+
+    //serve para sabe se a família foi cadastrada
     const screen = navigation.getParam('screen');
 
     const date = new Date();
 
     useEffect(() => {
+        //vericação se veio da tela cadastrar família
         if (screen != undefined) {
             Alert.alert("Família cadastrada com sucesso!");
         }
+
+        /**
+         * função para capturar instituição do async storage
+         */
         async function getInstituicao() {
             try {
 
@@ -80,23 +85,14 @@ import { connect } from "react-redux";
         }
     }
 
+    console.log('item', item);
+
     return (
         <>
-
-            <View style={styles.toolbar}>
-                {Platform.OS == 'ios' ?
-                    <Icon name="angle-left" size={38} color="#fff"
-                        style={styles.toolbarIcon}
-                        onPress={() => navigation.navigate('Main')}
-                    />
-                    :
-                    <Arrow name="arrow-left" size={25} color="#fff"
-                        style={styles.toolbarIcon}
-                        onPress={() => navigation.navigate('Main')}
-                    />
-                }
-                <Text style={styles.txtToolbar}>Detalhes</Text>
-            </View>
+            <Toolbar
+                title="Detalhes"
+                navigation={() => navigation.navigate('Main')}
+            />
             <ScrollView>
                 <View style={styles.principal}>
                     <Text style={styles.h1}>Dados Básicos</Text>
@@ -110,11 +106,25 @@ import { connect } from "react-redux";
                                 {
                                     item.dataCestas.length > 0 && item.dataCestas != undefined ?
                                         <Text style={{ color: "green" }}>
-                                            Recebida em {moment(item.dataCestas[item.dataCestas.length - 1].data).format("DD/MM/YYYY")}
+                                            Recebida em {item.dataCestas[item.dataCestas.length - 1].data}
                                         </Text>
                                         : <Text style={{ color: "red" }}>Ainda não receberam</Text>
                                 }
                             </ShimmerPlaceHolder>
+                        </View>
+                        <View style={styles.row}>
+                            {item.dataCestas.length > 0 && item.dataCestas != undefined ?
+                                <>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Doada por:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                                        <Text>{item.dataCestas[item.dataCestas.length - 1].nomeInstituicao}</Text>
+                                    </ShimmerPlaceHolder>
+                                </>
+                                : null
+                            }
+
                         </View>
                         <View style={styles.row}>
                             <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
@@ -140,15 +150,15 @@ import { connect } from "react-redux";
                 </View>
                 <View style={styles.principal}>
                     {
-                        item.dataCestas.length > 0 && (
+                        /* item.dataCestas.length > 0 && (
                             moment(date).format('MM/YYYY') == moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY") || moment(date).format('MM/YYYY') < moment(item.dataCestas[item.dataCestas.length - 1].data).format("MM/YYYY")) ?
                             <View style={[styles.submitButton, { backgroundColor: '#999' }]} onPress={() => confirmDonation()}>
                                 <Text style={[styles.submitButtonText, { color: '#272936' }]}>Doar Cesta</Text>
                             </View>
-                            :
-                            <TouchableOpacity style={[styles.submitButton, { backgroundColor: '#272936' }]} onPress={() => confirmDonation()}>
-                                <Text style={[styles.submitButtonText, { color: '#fff' }]}>Doar Cesta</Text>
-                            </TouchableOpacity>
+                            : */
+                        <TouchableOpacity style={[styles.submitButton, { backgroundColor: '#272936' }]} onPress={() => confirmDonation()}>
+                            <Text style={[styles.submitButtonText, { color: '#fff' }]}>Doar Cesta</Text>
+                        </TouchableOpacity>
 
 
                     }
@@ -156,43 +166,51 @@ import { connect } from "react-redux";
                 </View>
                 <View style={[styles.principal, { marginBottom: 50 }]}>
                     <Text style={styles.h1}>Integrantes da Família</Text>
-                    <View style={styles.container}>
-                        <FlatList
-                            style={styles.flatlist}
-                            data={item.integrantes}
-                            extraData={item.integrantes}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={({ item, index }) =>
-                                <View>
-                                    <View style={styles.row}>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                                            <Text style={styles.titulo}>Nome Completo:</Text>
-                                        </ShimmerPlaceHolder>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
-                                            <Text>{item.nomeCompleto}</Text>
-                                        </ShimmerPlaceHolder>
-                                    </View>
-                                    <View style={styles.row}>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
-                                            <Text style={styles.titulo}>CPF:</Text>
-                                        </ShimmerPlaceHolder>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
-                                            <Text>{item.cpf}</Text>
-                                        </ShimmerPlaceHolder>
-                                    </View>
-                                    <View style={[styles.row, { marginBottom: 20 }]}>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
-                                            <Text style={styles.titulo}>Data de Nascimento:</Text>
-                                        </ShimmerPlaceHolder>
-                                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
-                                            <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
-                                        </ShimmerPlaceHolder>
-                                    </View>
+
+                    <FlatList
+                        style={styles.flatlist}
+                        data={item.integrantes}
+                        extraData={item.integrantes}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({ item, index }) =>
+                            <View style={[styles.container, { marginBottom: 30 }]}>
+                                <View style={styles.row}>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Nome Completo:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
+                                        <Text>{item.nomeCompleto}</Text>
+                                    </ShimmerPlaceHolder>
                                 </View>
-                            }
-                        />
-                    </View>
+                                <View style={styles.row}>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>CPF:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
+                                        <Text>{item.cpf}</Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                                <View style={[styles.row]}>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Data de Nascimento:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                        <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                                <View style={[styles.row, { marginBottom: 20 }]}>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Telefone:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                        <Text></Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                            </View>
+                        }
+                    />
                 </View>
+
             </ScrollView >
 
         </>
@@ -203,25 +221,6 @@ const styles = StyleSheet.create({
     principal: {
         marginTop: 25,
         marginHorizontal: 25,
-    },
-    toolbar: {
-        height: Platform.OS == 'ios' ? 88 : 55,
-        backgroundColor: '#272936',
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: Platform.OS == 'ios' ? "center" : "flex-start"
-    },
-    toolbarIcon: {
-        position: "absolute",
-        bottom: Platform.OS == 'ios' ? 2 : 12,
-        left: Platform.OS == 'ios' ? 7 : 15,
-    },
-    txtToolbar: {
-        fontSize: 20,
-        color: "#fff",
-        fontWeight: "500",
-        marginBottom: Platform.OS == 'ios' ? 8 : 12,
-        marginLeft: Platform.OS == 'ios' ? 0 : 80
     },
     container: {
         backgroundColor: "#fff",
@@ -275,7 +274,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-       
+
     };
 };
 
