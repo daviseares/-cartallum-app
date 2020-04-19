@@ -1,10 +1,12 @@
 
 import 'react-native-gesture-handler';
-import React from 'react';
-import { StatusBar, YellowBox } from 'react-native';
+import { StatusBar, YellowBox, AsyncStorage } from 'react-native';
 import { Provider } from "react-redux";
-import Routes from './Routes';
+import RoutesCliente from './RoutesCliente';
+import RoutesAdmin from './RoutesAdmin';
+
 import storeConfig from './store/storeConfig';
+import React, { useEffect, useState } from 'react';
 
 YellowBox.ignoreWarnings([
   'Unrecognized WebSocket'
@@ -13,14 +15,39 @@ console.disableYellowBox = true;
 
 const storeConf = storeConfig()
 
-export default function App() {
+function App() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+
+        const instituicao = JSON.parse(await AsyncStorage.getItem('@instituicao'))
+        setData(instituicao)
+
+      } catch (erro) {
+        console.log('Erro App: ', erro)
+      }
+    }
+    fetchData();
+  }, []);
+  console.log(data)
   return (
     <>
       <StatusBar barStyle={"light-content"} backgroundColor='#272936' />
       <Provider store={storeConf}>
-        <Routes />
+        {
+          data.tipo === 'cliente' ?
+            <RoutesCliente />
+            :
+            <RoutesAdmin />
+        }
+
       </Provider>
     </>
 
   );
 }
+
+
+export default App

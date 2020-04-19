@@ -10,9 +10,11 @@ import {
     Alert,
 } from 'react-native';
 import api from '../services/api';
+import { connect } from "react-redux";
 
+import { dataInstituicao } from '../store/actions/actionInstituicao'
 
-function Login({ navigation }) {
+function Login({ navigation, dataInstituicao }) {
 
     const [data, setData] = useState(null);
     const [email, setEmail] = useState('');
@@ -23,6 +25,8 @@ function Login({ navigation }) {
         async function fetchData() {
             try {
                 const token = JSON.parse(await AsyncStorage.getItem('@CodeApi:token'))
+                const instituicao = JSON.parse(await AsyncStorage.getItem('@instituicao'))
+
                 /**
                  * Verificação do token do usuario que esta guardado no AsyncStorege
                  * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
@@ -31,7 +35,7 @@ function Login({ navigation }) {
                 if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                     await api.get('/projects')
-
+                    dataInstituicao(instituicao)
                     setData(null)
                     navigation.navigate("Main")
 
@@ -65,8 +69,9 @@ function Login({ navigation }) {
                     //salva token no AsynStorage
                     AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
-                    //salva nome da instituição no AsynStorage
+                    //salva  instituição no AsynStorage
                     AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
+                    dataInstituicao(response.data.instituicao)
                 } catch (error) {
                     setData(false)
                     console.log('Erro AsyncStorrage:', error)
@@ -225,4 +230,18 @@ var styles = StyleSheet.create({
     }
 
 })
-export default Login
+const mapStateToProps = state => {
+    {
+
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+
+    dataInstituicao: (value) => dispatch(dataInstituicao(value))
+});
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(Login); 

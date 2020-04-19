@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 
     },
     txtLema: {
-        fontSize: 20,
+        fontSize: 14,
         color: "#fff",
         textAlign: "center"
     }

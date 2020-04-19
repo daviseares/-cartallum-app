@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/davi/Desktop/projetos/cartallumapp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/Users/davi/.gradle/caches/transforms-2/files-2.1/a7a84f560c6caf70e061c9de4ce6775e/res/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+                    "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\d653301dd5ccfa73f2de68d07e8c3b4d\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
