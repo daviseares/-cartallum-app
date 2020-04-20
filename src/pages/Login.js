@@ -36,10 +36,16 @@ function Login({ navigation, dataInstituicao }) {
 
                 if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                    await api.get('/projects')
-                    dataInstituicao(instituicao)
-                    navigation.navigate("Main")
-                    setIsSplash(false);
+                    const response = await api.get('/projects')
+                    if (parse.isSuccess(response.data)) {
+                        dataInstituicao(instituicao)
+                        navigation.navigate("Main")
+                        setIsSplash(false);
+                    } else {
+                        AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
+                        setIsSplash(false);
+                    }
+
                 } else {
                     setIsSplash(false);
                 }
