@@ -12,6 +12,8 @@ export default function DetalhesInstituicao({ navigation }) {
     const [isVisible, setIsVisible] = useState(true);
 
 
+
+
     async function getListaInstituicao() {
         setIsVisible(false)
         try {
@@ -22,22 +24,29 @@ export default function DetalhesInstituicao({ navigation }) {
 
             const timer = setTimeout(() => {
                 setIsVisible(true)
-            }, 500);
+            }, 1000);
 
             return () => clearTimeout(timer);
 
         } catch (error) {
+             
             parse.showToast("Erro, tente novamente!");
             console.log("Error", error)
         }
     }
 
-     
+    function goBack() {
+        navigation.goBack();
+    }
     useEffect(() => {
-       
+        navigation.addListener('willFocus', () => {
+            console.log("is focused")
+            getListaInstituicao()
+        });
         console.log("chama user effect")
         getListaInstituicao();
-       
+        //add evento de focus
+        //getListaInstituicao();
 
     }, [])
 
@@ -47,7 +56,7 @@ export default function DetalhesInstituicao({ navigation }) {
         <View style={styles.principal}>
             <Toolbar
                 title="Instituições"
-                navigation={() =>  navigation.goBack()}
+                navigation={() => goBack()}
             />
             <ScrollView>
                 <FlatList
