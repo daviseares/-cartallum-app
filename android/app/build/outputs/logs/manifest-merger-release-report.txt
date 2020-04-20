@@ -1,0 +1,229 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-linear-gradient] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-community_masked-view] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-gesture-handler] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-screens] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\7ba359487ec94b3197db1b5744a6cde3\AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9776bce99c90a424bc9bfadb99f0762f\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d653301dd5ccfa73f2de68d07e8c3b4d\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\bee490c72ff342054c0809d9ef0bb1b4\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\336119c501c23af7def3cf19e306684f\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ef9c13a02ed48bbb9050891b79cbe9d0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f40e5eb0848f3c3bbe6562c5df8f1f19\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\6af12b1714705163af218909e08e1500\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\20695bcd429c6f1eb390494eeab734cb\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\792c7a62178a6ffb5977833b0886f508\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9dc846d14ec4d80805888585bcaafc2\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e773552dbf229983095bc34475c4ce64\AndroidManifest.xml:2:1-13:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\cb1ca3cc628fcad4bdf496c5ad1b74f4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\54d66a8eda1abc7d798d711d98474d88\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\427c60bf1072fb657a9105968f5336f1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce4141bdff641e6691185706f3facd9b\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\dca6572e5843cc16a0314f0c1b5209fe\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4aafa019cd3bd0c04f2b0531eeb3c7bf\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f5694329311b972a69e8c03b9e19fb4c\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\890f3dc76c172af7d14e6add51d7d583\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\fbc4fd9f487ffb9a39cb056625796e6d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\a1449b9890a28aa665687b37f2c7ecb5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\355eaf72f81444e6fe67cc767094c5e7\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce371b94366f08ff841d9d611e677e6f\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d4c8a9ce0462d447964930e722b32f2e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\572cf4c3f2ed7f9535fa5a279958141a\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\23e57a9dc053cf59760e723ec8bd3e72\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\00ea055e75f3ce28256b00bd6074892f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9aa4b4213908c8e8138f585b08ca5a0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\63863efb1e754dbfca93bb72965cecbe\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d970fba0cc3ff8196f5306bfac77abc8\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8f4fc3734b59eecb9a216a91d4a061a1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\222a71ac56452515c757fa827c4f0286\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\522ee98c808d078494cdf4b20f8fc562\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8dc5bfbc8a7d724ece719eaad5a8adeb\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9e46f470d1191c9f822186359a20bf09\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\0aa6d14dda2ee9167fa747fefc6659f5\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e595316247ad946118a1082b311e4759\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:2:3-29
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\7ba359487ec94b3197db1b5744a6cde3\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\7ba359487ec94b3197db1b5744a6cde3\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d653301dd5ccfa73f2de68d07e8c3b4d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d653301dd5ccfa73f2de68d07e8c3b4d\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e773552dbf229983095bc34475c4ce64\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e773552dbf229983095bc34475c4ce64\AndroidManifest.xml:11:5-20
+MERGED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9aa4b4213908c8e8138f585b08ca5a0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9aa4b4213908c8e8138f585b08ca5a0\AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:8:7-39
+	android:roundIcon
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:10:7-43
+	android:icon
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:9:7-38
+	android:allowBackup
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:7:7-38
+activity#com.cartallumapp.MainActivity
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-linear-gradient] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_masked-view] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-gesture-handler] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-screens] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\guilh\Documents\projeto\-cartallum-app\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\7ba359487ec94b3197db1b5744a6cde3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\7ba359487ec94b3197db1b5744a6cde3\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9776bce99c90a424bc9bfadb99f0762f\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9776bce99c90a424bc9bfadb99f0762f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d653301dd5ccfa73f2de68d07e8c3b4d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d653301dd5ccfa73f2de68d07e8c3b4d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\bee490c72ff342054c0809d9ef0bb1b4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\bee490c72ff342054c0809d9ef0bb1b4\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\336119c501c23af7def3cf19e306684f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\336119c501c23af7def3cf19e306684f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ef9c13a02ed48bbb9050891b79cbe9d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ef9c13a02ed48bbb9050891b79cbe9d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f40e5eb0848f3c3bbe6562c5df8f1f19\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f40e5eb0848f3c3bbe6562c5df8f1f19\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\6af12b1714705163af218909e08e1500\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\6af12b1714705163af218909e08e1500\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\20695bcd429c6f1eb390494eeab734cb\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\20695bcd429c6f1eb390494eeab734cb\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\792c7a62178a6ffb5977833b0886f508\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\792c7a62178a6ffb5977833b0886f508\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9dc846d14ec4d80805888585bcaafc2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9dc846d14ec4d80805888585bcaafc2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e773552dbf229983095bc34475c4ce64\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e773552dbf229983095bc34475c4ce64\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\cb1ca3cc628fcad4bdf496c5ad1b74f4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\cb1ca3cc628fcad4bdf496c5ad1b74f4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\54d66a8eda1abc7d798d711d98474d88\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\54d66a8eda1abc7d798d711d98474d88\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\427c60bf1072fb657a9105968f5336f1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\427c60bf1072fb657a9105968f5336f1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce4141bdff641e6691185706f3facd9b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce4141bdff641e6691185706f3facd9b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\dca6572e5843cc16a0314f0c1b5209fe\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\dca6572e5843cc16a0314f0c1b5209fe\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4aafa019cd3bd0c04f2b0531eeb3c7bf\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4aafa019cd3bd0c04f2b0531eeb3c7bf\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f5694329311b972a69e8c03b9e19fb4c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\f5694329311b972a69e8c03b9e19fb4c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\890f3dc76c172af7d14e6add51d7d583\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\890f3dc76c172af7d14e6add51d7d583\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\fbc4fd9f487ffb9a39cb056625796e6d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\fbc4fd9f487ffb9a39cb056625796e6d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\a1449b9890a28aa665687b37f2c7ecb5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\a1449b9890a28aa665687b37f2c7ecb5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\355eaf72f81444e6fe67cc767094c5e7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\355eaf72f81444e6fe67cc767094c5e7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce371b94366f08ff841d9d611e677e6f\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\ce371b94366f08ff841d9d611e677e6f\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d4c8a9ce0462d447964930e722b32f2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d4c8a9ce0462d447964930e722b32f2e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\572cf4c3f2ed7f9535fa5a279958141a\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\572cf4c3f2ed7f9535fa5a279958141a\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\23e57a9dc053cf59760e723ec8bd3e72\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\23e57a9dc053cf59760e723ec8bd3e72\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\4ab16913fcb2578f98be7084f7e1cdb6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\00ea055e75f3ce28256b00bd6074892f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\00ea055e75f3ce28256b00bd6074892f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9aa4b4213908c8e8138f585b08ca5a0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e9aa4b4213908c8e8138f585b08ca5a0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\63863efb1e754dbfca93bb72965cecbe\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\63863efb1e754dbfca93bb72965cecbe\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d970fba0cc3ff8196f5306bfac77abc8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\d970fba0cc3ff8196f5306bfac77abc8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8f4fc3734b59eecb9a216a91d4a061a1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8f4fc3734b59eecb9a216a91d4a061a1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\222a71ac56452515c757fa827c4f0286\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\222a71ac56452515c757fa827c4f0286\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\522ee98c808d078494cdf4b20f8fc562\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\522ee98c808d078494cdf4b20f8fc562\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8dc5bfbc8a7d724ece719eaad5a8adeb\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\8dc5bfbc8a7d724ece719eaad5a8adeb\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9e46f470d1191c9f822186359a20bf09\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\9e46f470d1191c9f822186359a20bf09\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\0aa6d14dda2ee9167fa747fefc6659f5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\0aa6d14dda2ee9167fa747fefc6659f5\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e595316247ad946118a1082b311e4759\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\guilh\.gradle\caches\transforms-2\files-2.1\e595316247ad946118a1082b311e4759\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\guilh\Documents\projeto\-cartallum-app\android\app\src\main\AndroidManifest.xml

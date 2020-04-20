@@ -24,12 +24,12 @@
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_catalyst_slide_down.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\7ba359487ec94b3197db1b5744a6cde3\\res\\anim\\catalyst_slide_down.xml"
-    },
-    {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_color_highlight_material.xml.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_catalyst_slide_down.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\7ba359487ec94b3197db1b5744a6cde3\\res\\anim\\catalyst_slide_down.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -40,28 +40,28 @@
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\d653301dd5ccfa73f2de68d07e8c3b4d\\res\\anim-v21\\design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_menu_layout.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_menu_layout.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable\\tooltip_frame_dark.xml"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_mtrl.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable\\btn_radio_off_mtrl.xml"
-    },
-    {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_screen.png.flat",
         "source": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_off_mtrl.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable\\btn_radio_off_mtrl.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-mdpi_screen.png.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\427c60bf1072fb657a9105968f5336f1\\res\\anim\\fragment_fade_enter.xml"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_test_action_chip.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\d653301dd5ccfa73f2de68d07e8c3b4d\\res\\layout\\test_action_chip.xml"
-    },
-    {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\4ab16913fcb2578f98be7084f7e1cdb6\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_test_action_chip.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\d653301dd5ccfa73f2de68d07e8c3b4d\\res\\layout\\test_action_chip.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_tabs_ripple_color.xml.flat",
@@ -208,16 +208,16 @@
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_tooltip.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_tooltip.xml"
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\color-v23\\abc_tint_default.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_default.xml.flat",
-        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\color-v23\\abc_tint_default.xml"
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_tooltip.xml.flat",
+        "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\layout\\abc_tooltip.xml"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_mtrl_indicator_text_color.xml.flat",
@@ -1290,6 +1290,10 @@
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
         "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\4ab16913fcb2578f98be7084f7e1cdb6\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_icon.png.flat",
+        "source": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\src\\main\\res\\drawable\\icon.png"
     },
     {
         "merged": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
