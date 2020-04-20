@@ -31,24 +31,19 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     const [initialData, setInitialData] = useState('');
 
     useEffect(() => {
-
+        //evento para escutar o formulário
+        navigation.addListener('willFocus', () => {
+            console.log("is focused")
+            
+        });
 
         setLocale(constants.translation);
-        loadInitialData();
+       
     }, [])
 
-    function loadInitialData() {
-        setInitialData({
-            endereco: {
-                cep: '29500-000',
-                cidade: "Alegre",
-                estado: "Espírito Santo",
-                pais: "Brasil"
-            }
-        })
-    }
+     
 
-
+   
 
     /**
      * esta funç]ao faz o cadastro de família
@@ -146,10 +141,10 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                                 <Input name="bairro" label="Bairro" />
                                 <Input type="number" name="numero" label="Número (Opcional)" />
                                 <Input name="complemento" label="Complemento (Opcional)" />
-                                <Input name="cep" label="CEP" keyboardType="number-pad" />
-                                <Input name="cidade" label="Cidade" />
-                                <Input name="estado" label="Estado" />
-                                <Input name="pais" label="Pais" />
+                                <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
+                                <Input name="cidade" value="Alegre" label="Cidade" />
+                                <Input name="estado" value="Espírito Santo" label="Estado" />
+                                <Input name="pais" value="Brasil" label="Pais" />
                             </Scope>
                         </Form>
                         <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>

@@ -37,10 +37,12 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
 
 
     useEffect(() => {
-        console.log("is useEffect")
-        getAllFamilias();
 
-        return (() => { console.log("unmount") })
+        navigation.addListener('willFocus', () => {
+            console.log("is focused")
+            getAllFamilias();
+        });
+        getAllFamilias();
 
     }, []);
 
@@ -115,6 +117,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
             }
         }
     }
+
 
     return (
         <>

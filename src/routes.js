@@ -39,22 +39,13 @@ const Drawer = createAppContainer(createDrawerNavigator({
             title: 'Cadastrar Instituição'
         }
     },
-    DetalhesFamilia: {
-        screen: DetalhesFamilia,
-        navigationOptions: {
-            title: 'Detalhes',
-            headerShown: false,
-            gestureEnabled: false,
-        }
-    },
+
 
 
 
 }, {
-    unmountInactiveRoutes: true,
     contentComponent: CustomDrawer
-})
-)
+}));
 
 
 const Routes = createStackNavigator({
@@ -73,7 +64,19 @@ const Routes = createStackNavigator({
             headerShown: false
         }
     },
+    DetalhesFamilia: {
+        screen: DetalhesFamilia,
+        navigationOptions: {
+            title: 'Detalhes',
+            headerShown: false,
+            gestureEnabled: false,
+        }
+    },
+}, {
 
+     
 })
+
+ 
 
 export default createAppContainer(Routes);
