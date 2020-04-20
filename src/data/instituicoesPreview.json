@@ -1,0 +1,62 @@
+[
+    {
+        "tipo": "Admin",
+        "nomeInstituicao": "Eu estou aqui",
+        "email": "toaqui@mail.com",
+        "telefone": "2896385274",
+        "endereco": {
+            "rua": "Rua sete",
+            "bairro": "centro",
+            "numero": 375,
+            "cep": "29500-000",
+            "cidade": "Alegre",
+            "estado": "ES",
+            "pais": "BR"
+        }
+    },
+    {
+        "tipo": "Admin",
+        "nomeInstituicao": "Eu estou aqui",
+        "email": "toaqui@mail.com",
+        "telefone": "2896385274",
+        "endereco": {
+            "rua": "Rua sete",
+            "bairro": "centro",
+            "numero": 375,
+            "cep": "29500-000",
+            "cidade": "Alegre",
+            "estado": "ES",
+            "pais": "BR"
+        }
+    },
+    {
+        "tipo": "Admin",
+        "nomeInstituicao": "Eu estou aqui",
+        "email": "toaqui@mail.com",
+        "telefone": "2896385274",
+        "endereco": {
+            "rua": "Rua sete",
+            "bairro": "centro",
+            "numero": 375,
+            "cep": "29500-000",
+            "cidade": "Alegre",
+            "estado": "ES",
+            "pais": "BR"
+        }
+    },
+    {
+        "tipo": "Admin",
+        "nomeInstituicao": "Eu estou aqui",
+        "email": "toaqui@mail.com",
+        "telefone": "2896385274",
+        "endereco": {
+            "rua": "Rua sete",
+            "bairro": "centro",
+            "numero": 375,
+            "cep": "29500-000",
+            "cidade": "Alegre",
+            "estado": "ES",
+            "pais": "BR"
+        }
+    }
+]

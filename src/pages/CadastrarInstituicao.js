@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Form } from '@unform/mobile';
 import { setLocale } from 'yup';
 import { Scope } from '@unform/core';
@@ -15,50 +15,65 @@ import {
 import Input from '../components/Input';
 import * as Yup from 'yup';
 import * as constants from '../locales/yup-pt';
+import * as parse from '../components/Parse';
 import { connect } from "react-redux";
 import api from '../services/api';
 import { cleanAll } from '../store/actions/actionIntegrante';
 import Toolbar from '../components/Toolbar';
 
-function CadastrarInstituicao({ listaIntegrantes, navigation, cleanAll }) {
+function CadastrarInstituicao({ listaIntegrantes, navigation }) {
     const formRef = useRef(null);
+    const [initialData, setInitialData] = useState('');
 
     useEffect(() => {
+        
         setLocale(constants.translation);
+        loadInitialData();
     }, [])
 
+    function loadInitialData() {
+        setInitialData({
+            endereco: {
+                cep: '29500-000',
+                cidade: "Alegre",
+                estado: "Espírito Santo",
+                pais: "Brasil"
+            }
+        })
+    }
+    function goBack(){
 
+    }
     /**
      * esta funç]ao faz o cadastro de família
      * @param {Object} data / família 
      */
     async function registerInstituicao(data, reset) {
-        if (listaIntegrantes.length <= 0) {
-            Alert.alert("A família deve possuir pelo menos um integrante para ser cadastrada.")
-        } else {
-            try {
-                const response = await api.post('instituicao/cadastro', {
-                    nomeInstituicao: data.nomeInstituicao,
-                    tipo: data.type,
-                    email: data.email,
-                    password: data.password,
-                    telefone: data.telefone,
-                    endereco: data.endereco,
 
-                })
+        try {
+            const response = await api.post('instituicao/cadastro', {
+                nomeInstituicao: data.nomeInstituicao,
+                tipo: data.type,
+                email: data.email,
+                password: data.password,
+                telefone: data.telefone,
+                endereco: data.endereco,
+
+            })
+            var result = response.data;
+
+            if (parse.isSuccess(result)) {
                 console.log(response);
-                /* navigation.navigate('DetalhesFamilia',
-                    { item: response.data.success, screen: 'CadastrarFamilia' })
- */
-                //reseta formulário
+                navigation.navigate('DetalhesInstituicao');
                 reset();
-                //limpa lista integrantes
-                cleanAll();
-            } catch (error) {
-                console.log(error)
             }
 
+
+        } catch (error) {
+            console.log(error)
         }
+
+
     }
 
     /**
@@ -72,6 +87,11 @@ function CadastrarInstituicao({ listaIntegrantes, navigation, cleanAll }) {
             // Remove all previous errors
             formRef.current.setErrors({});
             const schema = Yup.object().shape({
+                nomeInstituicao: Yup.string().required('Este campo é obrigatório'),
+                type: Yup.string().required('Este campo é obrigatório'),
+                email: Yup.string().required('Este campo é obrigatório'),
+                password: Yup.string().required('Este campo é obrigatório'),
+                telefone: Yup.string(),
                 endereco: Yup.object().shape({
                     rua: Yup.string().required('Este campo é obrigatório'),
                     bairro: Yup.string().required('Este campo é obrigatório'),
@@ -115,21 +135,21 @@ function CadastrarInstituicao({ listaIntegrantes, navigation, cleanAll }) {
                 <ScrollView>
                     <View style={styles.container}>
 
-                        <Form ref={formRef} onSubmit={handleSubmit}>
+                        <Form ref={formRef} onSubmit={handleSubmit} initialData={initialData}>
                             <Input name="nomeInstituicao" label="Nome da Instituição" />
-                            <Input name="type" label="Tipo de usuario" />
+                            <Input name="type" label="Tipo de usuario" editable={false} value="cliente" />
                             <Input name="email" label="Email" />
                             <Input name="password" label="Senha" />
-                            <Input name="telefone" type="number" label="Telefone ou Celular" />
+                            <Input name="telefone" type="number" label="Telefone ou Celular(Opcional)" />
                             <Scope path="endereco">
                                 <Input name="rua" label="Rua" />
                                 <Input name="bairro" label="Bairro" />
                                 <Input type="number" name="numero" label="Número (Opcional)" />
                                 <Input name="complemento" label="Complemento (Opcional)" />
-                                <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
-                                <Input name="cidade" value="Alegre" label="Cidade" />
-                                <Input name="estado" value="Espírito Santo" label="Estado" />
-                                <Input name="pais" value="Brasil" label="Pais" />
+                                <Input name="cep" label="CEP" keyboardType="number-pad" />
+                                <Input name="cidade" label="Cidade" />
+                                <Input name="estado" label="Estado" />
+                                <Input name="pais" label="Pais" />
                             </Scope>
                         </Form>
                         <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>

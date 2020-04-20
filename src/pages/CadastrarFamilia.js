@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Form } from '@unform/mobile';
 import { setLocale } from 'yup';
 import { Scope } from '@unform/core';
@@ -16,18 +16,38 @@ import Input from '../components/Input';
 import FormIntegrante from '../components/FormIntegrante';
 import * as Yup from 'yup';
 import * as constants from '../locales/yup-pt';
+import * as parse from '../components/Parse';
+
 import { connect } from "react-redux";
 import api from '../services/api';
 import { cleanAll } from '../store/actions/actionIntegrante';
 import Toolbar from '../components/Toolbar';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
+
 
 function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     const formRef = useRef(null);
 
+    const [initialData, setInitialData] = useState('');
+
     useEffect(() => {
+
+
         setLocale(constants.translation);
+        loadInitialData();
     }, [])
+
+    function loadInitialData() {
+        setInitialData({
+            endereco: {
+                cep: '29500-000',
+                cidade: "Alegre",
+                estado: "Espírito Santo",
+                pais: "Brasil"
+            }
+        })
+    }
+
 
 
     /**
@@ -46,13 +66,17 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     dataCestas: []
                 })
                 console.log(response);
-                navigation.navigate('DetalhesFamilia',
-                    { item: response.data.success, screen: 'CadastrarFamilia' })
+                var result = response.data;
+                if (parse.isSuccess(result)) {
 
-                //reseta formulário
-                reset();
-                //limpa lista integrantes
-                cleanAll();
+                    navigation.navigate('DetalhesFamilia',
+                        { item: response.data.success, screen: 'CadastrarFamilia' })
+
+                    //reseta formulário
+                    reset();
+                    //limpa lista integrantes
+                    cleanAll();
+                }
             } catch (error) {
                 console.log(error)
             }
@@ -115,17 +139,17 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                 <ScrollView>
                     <FormIntegrante />
                     <View style={styles.container}>
-                        <Form ref={formRef} onSubmit={handleSubmit}>
+                        <Form ref={formRef} onSubmit={handleSubmit} initialData={initialData}>
                             <Input name="renda" label="Renda Percapita" />
                             <Scope path="endereco">
                                 <Input name="rua" label="Rua" />
                                 <Input name="bairro" label="Bairro" />
                                 <Input type="number" name="numero" label="Número (Opcional)" />
                                 <Input name="complemento" label="Complemento (Opcional)" />
-                                <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
-                                <Input name="cidade" value="Alegre" label="Cidade" />
-                                <Input name="estado" value="Espírito Santo" label="Estado" />
-                                <Input name="pais" value="Brasil" label="Pais" />
+                                <Input name="cep" label="CEP" keyboardType="number-pad" />
+                                <Input name="cidade" label="Cidade" />
+                                <Input name="estado" label="Estado" />
+                                <Input name="pais" label="Pais" />
                             </Scope>
                         </Form>
                         <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>

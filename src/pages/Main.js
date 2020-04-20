@@ -4,38 +4,48 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Alert,
-    SafeAreaView,
     ScrollView,
+    TextInput,
     FlatList,
-    TouchableHighlight
 } from 'react-native';
+import RadioForm, {
+    RadioButton,
+    RadioButtonInput,
+    RadioButtonLabel
+} from 'react-native-simple-radio-button';
 import { TextInputMask } from 'react-native-masked-text';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Card from '../components/Card';
 import api from '../services/api';
 import { connect } from "react-redux";
 import { familiaAll, familiaFilter } from '../store/actions/actionFamilia';
-import SideMenu from 'react-native-side-menu';
-import Menu from '../components/Menu';
 import Toolbar from '../components/Toolbar';
+import * as parse from '../components/Parse';
 
-function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
-    const [isOpen, setIsOpen] = useState(false);
+
+const radio_props = [
+    { label: 'Nome', value: 0 },
+    { label: 'CPF', value: 1 }
+]
+
+function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao }) {
+    const [searchOption, setSearchOption] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [isvalue, setIsValue] = useState('');
-    const [isErro, setErro] = useState('');
     const [isBusca, setBusca] = useState(false);
+    const [isErro, setErro] = useState(false);
 
-    const menu = <Menu navigator={navigator} />;
 
     useEffect(() => {
-
+        console.log("is useEffect")
         getAllFamilias();
+
+        return (() => { console.log("unmount") })
 
     }, []);
 
     async function getAllFamilias() {
+        console.log("teste")
         try {
             await familiaAll()
             const timer = setTimeout(() => {
@@ -45,17 +55,16 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
 
         } catch (error) {
             console.log(error)
-            setErro('Erro ao carrega familias')
+            parse.showToast("Não foi possível carregar famílias. Tente novamente.");
         }
 
     }
 
     function limparTex() {
-        console.log("fooooi", isBusca)
+        setErro(false)
         if (isBusca) {
             setIsVisible(false)
             setIsValue('')
-            setErro('')
             getAllFamilias()
             setBusca(false)
         } else {
@@ -64,13 +73,20 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
 
     }
 
+    /**
+     * função para filtrar uma família específica
+     */
     async function buscarFamilia() {
 
-        if (isvalue.length > 12) {
+        if (isvalue.length < 12 && searchOption === 1) {
+            parse.showToast("CPF incompleto, tente novamente");
+        }
+        else if (isvalue !== '') {
             setIsVisible(false)
             try {
                 const response = await api.post('data/busca_familia', {
-                    cpf: isvalue
+                    nomeCompleto: searchOption == 0 ? isvalue : '',
+                    cpf: searchOption == 1 ? isvalue : ''
                 })
                 console.log('response', response);
                 if (response.data.length > 0) {
@@ -85,26 +101,20 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
                     return () => clearTimeout(timer);
 
                 } else {
-                    setErro('Nenhuma família foi encontrada')
+                    setIsVisible(true)
+                    parse.showToast("Nenhuma família encontrada.");
+                    setErro(true)
                 }
 
 
 
             } catch (error) {
-                setErro('Erro! Não foi possivel encontrar integrante/familía')
                 getAllFamilias()
                 setBusca(false)
                 console.log(error)
             }
-        } else {
-            Alert.alert('Insira um CPF válido e tente novamente')
         }
-
     }
-    function updateMenuState(isOpen) {
-        console.log(isOpen);
-    }
-
 
     return (
         <>
@@ -113,46 +123,94 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
                 navigation={() => navigation.toggleDrawer()}
                 menu={true}
             />
+
             <ScrollView style={styles.scrollView}>
-                <TouchableOpacity
+                {/*  <TouchableOpacity
                     style={styles.cadastrar}
                     onPress={() => navigation.navigate('CadastrarFamilia')}
                 >
                     <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
                     <Icon name="chevron-right" size={30} color="#272936" />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+
+                <View style={styles.segment}>
+                    <Text style={styles.txtCadastrar}> Buscar por:</Text>
+                    <View style={{ marginBottom: -5 }}>
+                        <RadioForm
+                            formHorizontal={true}
+                            animation={true}
+                        >
+                            {
+                                radio_props.map((obj, i) => (
+                                    <RadioButton labelHorizontal={true} key={i} >
+                                        {/*  You can set RadioButtonLabel before RadioButtonInput */}
+                                        <RadioButtonInput
+                                            obj={obj}
+                                            index={i}
+                                            isSelected={searchOption === i}
+                                            onPress={(value) => setSearchOption(value)}
+                                            borderWidth={1}
+                                            buttonInnerColor={'#272936'}
+                                            buttonOuterColor={'#272936'}
+                                            buttonSize={17}
+                                            buttonOuterSize={25}
+                                            buttonStyle={{}}
+                                            buttonWrapStyle={{ marginLeft: 10 }}
+                                        />
+                                        <RadioButtonLabel
+                                            obj={obj}
+                                            index={i}
+                                            labelHorizontal={true}
+                                            onPress={(value) => setSearchOption(value)}
+                                            labelStyle={{ fontSize: 16, color: '#272936' }}
+                                            labelWrapStyle={{}}
+                                        />
+                                    </RadioButton>
+                                ))
+                            }
+                        </RadioForm>
+                    </View>
+                </View>
                 <View style={styles.cardContainer}>
                     {
-                        isErro ?
-                            <View style={styles.loading}>
-                                <Text>{isErro}</Text>
-                            </View>
-                            :
+                        (!isErro) &&
+                        <FlatList
+                            style={styles.flatlist}
+                            data={listaFamilia}
+                            extraData={listaFamilia}
+                            keyExtractor={(item, index) => index.toString()}
+                            renderItem={({ item }) =>
+                                <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
+                                    <Card item={item} isVisible={isVisible} />
+                                </TouchableOpacity>
 
-                            <FlatList
-                                style={styles.flatlist}
-                                data={listaFamilia}
-                                extraData={listaFamilia}
-                                keyExtractor={(item, index) => index.toString()}
-                                renderItem={({ item }) =>
-                                    <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
-                                        <Card item={item} isVisible={isVisible} />
-                                    </TouchableOpacity>
-
-                                }
-                            />
+                            }
+                        />
                     }
                 </View>
+
                 <View style={styles.searchForm}>
                     <View style={styles.searchInput}>
-                        <TextInputMask
-                            style={{ flex: 1 }}
-                            type={'cpf'}
-                            value={isvalue}
-                            placeholderTextColor="#666"
-                            placeholder="Busque uma família por CPF.."
-                            onChangeText={(value) => setIsValue(value)}
-                        />
+                        {searchOption === 0 ?
+                            <TextInput
+                                style={{ flex: 1 }}
+                                autoCapitalize="words"
+                                value={isvalue}
+                                keyboardType="default"
+                                placeholderTextColor="#666"
+                                placeholder="Busque uma família por Nome.."
+                                onChangeText={(value) => setIsValue(value)}
+                            /> :
+                            <TextInputMask
+                                style={{ flex: 1 }}
+                                type={'cpf'}
+                                value={isvalue}
+                                placeholderTextColor="#666"
+                                placeholder="Busque uma família por CPF.."
+                                onChangeText={(value) => setIsValue(value)}
+                            />
+                        }
+
                         <View>
                             {
                                 isvalue.length > 0 ?
@@ -174,9 +232,26 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter }) {
 
 const styles = StyleSheet.create({
     loading: {
-
         marginTop: 50,
         alignSelf: 'center'
+    },
+    segment: {
+        borderRadius: 25,
+        backgroundColor: "#fff",
+        marginTop: 20,
+        marginHorizontal: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 11,
+        shadowColor: "#000",
+        shadowOpacity: 0.2,
+        shadowOffset: {
+            width: 4,
+            height: 4,
+        },
+        elevation: 3,
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexDirection: "row"
     },
     scrollView: {
         backgroundColor: "#eee"
@@ -211,7 +286,7 @@ const styles = StyleSheet.create({
     },
     searchForm: {
         position: "absolute",
-        top: 95,
+        top: 90,//160
         left: 20,
         right: 20,
         zIndex: 10,
@@ -261,7 +336,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-        listaFamilia: state.reducerFamilia.listaFamilia
+        listaFamilia: state.reducerFamilia.listaFamilia,
+        instituicao: state.reducerInstituicao.instituicao
     };
 };
 

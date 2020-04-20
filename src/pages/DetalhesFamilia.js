@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert, AsyncStorage, Platform } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    FlatList,
+    Text,
+    TouchableOpacity,
+    Alert,
+} from 'react-native';
 import moment from 'moment';
 import { ScrollView } from 'react-native-gesture-handler';
 import api from '../services/api';
@@ -7,47 +14,35 @@ import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { familiaAll } from '../store/actions/actionFamilia';
 import { connect } from "react-redux";
 import Toolbar from '../components/Toolbar';
+import * as parse from '../components/Parse';
+import Loading from '../components/Loading';
 
-
-function DetalhesFamilia({ navigation, familiaAll }) {
-
+function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
+    const [spinner, setSpinner] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
-    const [instituicao, setInstituicao] = useState({});
-    const [item, setItem] = useState(navigation.getParam('item'))
+    const [item, setItem] = useState(navigation.getParam('item'));
 
     //serve para sabe se a família foi cadastrada
     const screen = navigation.getParam('screen');
 
-    const date = new Date();
 
     useEffect(() => {
-        //vericação se veio da tela cadastrar família
+
         if (screen != undefined) {
-            Alert.alert("Família cadastrada com sucesso!");
+            parse.showToast("Família cadastrada com sucesso!");
         }
 
-        /**
-         * função para capturar instituição do async storage
-         */
-        async function getInstituicao() {
-            try {
-
-                const instituição = JSON.parse(await AsyncStorage.getItem('@instituicao'));
-
-
-                setInstituicao(instituição);
-            } catch (error) {
-                console.log(error)
-            }
-        };
-        getInstituicao()
+        setItem(navigation.getParam('item'));
 
         const timer = setTimeout(() => {
-            setIsVisible(true)
+            setIsVisible(true);
         }, 1000);
         return () => clearTimeout(timer);
 
+
     }, [])
+
+
 
     /**
      * esta função exibe um alert para o usuário confirmar a doação da cesta.
@@ -67,6 +62,7 @@ function DetalhesFamilia({ navigation, familiaAll }) {
      * esta função faz adiciona uma cesta no array de cestas.
      */
     async function donation() {
+        setSpinner(true)
         try {
             const response = await api.post('data/update_cesta', {
                 id: item._id, //id que vem do item no params.
@@ -77,15 +73,22 @@ function DetalhesFamilia({ navigation, familiaAll }) {
                     }
                 ]
             })
+
             setItem(response.data.familia[0])
             familiaAll()
-            Alert.alert("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
+            setSpinner(false)
+            parse.showToast("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
+
+
+
         } catch (error) {
+            setSpinner(false)
+            parse.showToast("Não foi possível doar a cesta. Por favor, tente novamente.");
             console.log(error)
         }
+
     }
 
-    console.log('item', item);
 
     return (
         <>
@@ -93,16 +96,17 @@ function DetalhesFamilia({ navigation, familiaAll }) {
                 title="Detalhes"
                 navigation={() => navigation.navigate('Main')}
             />
+            <Loading text="Carregando" isVisible={spinner} />
             <ScrollView>
                 <View style={styles.principal}>
                     <Text style={styles.h1}>Dados Básicos</Text>
                     <View style={styles.container}>
                         <View style={styles.row}>
 
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={90} style={{ marginRight: 10 }}>
                                 <Text style={styles.titulo}>Última Cesta:</Text>
                             </ShimmerPlaceHolder>
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={90}>
                                 {
                                     item.dataCestas.length > 0 && item.dataCestas != undefined ?
                                         <Text style={{ color: "green" }}>
@@ -115,10 +119,10 @@ function DetalhesFamilia({ navigation, familiaAll }) {
                         <View style={styles.row}>
                             {item.dataCestas.length > 0 && item.dataCestas != undefined ?
                                 <>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>Doada por:</Text>
                                     </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={60}>
                                         <Text>{item.dataCestas[item.dataCestas.length - 1].nomeInstituicao}</Text>
                                     </ShimmerPlaceHolder>
                                 </>
@@ -127,18 +131,18 @@ function DetalhesFamilia({ navigation, familiaAll }) {
 
                         </View>
                         <View style={styles.row}>
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                 <Text style={styles.titulo}>Renda Percapita:</Text>
                             </ShimmerPlaceHolder>
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={60}>
                                 <Text>{"R$ " + item.rendaPercapita}</Text>
                             </ShimmerPlaceHolder>
                         </View>
                         <View style={[styles.row, { marginBottom: 20 }]}>
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                 <Text style={styles.titulo}>Endereço:</Text>
                             </ShimmerPlaceHolder>
-                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
+                            <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} height={30} width={280} style={{ marginTop: 10 }}>
                                 <Text>{item.endereco.rua + ", " +
                                     (item.endereco.numero != null ? item.endereco.numero : 's/n') + ", " +
                                     (item.endereco.complemento !== "" && item.endereco.complemento !== undefined ?
@@ -175,34 +179,34 @@ function DetalhesFamilia({ navigation, familiaAll }) {
                         renderItem={({ item, index }) =>
                             <View style={[styles.container, { marginBottom: 30 }]}>
                                 <View style={styles.row}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>Nome Completo:</Text>
                                     </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={140}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={140}>
                                         <Text>{item.nomeCompleto}</Text>
                                     </ShimmerPlaceHolder>
                                 </View>
                                 <View style={styles.row}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={50} style={{ marginRight: 10 }}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={50} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>CPF:</Text>
                                     </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={130}>
                                         <Text>{item.cpf}</Text>
                                     </ShimmerPlaceHolder>
                                 </View>
                                 <View style={[styles.row]}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={130} style={{ marginRight: 10 }}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={130} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>Data de Nascimento:</Text>
                                     </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100}>
                                         <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
                                     </ShimmerPlaceHolder>
                                 </View>
                                 <View style={[styles.row, { marginBottom: 20 }]}>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>Telefone:</Text>
                                     </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100}>
                                         <Text></Text>
                                     </ShimmerPlaceHolder>
                                 </View>
@@ -240,6 +244,9 @@ const styles = StyleSheet.create({
 
 
     },
+    spinnerTextStyle: {
+        color: '#FFF'
+    },
     row: {
         flexDirection: "row",
         marginVertical: 5,
@@ -274,7 +281,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-
+        instituicao: state.reducerInstituicao.instituicao
     };
 };
 
