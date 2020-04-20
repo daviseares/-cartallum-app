@@ -10,6 +10,7 @@ import CadastrarInstituicao from './pages/CadastrarInstituicao'
 import CustomDrawer from './components/Drawer/customDrawer';
 import Login from './pages/Login';
 
+
 const Drawer = createAppContainer(createDrawerNavigator({
     Main: {
         screen: Main,
@@ -61,7 +62,8 @@ const Routes = createStackNavigator({
         screen: Drawer,
         navigationOptions: {
             gestureEnabled: false,
-            headerShown: false
+            headerShown: false,
+            animationEnabled: false,
         }
     },
     DetalhesFamilia: {
@@ -70,13 +72,13 @@ const Routes = createStackNavigator({
             title: 'Detalhes',
             headerShown: false,
             gestureEnabled: false,
+            animationEnabled: false,
         }
     },
 }, {
 
-     
+
 })
 
- 
 
 export default createAppContainer(Routes);

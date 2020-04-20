@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 function CustomDrawer({ instituicao, items, ...props }) {
 
 
-    const filteredItems = instituicao.type === 'cliente' ? items.filter(item => (item.key === "Main" || item.key === "CadastrarFamilia")) : items;
+    const filteredItems = instituicao.tipo === 'cliente' ? items.filter(item => (item.key === "Main" || item.key === "CadastrarFamilia")) : items;
 
     return (
         <SafeAreaView>

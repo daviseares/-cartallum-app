@@ -8,7 +8,6 @@ export default function Card({ item, isVisible }) {
 
     return (
         <>
-
             <View style={styles.principal} >
                 <View style={styles.row}>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
@@ -38,20 +37,32 @@ export default function Card({ item, isVisible }) {
                 </View>
                 <View style={styles.row}>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                        <Text style={styles.titulo}>Renda Percapita:</Text>
+                        <Text style={styles.titulo}>Quantidade de pessoas:</Text>
+                    </ShimmerPlaceHolder>
+                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                        <Text>{item.integrantes.length}</Text>
+                    </ShimmerPlaceHolder>
+                </View>
+                <View style={styles.row}>
+                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                        <Text style={styles.titulo}>Renda Familiar:</Text>
                     </ShimmerPlaceHolder>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
                         <Text>{"R$ " + (item.rendaPercapita).toLocaleString('pt-BR')}</Text>
                     </ShimmerPlaceHolder>
                 </View>
-                <View style={styles.row}>
-                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                        <Text style={styles.titulo}>Telefone:</Text>
-                    </ShimmerPlaceHolder>
-                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
-                        <Text>(28) 99959-8776</Text>
-                    </ShimmerPlaceHolder>
-                </View>
+                {item.integrantes[0].telefone !== '' && item.integrantes[0].telefone ?
+                    <View style={styles.row}>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                            <Text style={styles.titulo}>Telefone:</Text>
+                        </ShimmerPlaceHolder>
+                        <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                            <Text>{item.integrantes[0].telefone}</Text>
+                        </ShimmerPlaceHolder>
+                    </View>
+                    : null
+                }
+
                 <View style={styles.row}>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                         <Text style={styles.titulo}>Endereço:</Text>

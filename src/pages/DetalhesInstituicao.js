@@ -29,7 +29,7 @@ export default function DetalhesInstituicao({ navigation }) {
             return () => clearTimeout(timer);
 
         } catch (error) {
-             
+
             parse.showToast("Erro, tente novamente!");
             console.log("Error", error)
         }
@@ -82,14 +82,20 @@ export default function DetalhesInstituicao({ navigation }) {
                                     <Text>{item.email}</Text>
                                 </ShimmerPlaceHolder>
                             </View>
-                            <View style={[styles.row]}>
-                                <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                                    <Text style={styles.titulo}>Telefone:</Text>
-                                </ShimmerPlaceHolder>
-                                <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
-                                    <Text>{item.telefone}</Text>
-                                </ShimmerPlaceHolder>
-                            </View>
+                            {item.telefone !== '' ?
+                                <View style={[styles.row]}>
+
+
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Telefone:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100}>
+                                        <Text>{item.telefone}</Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                                :
+                                null
+                            }
                             <View style={styles.row}>
                                 <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
                                     <Text style={styles.titulo}>Endereço:</Text>

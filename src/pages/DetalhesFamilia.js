@@ -99,7 +99,7 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
             <Loading text="Carregando" isVisible={spinner} />
             <ScrollView>
                 <View style={styles.principal}>
-                    <Text style={styles.h1}>Dados Básicos</Text>
+                    <Text style={styles.h1}>Dados Gerais</Text>
                     <View style={styles.container}>
                         <View style={styles.row}>
 
@@ -131,8 +131,16 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
 
                         </View>
                         <View style={styles.row}>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                <Text style={styles.titulo}>Quantidade de pessoas:</Text>
+                            </ShimmerPlaceHolder>
+                            <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
+                                <Text>{item.integrantes.length}</Text>
+                            </ShimmerPlaceHolder>
+                        </View>
+                        <View style={styles.row}>
                             <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                                <Text style={styles.titulo}>Renda Percapita:</Text>
+                                <Text style={styles.titulo}>Renda Familiar:</Text>
                             </ShimmerPlaceHolder>
                             <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={60}>
                                 <Text>{"R$ " + item.rendaPercapita}</Text>
@@ -168,6 +176,38 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
                     }
 
                 </View>
+                <View style={[styles.principal]}>
+                    <Text style={styles.h1}>Cestas Recebidas</Text>
+
+                    <FlatList
+                        style={styles.flatlist}
+                        data={item.dataCestas}
+                        extraData={item.dataCestas}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={({ item, index }) =>
+                            <View style={[styles.container, { marginBottom: 15 }]}>
+                                <View style={styles.row}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Doada por:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={60}>
+                                        <Text>{item.nomeInstituicao}</Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                                <View style={[styles.row, { marginBottom: 20 }]}>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={90} style={{ marginRight: 10 }}>
+                                        <Text style={styles.titulo}>Última Cesta:</Text>
+                                    </ShimmerPlaceHolder>
+                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={90}>
+                                        <Text style={{ color: "green" }}>
+                                            Recebida em {item.data}
+                                        </Text>
+                                    </ShimmerPlaceHolder>
+                                </View>
+                            </View>
+                        }
+                    />
+                </View>
                 <View style={[styles.principal, { marginBottom: 50 }]}>
                     <Text style={styles.h1}>Integrantes da Família</Text>
 
@@ -194,7 +234,17 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
                                         <Text>{item.cpf}</Text>
                                     </ShimmerPlaceHolder>
                                 </View>
-                                <View style={[styles.row]}>
+                                {item.telefone !== '' && item.telefone ?
+                                    <View style={[styles.row]}>
+                                        <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
+                                            <Text style={styles.titulo}>Telefone:</Text>
+                                        </ShimmerPlaceHolder>
+                                        <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100}>
+                                            <Text>{item.telefone}</Text>
+                                        </ShimmerPlaceHolder>
+                                    </View>
+                                    : null}
+                                <View style={[styles.row, { marginBottom: 20 }]} >
                                     <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={130} style={{ marginRight: 10 }}>
                                         <Text style={styles.titulo}>Data de Nascimento:</Text>
                                     </ShimmerPlaceHolder>
@@ -202,14 +252,7 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
                                         <Text>{moment(item.dataNascimento).format("DD/MM/YYYY")}</Text>
                                     </ShimmerPlaceHolder>
                                 </View>
-                                <View style={[styles.row, { marginBottom: 20 }]}>
-                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100} style={{ marginRight: 10 }}>
-                                        <Text style={styles.titulo}>Telefone:</Text>
-                                    </ShimmerPlaceHolder>
-                                    <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={100}>
-                                        <Text></Text>
-                                    </ShimmerPlaceHolder>
-                                </View>
+
                             </View>
                         }
                     />
@@ -227,6 +270,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 25,
     },
     container: {
+        margin:5,
         backgroundColor: "#fff",
         paddingTop: 20,
         paddingBottom: 10,

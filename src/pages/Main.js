@@ -40,6 +40,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
 
         navigation.addListener('willFocus', () => {
             console.log("is focused")
+            setIsValue('')
             getAllFamilias();
         });
         getAllFamilias();
@@ -62,7 +63,21 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
 
     }
 
-    function limparTex() {
+    /**
+     * 
+     * @param {String} value 
+     */
+    function changeValue(value) {
+        if (value.length == 0) {
+            limpartText();
+        }
+        setIsValue(value);
+    }
+
+    /**
+     * 
+     */
+    function limpartText() {
         setErro(false)
         if (isBusca) {
             setIsVisible(false)
@@ -74,7 +89,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
         }
 
     }
-
+    console.log(instituicao)
     /**
      * função para filtrar uma família específica
      */
@@ -91,9 +106,10 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                     cpf: searchOption == 1 ? isvalue : ''
                 })
                 console.log('response', response);
-                if (response.data.length > 0) {
 
-                    familiaFilter(response.data);
+                if (parse.isSuccess(response.data)) {
+
+                    familiaFilter(response.data.familia);
                     setBusca(true);
 
                     const timer = setTimeout(() => {
@@ -117,6 +133,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
             }
         }
     }
+
 
 
     return (
@@ -202,7 +219,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                                 keyboardType="default"
                                 placeholderTextColor="#666"
                                 placeholder="Busque uma família por Nome.."
-                                onChangeText={(value) => setIsValue(value)}
+                                onChangeText={(value) => changeValue(value)}
                             /> :
                             <TextInputMask
                                 style={{ flex: 1 }}
@@ -210,14 +227,14 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                                 value={isvalue}
                                 placeholderTextColor="#666"
                                 placeholder="Busque uma família por CPF.."
-                                onChangeText={(value) => setIsValue(value)}
+                                onChangeText={(value) => changeValue(value)}
                             />
                         }
 
                         <View>
                             {
                                 isvalue.length > 0 ?
-                                    <Icon name="close" size={20} color="#000" onPress={() => limparTex()} />
+                                    <Icon name="close" size={20} color="#000" onPress={() => limpartText()} />
                                     :
                                     <></>
                             }

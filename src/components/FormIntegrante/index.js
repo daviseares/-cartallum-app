@@ -133,7 +133,7 @@ class FormData extends Component {
                 />
                 <Text></Text>
                 <View style={styles.container}>
-                    <Text style={styles.txtNome}>Nome</Text>
+                    <Text style={styles.txtNome}>Nome Completo</Text>
                     <TextInput
                         style={styles.campo}
                         value={this.state.nomeUnico}

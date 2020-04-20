@@ -135,12 +135,12 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     <FormIntegrante />
                     <View style={styles.container}>
                         <Form ref={formRef} onSubmit={handleSubmit} initialData={initialData}>
-                            <Input name="renda" label="Renda Percapita" />
+                            <Input name="renda" label="Renda Familiar" />
                             <Scope path="endereco">
                                 <Input name="rua" label="Rua" />
                                 <Input name="bairro" label="Bairro" />
-                                <Input type="number" name="numero" label="Número (Opcional)" />
-                                <Input name="complemento" label="Complemento (Opcional)" />
+                                <Input type="number" name="numero" label="Número(Opcional)" />
+                                <Input name="complemento" label="Complemento/Referência(Opcional)" />
                                 <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
                                 <Input name="cidade" value="Alegre" label="Cidade" />
                                 <Input name="estado" value="Espírito Santo" label="Estado" />
