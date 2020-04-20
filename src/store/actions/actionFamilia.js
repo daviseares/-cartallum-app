@@ -13,6 +13,7 @@ export const familiaAll = () => {
         return (dispath) => {
             api.get('data/get_familia')
                 .then(response => {
+                    console.log(response)
                     dispath({
                         type: FAMILIA_ALL,
                         payload: response.data.familia

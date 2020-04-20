@@ -1,4 +1,4 @@
-#Sun Apr 19 14:56:30 BRT 2020
-base.0=/Users/davi/Desktop/projetos/-cartallum-app/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Sun Apr 19 22:42:37 BRT 2020
+base.0=C\:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

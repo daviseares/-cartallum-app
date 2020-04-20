@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/davi/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-si/values-si.xml",
+            "outputFile": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-si\\values-si.xml",
             "map": [
                 {
-                    "source": "/Users/davi/.gradle/caches/transforms-2/files-2.1/621654d7c730f218aa205cf6533274d9/res/values-si/values-si.xml",
+                    "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\bee490c72ff342054c0809d9ef0bb1b4\\res\\values-si\\values-si.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/davi/.gradle/caches/transforms-2/files-2.1/54511559359196f33d41918e7b32a553/res/values-si/values-si.xml",
+                    "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\4ab16913fcb2578f98be7084f7e1cdb6\\res\\values-si\\values-si.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
