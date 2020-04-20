@@ -9,6 +9,7 @@ import CadastrarFamilia from './pages/CadastrarFamilia';
 import CadastrarInstituicao from './pages/CadastrarInstituicao'
 import CustomDrawer from './components/Drawer/customDrawer';
 import Login from './pages/Login';
+import Sobre from './pages/Sobre';
 
 
 const Drawer = createAppContainer(createDrawerNavigator({
@@ -38,6 +39,12 @@ const Drawer = createAppContainer(createDrawerNavigator({
         screen: CadastrarInstituicao,
         navigationOptions: {
             title: 'Cadastrar Instituição'
+        }
+    },
+    Sobre: {
+        screen: Sobre,
+        navigationOptions: {
+            title: 'Sobre o aplicativo'
         }
     },
 

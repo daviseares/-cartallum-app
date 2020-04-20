@@ -10,16 +10,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 function CustomDrawer({ instituicao, items, ...props }) {
 
 
-    const filteredItems = instituicao.tipo === 'cliente' ? items.filter(item => (item.key === "Main" || item.key === "CadastrarFamilia")) : items;
+    const filteredItems = instituicao.tipo === 'cliente' ? items.filter(item => (item.key === "Main" || item.key === "CadastrarFamilia" || item.key === "Sobre")) : items;
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
 
             <View style={styles.perfil}>
                 <Text style={styles.nameInstituicao}>Olá, {instituicao.nomeInstituicao}</Text>
             </View>
 
-            <DrawerNavigatorItems items={filteredItems} {...props} activeTintColor="#5849be"/>
+            <DrawerNavigatorItems items={filteredItems} {...props} activeTintColor="#5849be" />
+
+            <View style={styles.creditos}>
+                <Text style={styles.txtCreditos}>BETA v1.0.1</Text>
+            </View>
+
         </SafeAreaView>
     );
 }
@@ -28,6 +33,15 @@ const styles = StyleSheet.create({
     avatar: {
         width: 70,
         height: 70
+    },
+    txtCreditos: {
+        color: '#fff'
+    },
+    creditos: {
+        position: "absolute",
+        bottom: 10,
+        padding:5,
+        backgroundColor: "#00000095"
     },
     perfil: {
         alignItems: "center",

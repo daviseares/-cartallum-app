@@ -5,7 +5,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 // import { Container } from './styles';
 
-export default function Toolbar({ title, navigation, menu = false, }) {
+export default function Toolbar({ title, navigation, menu = false, about = false }) {
     return (
         <>
             <View style={styles.toolbar}>
@@ -29,7 +29,7 @@ export default function Toolbar({ title, navigation, menu = false, }) {
                 }
                 <Text style={styles.txtToolbar}>{title}</Text>
                 <View style={styles.lema}>
-                    <Text style={styles.txtLema}>Rede de Caridade</Text>
+                    <Text style={styles.txtLema}>{!about ? "Rede de Caridade" : null}</Text>
                 </View>
             </View>
         </>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     lema: {
         position: "absolute",
         right: 20,
-        bottom:5,
+        bottom: 5,
         width: 80,
 
     },
