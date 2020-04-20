@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert, FlatList } from 'react
 import * as Yup from 'yup';
 import moment from 'moment';
 import { TextInputMask } from 'react-native-masked-text'
-import  Icon  from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native-gesture-handler';
 import { connect } from "react-redux";
 import { addIntegrante, removeIntegrante } from '../../store/actions/actionIntegrante';
@@ -15,6 +15,7 @@ class FormData extends Component {
             nomeUnico: '',
             cpfUnico: '',
             dataUnica: '',
+            telefoneUnico: '',
             listaIntegrantes: [],
             data: {}
         }
@@ -39,13 +40,15 @@ class FormData extends Component {
                     var data = {
                         nomeCompleto: this.state.nomeUnico,
                         cpf: this.state.cpfUnico,
-                        dataNascimento: this.state.dataUnica
+                        dataNascimento: this.state.dataUnica,
+                        telefone: this.state.telefoneUnico
                     }
                     try {
                         const schema = Yup.object().shape({
                             nomeCompleto: Yup.string().required('Este campo é obrigatório'),
                             cpf: Yup.string().required('Este campo é obrigatório'),
-                            dataNascimento: Yup.date().required('Este campo é obrigatório')
+                            dataNascimento: Yup.date().required('Este campo é obrigatório'),
+                            telefone: Yup.string()
                         })
                         //função de validação
                         await schema.validate(data, {
@@ -56,7 +59,7 @@ class FormData extends Component {
                         this.setState({ data: {} })
                         this.props.addIntegrante(data);
 
-                        this.setState({ cpfUnico: '', nomeUnico: '', dataUnica: '' })
+                        this.setState({ cpfUnico: '', nomeUnico: '', dataUnica: '', telefoneUnico: '' })
 
                     } catch (err) {
                         const validationErrors = {};
@@ -121,6 +124,10 @@ class FormData extends Component {
                                 <Text style={styles.titulo}>Data de Nascimento:</Text>
                                 <Text>{item.dataNascimento.split('-').reverse().join('/')}</Text>
                             </View>
+                            <View style={styles.row}>
+                                <Text style={styles.titulo}>Telefone:</Text>
+                                <Text>{item.telefone}</Text>
+                            </View>
                         </View>
                     }
                 />
@@ -156,6 +163,21 @@ class FormData extends Component {
                     />
                     {this.state.data.dataNascimento &&
                         <Text style={styles.error}>{this.state.data.dataNascimento}</Text>}
+                    <Text style={styles.txtNome}>Telefone</Text>
+                    <TextInputMask
+                        type={'cel-phone'}
+                        options={{
+                            maskType: 'BRL',
+                            withDDD: true,
+                            dddMask: '(99) '
+                        }}
+                        style={styles.campo}
+                        value={this.state.telefoneUnico}
+                        onChangeText={(text) => this.setState({ telefoneUnico: text })}
+                    />
+                    {this.state.data.telefone &&
+                        <Text style={styles.error}>{this.state.data.telefone}</Text>}
+
                     <TouchableOpacity style={styles.addButton} onPress={() => this.adicionarIntegrante()}>
                         <Text style={styles.addButtonText}>Adicionar Integrante</Text>
                     </TouchableOpacity>
@@ -224,7 +246,7 @@ const styles = StyleSheet.create({
     campo: {
         marginBottom: 15,
         paddingHorizontal: 12,
-        paddingVertical: 12,
+        paddingVertical: 5,
         borderRadius: 4,
         borderWidth: 2,
         borderColor: '#ddd',

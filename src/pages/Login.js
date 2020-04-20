@@ -4,20 +4,22 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    ActivityIndicator,
     StyleSheet,
     AsyncStorage,
+    ActivityIndicator,
     Alert,
 } from 'react-native';
 import api from '../services/api';
 import { connect } from "react-redux";
-
+//import Toast from 'react-native-simple-toast';
+import * as parse from '../components/Parse';
 import { dataInstituicao } from '../store/actions/actionInstituicao'
-
+import Loading from '../components/Loading';
 function Login({ navigation, dataInstituicao }) {
 
-    const [data, setData] = useState(null);
+
     const [email, setEmail] = useState('');
+    const [isSplash, setIsSplash] = useState(true)
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
@@ -36,14 +38,15 @@ function Login({ navigation, dataInstituicao }) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
                     await api.get('/projects')
                     dataInstituicao(instituicao)
-                    setData(null)
                     navigation.navigate("Main")
-
+                    setIsSplash(false);
                 } else {
-                    setData(false)
+                    setIsSplash(false);
                 }
             } catch (erro) {
-                setData(false)
+                console.log(erro);
+                parse.showToast("Algo deu errado, tente novamente!");
+                setIsSplash(false);
             }
         }
         fetchData();
@@ -56,14 +59,14 @@ function Login({ navigation, dataInstituicao }) {
     async function authentication() {
 
         if (email != '' && password != '') {
-            setData(null)
+            setIsLoading(true)
             try {
                 const response = await api.post('auth/authenticate', {
                     login: email,
                     password: password,
                 })
                 //validantion passed
-                //console.log("responseLogin", response)
+                console.log(response);
                 try {
                     api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
                     //salva token no AsynStorage
@@ -73,86 +76,89 @@ function Login({ navigation, dataInstituicao }) {
                     AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
                     dataInstituicao(response.data.instituicao)
                 } catch (error) {
-                    setData(false)
+                    setIsLoading(false)
                     console.log('Erro AsyncStorrage:', error)
                 }
+
                 navigation.navigate("Main")
-                setData(false)
+                const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
+
+                parse.showToast(welcome, parse.duration.MEDIUM);
+                setIsLoading(false)
 
             } catch (error) {
-                setData(false)
+                setIsLoading(false)
+                parse.showToast("Algo deu errado, tente novamente!");
                 console.log('Erro Login:', error)
-                Alert.alert('Falha no login!')
             }
 
         } else {
-            setData(false)
-            Alert.alert('Porfavor digite os campos de email e senha corretamente')
+            setIsLoading(false)
+            parse.showToast('Porfavor digite os campos de email e senha corretamente', parse.duration.MEDIUM)
         }
 
     }
 
 
 
-    if (data == null) {
+    if (isSplash) {
         return (
-            <View style={styles.container1}>
-                <ActivityIndicator size='large' />
-                <Text>Carregando..</Text>
-            </View>
+            <Loading
+                text="Carregando.."
+                isVisible={isSplash}
+                textColor="#333"
+                backgroundColor="#fff"
+                activityColor="#333"
+            />
         )
-    } else if (data == false) {
+    } else {
         return (
+            <>
+                <Loading text="Carregando.." isVisible={isLoading} />
+                <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 30 }}>
+                    <View style={styles.header}>
+                        <Text style={styles.textHeader}>Entrar</Text>
+                    </View>
+                    <View style={styles.container}>
+                        <TextInput
+                            style={styles.input}
+                            placeholder='Email'
+                            autoCapitalize="none"
+                            placeholderTextColor="#999"
+                            autoCorrect={false}
+                            onChangeText={setEmail}
+                            value={email}
 
-            <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 30 }}>
-                <View style={styles.header}>
-                    <Text style={styles.textHeader}>Entrar</Text>
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder='Senha'
+                            secureTextEntry={true}
+                            placeholderTextColor="#999"
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            onChangeText={setPassword}
+                            value={password}
+
+                        />
+                        <TouchableOpacity onPress={authentication} style={styles.button}>
+                            <Text style={styles.textButton}>Entrar</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.container2}>
-                    <TextInput
-                        style={styles.inputEmail}
-                        placeholder='Email'
-                        autoCapitalize="none"
-                        placeholderTextColor="#999"
-                        autoCorrect={false}
-                        onChangeText={setEmail}
-                        value={email}
-
-                    />
-                    <TextInput
-                        style={styles.inputSenha}
-                        placeholder='Senha'
-                        secureTextEntry={true}
-                        placeholderTextColor="#999"
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        onChangeText={setPassword}
-                        value={password}
-
-                    />
-                    <TouchableOpacity onPress={authentication} style={styles.buttom}>
-                        <Text style={styles.textButom}>Entrar</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+            </>
         )
-
     }
-
-
 }
 
 var styles = StyleSheet.create({
-    container1: {
-        flex: 1,
+    splash: {
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFF'
+        alignItems: 'center'
     },
-    container2: {
+    container: {
         marginTop: 45
     },
-
     header: {
         justifyContent: "center"
     },
@@ -162,7 +168,8 @@ var styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "300",
     },
-    inputEmail: {
+    input: {
+        marginBottom: 20,
         height: 50,
         backgroundColor: "#fff",
         color: "#333",
@@ -175,37 +182,23 @@ var styles = StyleSheet.create({
             width: 4,
             height: 4,
         },
+        zIndex: 1,
         elevation: 3,
     },
-    inputSenha: {
-        marginTop: 15,
-        height: 50,
-        backgroundColor: "#fff",
-        color: "#333",
-        borderRadius: 25,
-        paddingHorizontal: 20,
-        fontSize: 16,
-        shadowColor: "#000",
-        shadowOpacity: 0.2,
-        shadowOffset: {
-            width: 4,
-            height: 4,
-        },
-        elevation: 3,
-    },
-    buttom: {
+    button: {
         justifyContent: 'center',
         alignItems: 'center',
         height: 50,
         marginTop: 40,
         borderRadius: 8,
-        backgroundColor: '#272936'
+        backgroundColor: '#272936',
+        zIndex: 1,
     },
-    textButom: {
+    textButton: {
         color: 'white',
         fontSize: 18,
         fontWeight: "400",
-
+        zIndex: 1,
     },
     center: {
         flex: 1,
@@ -214,20 +207,10 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
-    line: {
-        width: 120,
-        height: 0.5,
-        alignItems: 'center',
-        backgroundColor: '#C0CCDA',
-    },
+
     textLine: {
         color: '#47525E'
     },
-    textButomGoogle: {
-        color: '#5A6978',
-        fontSize: 18,
-        marginLeft: 30,
-    }
 
 })
 const mapStateToProps = state => {
