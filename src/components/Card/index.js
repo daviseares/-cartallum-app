@@ -1,14 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Card({ item, isVisible }) {
+export default function Card({ item, isVisible, navigation }) {
 
 
     return (
         <>
             <View style={styles.principal} >
+
                 <View style={styles.row}>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={90} style={{ marginRight: 10 }}>
                         <Text style={styles.titulo}>Última Cesta:</Text>
@@ -75,11 +76,12 @@ export default function Card({ item, isVisible }) {
                         </Text>
                     </ShimmerPlaceHolder>
                 </View>
-                <View style={styles.verMais}>
-
-                    <Text style={styles.txtDetalhes}>VER DETALHES</Text>
-                    <Icon name="chevron-right" size={30} color="#272936" />
-                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
+                    <View style={styles.verMais}>
+                        <Text style={styles.txtDetalhes}>VER DETALHES</Text>
+                        <Icon name="chevron-right" size={30} color="#272936" />
+                    </View>
+                </TouchableOpacity>
             </View>
         </>
     );

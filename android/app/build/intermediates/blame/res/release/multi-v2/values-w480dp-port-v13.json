@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+            "outputFile": "/Users/davi/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-w480dp-port-v13/values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\d653301dd5ccfa73f2de68d07e8c3b4d\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+                    "source": "/Users/davi/.gradle/caches/transforms-2/files-2.1/877a19adff83ee2332bbec45b6a9d599/material-1.1.0/res/values-w480dp-port-v13/values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

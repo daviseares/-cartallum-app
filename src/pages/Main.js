@@ -200,9 +200,9 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                             extraData={listaFamilia}
                             keyExtractor={(item, index) => index.toString()}
                             renderItem={({ item }) =>
-                                <TouchableOpacity onPress={() => navigation.navigate('DetalhesFamilia', { item: item })}>
-                                    <Card item={item} isVisible={isVisible} />
-                                </TouchableOpacity>
+
+                                <Card item={item} isVisible={isVisible} navigation={navigation} />
+
 
                             }
                         />

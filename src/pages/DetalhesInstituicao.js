@@ -45,8 +45,7 @@ export default function DetalhesInstituicao({ navigation }) {
         });
         console.log("chama user effect")
         getListaInstituicao();
-        //add evento de focus
-        //getListaInstituicao();
+      
 
     }, [])
 

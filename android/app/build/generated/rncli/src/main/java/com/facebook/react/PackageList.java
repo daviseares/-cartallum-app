@@ -11,8 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-import com.cartallumapp.BuildConfig;
-import com.cartallumapp.R;
+import br.com.cartallum.BuildConfig;
+import br.com.cartallum.R;
 
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;

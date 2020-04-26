@@ -13,3 +13,25 @@ web-report/
 # macOS
 .DS_Store
 node_modules
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+release/
+
+# BUCK
+buck-out/
+\.buckd/
+ 
+ 
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/
+
+yarn.lock
