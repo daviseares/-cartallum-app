@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, StyleSheet, FlatList, Text, TouchableOpacity, Alert } from 'react-native';
 import Modal from 'react-native-modal';
+import { connect } from "react-redux";
 import { Form } from '@unform/mobile';
 import { Scope } from '@unform/core';
 import { setLocale } from 'yup';
@@ -13,11 +14,10 @@ import api from '../services/api';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { ScrollView } from 'react-native-gesture-handler';
-import data from '../data/instituicoesPreview.json';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function DetalhesInstituicao({ navigation }) {
-    const [listaInstituicao, setListaInstituicao] = useState(data);
+function DetalhesInstituicao({ navigation, instituicao }) {
+    const [listaInstituicao, setListaInstituicao] = useState([]);
     const [isVisible, setIsVisible] = useState(true);
     const [modalVisible, setModalVisible] = useState(false);
     const formRef = useRef(null);
@@ -47,7 +47,18 @@ export default function DetalhesInstituicao({ navigation }) {
 
             if (parse.isSuccess(response.data)) {
                 console.log(response);
-                setListaInstituicao(response.data.instituicao);
+
+                console.log(instituicao);
+                //filtro para exibir todos os administradores menos o que está logado.
+
+                if (instituicao.tipo != 'cliente') {
+                    var result = response.data.instituicao.filter(item => item._id != instituicao._id)
+                    setListaInstituicao(result);
+                } else {
+                    setListaInstituicao(response.data.instituicao);
+                }
+
+
 
                 const timer = setTimeout(() => {
                     setIsVisible(true)
@@ -340,6 +351,7 @@ export default function DetalhesInstituicao({ navigation }) {
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     principal: {
         flex: 1,
@@ -423,3 +435,20 @@ const styles = StyleSheet.create({
         top: 15
     },
 });
+
+const mapStateToProps = state => {
+    return {
+        instituicao: state.reducerInstituicao.instituicao
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(
+    mapStateToProps,
+    null
+)(DetalhesInstituicao);
+
+

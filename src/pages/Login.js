@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import api from '../services/api';
 import { connect } from "react-redux";
-//import Toast from 'react-native-simple-toast';
 import * as parse from '../components/Parse';
 import { dataInstituicao } from '../store/actions/actionInstituicao'
 import Loading from '../components/Loading';
@@ -73,24 +72,29 @@ function Login({ navigation, dataInstituicao }) {
                 })
                 //validantion passed
                 console.log(response);
-                try {
-                    api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-                    //salva token no AsynStorage
-                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
+                if (parse.isSuccess(response.data)) {
+                    try {
+                        api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+                        //salva token no AsynStorage
+                        AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
-                    //salva  instituição no AsynStorage
-                    AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
-                    dataInstituicao(response.data.instituicao)
-                } catch (error) {
+                        //salva  instituição no AsynStorage
+                        AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
+                        dataInstituicao(response.data.instituicao)
+                    } catch (error) {
+                        setIsLoading(false)
+                        console.log('Erro AsyncStorrage:', error)
+                    }
+
+                    navigation.navigate("Main")
+                    const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
+
+                    parse.showToast(welcome, parse.duration.MEDIUM);
                     setIsLoading(false)
-                    console.log('Erro AsyncStorrage:', error)
+
+                } else {
+                    setIsLoading(false)
                 }
-
-                navigation.navigate("Main")
-                const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
-
-                parse.showToast(welcome, parse.duration.MEDIUM);
-                setIsLoading(false)
 
             } catch (error) {
                 setIsLoading(false)
