@@ -56,13 +56,9 @@ function CadastrarInstituicao({ listaIntegrantes, navigation }) {
                 navigation.navigate('DetalhesInstituicao');
                 reset();
             }
-
-
         } catch (error) {
             console.log(error)
         }
-
-
     }
 
     /**
@@ -88,7 +84,7 @@ function CadastrarInstituicao({ listaIntegrantes, navigation }) {
                     complemento: Yup.string(),
                     cep: Yup.string().min(8, 'O CEP está icompleto').required('Este campo é obrigatório'),
                     cidade: Yup.string().min(4, ' A cidade deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
-                    estado: Yup.string().min(4, 'O estado deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
+                    estado: Yup.string().min(2, 'O estado deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
                     pais: Yup.string().min(2, 'O paísdeve ter no mímino 2 caracteres').required('Este campo é obrigatório'),
                 })
             });
@@ -123,7 +119,6 @@ function CadastrarInstituicao({ listaIntegrantes, navigation }) {
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null}>
                 <ScrollView>
                     <View style={styles.container}>
-
                         <Form ref={formRef} onSubmit={handleSubmit} initialData={initialData}>
                             <Input name="nomeInstituicao" label="Nome da Instituição" />
                             <Input name="type" label="Tipo de usuario" editable={false} value="cliente" />

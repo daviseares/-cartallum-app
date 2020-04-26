@@ -4,7 +4,8 @@ import { useField } from '@unform/core';
 
 function Input({ name, label, ...rest }) {
     const inputRef = useRef(null);
-    const { fieldName, registerField, defaultValue = '', error } = useField(name);
+    //console.log(inputRef)
+    const { fieldName, registerField, defaultValue, error } = useField(name);
 
     useEffect(() => {
         registerField({
@@ -12,7 +13,12 @@ function Input({ name, label, ...rest }) {
             ref: inputRef.current,
             path: '_lastNativeText',
             getValue(ref) {
-                return ref._lastNativeText || '';
+                if (ref._lastNativeText == undefined) {
+                    return ref.props.defaultValue;
+                } else {
+                    return ref._lastNativeText
+                }
+
             },
             setValue(ref, value) {
                 ref.setNativeProps({ text: value });

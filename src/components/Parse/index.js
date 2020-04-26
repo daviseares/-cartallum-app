@@ -16,8 +16,9 @@ export function showToast(msg, value = 1000) {
 }
 
 export function isSuccess(data) {
+    console.log(data)
     if (!data.success) {
-        showToast(data.msg,duration.MEDIUM);
+        showToast(data.msg, duration.MEDIUM);
         return false
     } else {
         return true
