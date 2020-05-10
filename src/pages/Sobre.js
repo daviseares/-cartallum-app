@@ -47,10 +47,12 @@ export default function Sobre({ navigation }) {
                     <Text>Dev. Mobile</Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={styles.titulo}>Professor Orientador</Text>
+                    <Text style={styles.titulo}>Professores Orientadores</Text>
                     <Text>Prof. Dr. Clayton Vieira Fraga Filho</Text>
                     <Text>clayton.fraga.ufes@gmail.com</Text>
-
+              
+                    <Text>Geraldo Regis Mauri</Text>
+                    <Text>geraldo.mauri@ufes.com</Text>
                     <Text style={styles.description}>Centro de Ciências Exatas, Naturais e da Saúde | CCENS
                             Universidade Federal do Espírito Santo | UFES</Text>
                 </View>
@@ -70,7 +72,6 @@ export default function Sobre({ navigation }) {
 const styles = StyleSheet.create({
     principal: {
         backgroundColor: "#fff",
-        paddingVertical: 50,
         justifyContent: "flex-start",
         alignItems: "center",
         flex: 1
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         position: "absolute",
-        bottom: 30,
+        bottom: 15,
         width: "100%",
         height: 80,
         paddingVertical:10,

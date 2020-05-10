@@ -50,12 +50,16 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
     async function getAllFamilias() {
         console.log("teste")
         try {
-            await familiaAll()
             const timer = setTimeout(() => {
                 setIsVisible(true)
-            }, 500);
-            return () => clearTimeout(timer);
+            }, 600);
+            const response = await api.get('data/get_familia')
+            console.log(response)
+            if (parse.isSuccess(response.data,navigation)) {
+                familiaAll(response.data.familia)
 
+            }
+            return () => clearTimeout(timer);
         } catch (error) {
             console.log(error)
             parse.showToast("Não foi possível carregar famílias. Tente novamente.");
@@ -107,7 +111,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                 })
                 console.log('response', response);
 
-                if (parse.isSuccess(response.data)) {
+                if (parse.isSuccess(response.data,navigation)) {
 
                     familiaFilter(response.data.familia);
                     setBusca(true);
@@ -117,8 +121,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                     }, 1000);
 
                     return () => clearTimeout(timer);
-
-                } else {
+                }else {
                     setIsVisible(true)
                     parse.showToast("Nenhuma família encontrada.");
                     setErro(true)
@@ -362,7 +365,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    familiaAll: () => dispatch(familiaAll()),
+    familiaAll: (data) => dispatch(familiaAll(data)),
     familiaFilter: (value) => dispatch(familiaFilter(value))
 });
 

@@ -45,7 +45,7 @@ function DetalhesInstituicao({ navigation, instituicao }) {
         try {
             const response = await api.get('instituicao/listarInstituicao')
 
-            if (parse.isSuccess(response.data)) {
+            if (parse.isSuccess(response.data, navigation)) {
                 console.log(response);
 
                 console.log(instituicao);
@@ -66,7 +66,6 @@ function DetalhesInstituicao({ navigation, instituicao }) {
 
                 return () => clearTimeout(timer);
             }
-
 
 
         } catch (error) {
@@ -107,12 +106,12 @@ function DetalhesInstituicao({ navigation, instituicao }) {
                 })
                 var result = response.data;
 
-                if (parse.isSuccess(result)) {
+                if (parse.isSuccess(result, navigation)) {
 
                     getListaInstituicao();
                     parse.showToast(`Instituição atualizada com sucesso!`, 3000);
                     reset();
-                }
+                } 
             }
         } catch (error) {
             parse.showToast("Erro, tente novamente!", 2500);
@@ -149,7 +148,7 @@ function DetalhesInstituicao({ navigation, instituicao }) {
                 })
                 var result = response.data;
 
-                if (parse.isSuccess(result)) {
+                if (parse.isSuccess(result, navigation)) {
 
                     getListaInstituicao();
                     parse.showToast(`Instituição deletada com sucesso!`, 3000);

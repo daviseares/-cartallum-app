@@ -75,7 +75,7 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
             })
 
             setItem(response.data.familia[0])
-            familiaAll()
+           // familiaAll()
             setSpinner(false)
             parse.showToast("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
 

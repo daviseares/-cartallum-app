@@ -6,8 +6,6 @@ import {
     TouchableOpacity,
     StyleSheet,
     AsyncStorage,
-    ActivityIndicator,
-    Alert,
 } from 'react-native';
 import api from '../services/api';
 import { connect } from "react-redux";
@@ -35,20 +33,27 @@ function Login({ navigation, dataInstituicao }) {
 
                 if (token) {
                     api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                    const response = await api.get('/projects')
-                    if (parse.isSuccess(response.data)) {
+                    api.defaults.headers.common['AuthorizationEmail'] = `${instituicao.email}`
+                    const response = await api.get('/projects/')
+                    //console.log('Response:', response.data)
+                    if (parse.isSuccess(response.data, null)) {
                         dataInstituicao(instituicao)
                         navigation.navigate("Main")
                         setIsSplash(false);
                     } else {
                         AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
+                        AsyncStorage.setItem('@instituicao', JSON.stringify(false))
                         setIsSplash(false);
                     }
 
                 } else {
+                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
+                    AsyncStorage.setItem('@instituicao', JSON.stringify(false))
                     setIsSplash(false);
                 }
             } catch (erro) {
+                AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
+                AsyncStorage.setItem('@instituicao', JSON.stringify(false))
                 console.log(erro);
                 parse.showToast("Algo deu errado, tente novamente!");
                 setIsSplash(false);
@@ -71,28 +76,33 @@ function Login({ navigation, dataInstituicao }) {
                     password: password,
                 })
                 //validantion passed
-                console.log(response);
-                if (parse.isSuccess(response.data)) {
+                console.log(response.data);
+                if (parse.isSuccess(response.data, null)) {
                     try {
                         api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+                        api.defaults.headers.common['AuthorizationEmail'] = `${response.data.instituicao.email}`
+
                         //salva token no AsynStorage
                         AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
 
                         //salva  instituição no AsynStorage
                         AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
                         dataInstituicao(response.data.instituicao)
+
+
+                        navigation.navigate("Main")
+                        const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
+
+                        parse.showToast(welcome, parse.duration.MEDIUM);
+                        setIsLoading(false)
                     } catch (error) {
                         setIsLoading(false)
                         console.log('Erro AsyncStorrage:', error)
                     }
 
-                    navigation.navigate("Main")
-                    const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
-
-                    parse.showToast(welcome, parse.duration.MEDIUM);
-                    setIsLoading(false)
-
                 } else {
+                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
+                    AsyncStorage.setItem('@instituicao', JSON.stringify(false))
                     setIsLoading(false)
                 }
 

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/davi/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
+            "outputFile": "C:\\Users\\guilh\\Documents\\projeto\\-cartallum-app\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
             "map": [
                 {
-                    "source": "/Users/davi/.gradle/caches/transforms-2/files-2.1/877a19adff83ee2332bbec45b6a9d599/material-1.1.0/res/values-small-v4/values-small-v4.xml",
+                    "source": "C:\\Users\\guilh\\.gradle\\caches\\transforms-2\\files-2.1\\877a19adff83ee2332bbec45b6a9d599\\material-1.1.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

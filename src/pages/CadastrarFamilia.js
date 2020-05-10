@@ -34,16 +34,16 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
         //evento para escutar o formulário
         navigation.addListener('willFocus', () => {
             console.log("is focused")
-            
+
         });
 
         setLocale(constants.translation);
-       
+
     }, [])
 
-     
 
-   
+
+
 
     /**
      * esta funç]ao faz o cadastro de família
@@ -62,7 +62,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                 })
                 console.log(response);
                 var result = response.data;
-                if (parse.isSuccess(result)) {
+                if (parse.isSuccess(result, navigation)) {
 
                     navigation.navigate('DetalhesFamilia',
                         { item: response.data.success, screen: 'CadastrarFamilia' })
@@ -71,7 +71,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     reset();
                     //limpa lista integrantes
                     cleanAll();
-                }
+                } 
             } catch (error) {
                 console.log(error)
             }

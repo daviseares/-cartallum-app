@@ -50,12 +50,12 @@ function CadastrarInstituicao({ listaIntegrantes, navigation }) {
             })
             var result = response.data;
 
-            if (parse.isSuccess(result)) {
+            if (parse.isSuccess(result, navigation)) {
                 console.log(response);
                 parse.showToast("Instituição Cadastrada com sucesso!");
                 navigation.navigate('DetalhesInstituicao');
                 reset();
-            }
+            } 
         } catch (error) {
             console.log(error)
         }
