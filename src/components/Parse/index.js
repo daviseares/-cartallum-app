@@ -20,9 +20,8 @@ export function showToast(msg, value = 1000) {
 export function isSuccess(data, navigation) {
     console.log(data)
     if (!data.success) {
-        if (navigation != null) {
-            showToast(data.msg, duration.MEDIUM);
-           
+        showToast(data.msg, duration.MEDIUM);
+        if (navigation != null) {           
             if (data.error == 401) {
                 AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
                 AsyncStorage.setItem('@instituicao', JSON.stringify(false))
