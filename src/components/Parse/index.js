@@ -17,15 +17,14 @@ export function showToast(msg, value = 1000) {
     });
 }
 
-export function isSuccess(data, navigation) {
+export function isSuccess(data, navigation = null) {
     console.log(data)
     if (!data.success) {
         showToast(data.msg, duration.MEDIUM);
-        if (navigation != null) {           
+        if (navigation != null) {
+            
             if (data.error == 401) {
-                AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
-                AsyncStorage.setItem('@instituicao', JSON.stringify(false))
-                navigation.navigate('Login')
+                navigation.navigate('Splash');
             }
         }
         return false

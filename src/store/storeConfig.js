@@ -1,25 +1,23 @@
-import {
-    createStore,
-    combineReducers,
-    compose,
-    applyMiddleware
-} from 'redux'
 
-import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
 
-import reducerIntegrante from './reducers/reducerIntegrante';
-import reducerFamilia from './reducers/reducerFamilia';
-import reducerInstituicao from './reducers/reducerInstituicao';
+//redux-persist configuration
+import { persistStore, persistReducer } from 'redux-persist'
+import AsyncStorage from '@react-native-community/async-storage';
+import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 
 
-const reducers = combineReducers({
-    reducerIntegrante: reducerIntegrante,
-    reducerFamilia: reducerFamilia,
-    reducerInstituicao: reducerInstituicao
-})
-
-const storeConfig = () => {
-    return createStore(reducers, compose(applyMiddleware(thunk)))
+const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage,
+    stateReconciler: autoMergeLevel2,
+    whitelist: ['reducerInstituicao'],
 }
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(persistedReducer, applyMiddleware(thunk));
+let persistor = persistStore(store)
 
-export default storeConfig;
+export { store, persistor }
+

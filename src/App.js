@@ -1,26 +1,30 @@
 
 import 'react-native-gesture-handler';
-import { StatusBar, YellowBox, AsyncStorage } from 'react-native';
+import React from 'react';
+import { StatusBar, YellowBox } from 'react-native';
 import { Provider } from "react-redux";
 import Routes from './routes';
 
-import storeConfig from './store/storeConfig';
-import React, { useEffect, useState } from 'react';
+
+import { store, persistor } from './store/storeConfig';
+import { PersistGate } from 'redux-persist/es/integration/react';
 
 YellowBox.ignoreWarnings([
   'Unrecognized WebSocket'
 ])
 console.disableYellowBox = true;
 
-const storeConf = storeConfig()
 
 function App() {
-  
+
   return (
     <>
       <StatusBar barStyle={"light-content"} backgroundColor='#272936' />
-      <Provider store={storeConf}>
-        <Routes />
+
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor} >
+          <Routes />
+        </PersistGate>
       </Provider>
     </>
 

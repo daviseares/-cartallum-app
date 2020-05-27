@@ -28,7 +28,6 @@ import Toolbar from '../components/Toolbar';
 function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
     const formRef = useRef(null);
 
-    const [initialData, setInitialData] = useState('');
 
     useEffect(() => {
         //evento para escutar o formulário
@@ -71,7 +70,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     reset();
                     //limpa lista integrantes
                     cleanAll();
-                } 
+                }
             } catch (error) {
                 console.log(error)
             }
@@ -134,17 +133,18 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                 <ScrollView>
                     <FormIntegrante />
                     <View style={styles.container}>
-                        <Form ref={formRef} onSubmit={handleSubmit} initialData={initialData}>
+                        <Form ref={formRef} onSubmit={handleSubmit}>
                             <Input name="renda" label="Renda Familiar" />
                             <Scope path="endereco">
                                 <Input name="rua" label="Rua" />
                                 <Input name="bairro" label="Bairro" />
                                 <Input type="number" name="numero" label="Número(Opcional)" />
                                 <Input name="complemento" label="Complemento/Referência(Opcional)" />
-                                <Input name="cep" value="29500-000" label="CEP" keyboardType="number-pad" />
-                                <Input name="cidade" value="Alegre" label="Cidade" />
-                                <Input name="estado" value="Espírito Santo" label="Estado" />
-                                <Input name="pais" value="Brasil" label="Pais" />
+                                <Input name="cep" label="CEP"
+                                    placeholder="29500000" keyboardType="number-pad"
+                                    maxLength={8} />
+                                <Input name="cidade" placeholder="Alegre" label="Cidade" />
+                                <Input name="estado" placeholder="ES" maxLength={2} label="Estado" />
                             </Scope>
                         </Form>
                         <TouchableOpacity style={styles.submitButton} onPress={() => formRef.current.submitForm()}>

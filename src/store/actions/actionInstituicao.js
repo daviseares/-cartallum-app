@@ -1,18 +1,28 @@
-import { DATA_INSTITUICAO } from '../actions/actionTypes';
+import { SET_INSTITUICAO, SET_TOKEN } from '../actions/actionTypes';
 
 /**
- * Lista de familia
- * @param {}  
+ * 
+ * @param {Object} instituicao 
  */
-export const dataInstituicao = (instituicao) => {
-
-
+export const storeInstituicao = (instituicao) => {
     return (dispath) => {
-
         dispath({
-            type: DATA_INSTITUICAO,
+            type: SET_INSTITUICAO,
             payload: instituicao
         })
     }
+}
 
+/**
+ * 
+ * @param {Object} token 
+ */
+export const storeToken = (token) => {
+
+    return (dispath) => {
+        dispath({
+            type: SET_TOKEN,
+            payload: token
+        })
+    }
 }

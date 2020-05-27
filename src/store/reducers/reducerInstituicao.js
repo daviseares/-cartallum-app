@@ -1,15 +1,22 @@
-import { DATA_INSTITUICAO } from '../actions/actionTypes';
+import { SET_INSTITUICAO, SET_TOKEN } from '../actions/actionTypes';
 
 const initialState = {
-    instituicao: {}
+    instituicao: {},
+    token: false
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case DATA_INSTITUICAO:
+        case SET_INSTITUICAO:
             return {
                 ...state,
                 instituicao: action.payload
+
+            }
+        case SET_TOKEN:
+            return {
+                ...state,
+                token: action.payload
 
             }
         default:

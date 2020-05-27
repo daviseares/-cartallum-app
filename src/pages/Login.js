@@ -5,61 +5,22 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
-    AsyncStorage,
 } from 'react-native';
 import api from '../services/api';
 import { connect } from "react-redux";
 import * as parse from '../components/Parse';
-import { dataInstituicao } from '../store/actions/actionInstituicao'
+import { storeInstituicao, storeToken } from '../store/actions/actionInstituicao';
 import Loading from '../components/Loading';
-function Login({ navigation, dataInstituicao }) {
+
+function Login({ navigation, storeInstituicao, storeToken }) {
 
 
     const [email, setEmail] = useState('');
-    const [isSplash, setIsSplash] = useState(true)
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const token = JSON.parse(await AsyncStorage.getItem('@CodeApi:token'))
-                const instituicao = JSON.parse(await AsyncStorage.getItem('@instituicao'))
 
-                /**
-                 * Verificação do token do usuario que esta guardado no AsyncStorege
-                 * Caso estaeja guadado ele autentica com o axios Permininto que o usuario entre no app sem logar novamente
-                 */
-
-                if (token) {
-                    api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-                    api.defaults.headers.common['AuthorizationEmail'] = `${instituicao.email}`
-                    const response = await api.get('/projects/')
-                    //console.log('Response:', response.data)
-                    if (parse.isSuccess(response.data, null)) {
-                        dataInstituicao(instituicao)
-                        navigation.navigate("Main")
-                        setIsSplash(false);
-                    } else {
-                        AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
-                        AsyncStorage.setItem('@instituicao', JSON.stringify(false))
-                        setIsSplash(false);
-                    }
-
-                } else {
-                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
-                    AsyncStorage.setItem('@instituicao', JSON.stringify(false))
-                    setIsSplash(false);
-                }
-            } catch (erro) {
-                AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
-                AsyncStorage.setItem('@instituicao', JSON.stringify(false))
-                console.log(erro);
-                parse.showToast("Algo deu errado, tente novamente!");
-                setIsSplash(false);
-            }
-        }
-        fetchData();
     }, []);
 
 
@@ -77,33 +38,23 @@ function Login({ navigation, dataInstituicao }) {
                 })
                 //validantion passed
                 console.log(response.data);
-                if (parse.isSuccess(response.data, null)) {
-                    try {
-                        api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
-                        api.defaults.headers.common['AuthorizationEmail'] = `${response.data.instituicao.email}`
+                if (parse.isSuccess(response.data)) {
+                    storeInstituicao(response.data.instituicao);
+                    storeToken(response.data.token);
+                    api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`
+                    api.defaults.headers.common['AuthorizationEmail'] = `${response.data.instituicao.email}`
 
-                        //salva token no AsynStorage
-                        AsyncStorage.setItem('@CodeApi:token', JSON.stringify(response.data.token))
+                    setIsLoading(false);
 
-                        //salva  instituição no AsynStorage
-                        AsyncStorage.setItem('@instituicao', JSON.stringify(response.data.instituicao))
-                        dataInstituicao(response.data.instituicao)
+                    navigation.navigate("Main");
+                    const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao;
 
-
-                        navigation.navigate("Main")
-                        const welcome = "Bem Vindo! - " + response.data.instituicao.nomeInstituicao
-
-                        parse.showToast(welcome, parse.duration.MEDIUM);
-                        setIsLoading(false)
-                    } catch (error) {
-                        setIsLoading(false)
-                        console.log('Erro AsyncStorrage:', error)
-                    }
+                    parse.showToast(welcome, parse.duration.MEDIUM);
 
                 } else {
-                    AsyncStorage.setItem('@CodeApi:token', JSON.stringify(false))
-                    AsyncStorage.setItem('@instituicao', JSON.stringify(false))
                     setIsLoading(false)
+                    parse.showToast("Algo deu errado, tente novamente!");
+                    console.log('Erro Login:', error)
                 }
 
             } catch (error) {
@@ -121,55 +72,45 @@ function Login({ navigation, dataInstituicao }) {
 
 
 
-    if (isSplash) {
-        return (
-            <Loading
-                text="Carregando.."
-                isVisible={isSplash}
-                textColor="#333"
-                backgroundColor="#fff"
-                activityColor="#333"
-            />
-        )
-    } else {
-        return (
-            <>
-                <Loading text="Carregando.." isVisible={isLoading} />
-                <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 30 }}>
-                    <View style={styles.header}>
-                        <Text style={styles.textHeader}>Entrar</Text>
-                    </View>
-                    <View style={styles.container}>
-                        <TextInput
-                            style={styles.input}
-                            placeholder='Email'
-                            autoCapitalize="none"
-                            placeholderTextColor="#999"
-                            autoCorrect={false}
-                            onChangeText={setEmail}
-                            value={email}
 
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder='Senha'
-                            secureTextEntry={true}
-                            placeholderTextColor="#999"
-                            autoCapitalize="none"
-                            autoCorrect={false}
-                            onChangeText={setPassword}
-                            value={password}
-
-                        />
-                        <TouchableOpacity onPress={authentication} style={styles.button}>
-                            <Text style={styles.textButton}>Entrar</Text>
-                        </TouchableOpacity>
-                    </View>
+    return (
+        <>
+            <Loading text="Carregando.." isVisible={isLoading} />
+            <View style={{ flex: 1, justifyContent: "center", marginHorizontal: 30 }}>
+                <View style={styles.header}>
+                    <Text style={styles.textHeader}>Entrar</Text>
                 </View>
-            </>
-        )
-    }
+                <View style={styles.container}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Email'
+                        autoCapitalize="none"
+                        placeholderTextColor="#999"
+                        autoCorrect={false}
+                        onChangeText={setEmail}
+                        value={email}
+
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Senha'
+                        secureTextEntry={true}
+                        placeholderTextColor="#999"
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        onChangeText={setPassword}
+                        value={password}
+
+                    />
+                    <TouchableOpacity onPress={authentication} style={styles.button}>
+                        <Text style={styles.textButton}>Entrar</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </>
+    )
 }
+
 
 var styles = StyleSheet.create({
     splash: {
@@ -241,7 +182,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 
-    dataInstituicao: (value) => dispatch(dataInstituicao(value))
+    storeInstituicao: (value) => dispatch(storeInstituicao(value)),
+    storeToken: (value) => dispatch(storeToken(value)),
+
 });
 
 export default connect(
