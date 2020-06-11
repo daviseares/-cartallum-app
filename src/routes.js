@@ -11,7 +11,7 @@ import CustomDrawer from './components/Drawer/customDrawer';
 import Login from './pages/Login';
 import Sobre from './pages/Sobre';
 import Splash from './pages/Splash';
-
+import RelatorioGeral from './pages/RelatorioGeral';
 
 const Drawer = createAppContainer(createDrawerNavigator({
     Main: {
@@ -42,13 +42,19 @@ const Drawer = createAppContainer(createDrawerNavigator({
             title: 'Cadastrar Instituição',
         }
     },
+    RelatorioGeral: {
+        screen: RelatorioGeral,
+        navigationOptions: {
+            title: 'Relatório Geral'
+        }
+    },
     Sobre: {
         screen: Sobre,
         navigationOptions: {
             title: 'Sobre o aplicativo'
         }
     },
-   
+
 }, {
     contentComponent: CustomDrawer
 }));
@@ -90,7 +96,7 @@ const Routes = createStackNavigator({
     },
 }, {
 
-    initialRouteName:"Splash"
+    initialRouteName: "Splash"
 })
 
 
