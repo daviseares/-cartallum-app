@@ -17,7 +17,7 @@ import FormIntegrante from '../components/FormIntegrante';
 import * as Yup from 'yup';
 import * as constants from '../locales/yup-pt';
 import * as parse from '../components/Parse';
-
+import InputMask from '../components/InputMask';
 import { connect } from "react-redux";
 import api from '../services/api';
 import { cleanAll } from '../store/actions/actionIntegrante';
@@ -84,12 +84,13 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
      * @param {Object} data 
      */
     async function handleSubmit(data, { reset }) {
+        console.log(data);
         // console.log("Cadastrar Familia Lista Integrante", listaIntegrantes)
         try {
             // Remove all previous errors
             formRef.current.setErrors({});
             const schema = Yup.object().shape({
-                renda: Yup.number('O campo aceita apenas números').required('Este campo é obrigatório'),
+                renda: Yup.number().required('Este campo é obrigatório'),
                 endereco: Yup.object().shape({
                     rua: Yup.string().required('Este campo é obrigatório'),
                     bairro: Yup.string().required('Este campo é obrigatório'),
@@ -97,8 +98,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     complemento: Yup.string(),
                     cep: Yup.string().min(8, 'O CEP está icompleto').required('Este campo é obrigatório'),
                     cidade: Yup.string().min(4, ' A cidade deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
-                    estado: Yup.string().min(4, 'O estado deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
-                    pais: Yup.string().min(2, 'O paísdeve ter no mímino 2 caracteres').required('Este campo é obrigatório'),
+                    estado: Yup.string().min(2, 'O estado deve ter no mímino 4 caracteres').required('Este campo é obrigatório'),
                 })
             });
             await schema.validate(data, {
@@ -109,6 +109,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
             registerFamilia(data, reset)
             console.log(data);
         } catch (err) {
+            console.log(err);
             const validationErrors = {};
             if (err instanceof Yup.ValidationError) {
                 err.inner.forEach(error => {
@@ -117,8 +118,6 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                 formRef.current.setErrors(validationErrors);
             }
         }
-
-        //limpa o formulário
     }
 
     return (
@@ -134,7 +133,7 @@ function CadastrarFamilia({ listaIntegrantes, navigation, cleanAll }) {
                     <FormIntegrante />
                     <View style={styles.container}>
                         <Form ref={formRef} onSubmit={handleSubmit}>
-                            <Input name="renda" label="Renda Familiar" />
+                            <InputMask name="renda" label="Renda Familiar" type="money" keyboardType="numeric" />
                             <Scope path="endereco">
                                 <Input name="rua" label="Rua" />
                                 <Input name="bairro" label="Bairro" />

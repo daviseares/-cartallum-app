@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { formatCurrency } from '../../util/Format';
 
 export default function Card({ item, isVisible, navigation }) {
 
@@ -49,7 +50,7 @@ export default function Card({ item, isVisible, navigation }) {
                         <Text style={styles.titulo}>Renda Familiar:</Text>
                     </ShimmerPlaceHolder>
                     <ShimmerPlaceHolder autoRun={true} visible={isVisible} width={60}>
-                        <Text>{"R$ " + (item.rendaPercapita).toLocaleString('pt-BR')}</Text>
+                        <Text>{formatCurrency(item.rendaPercapita)}</Text>
                     </ShimmerPlaceHolder>
                 </View>
                 {item.integrantes[0].telefone !== '' && item.integrantes[0].telefone ?

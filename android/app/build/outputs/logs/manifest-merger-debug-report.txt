@@ -13,7 +13,7 @@ MERGED from [:react-native-reanimated] /Users/daviborges/Desktop/projetos/-carta
 MERGED from [:react-native-safe-area-context] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/bfae56ef4a0813f00856d215c3463c6b/jetified-react-native-0.61.5/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/39cea01f6533074142014edff3b2a8a2/jetified-react-native-0.61.5/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/55840580b7c685d4debcd8b06954bdb9/firebase-core-17.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/89eeed811addc0e181201ab6ba0dae9f/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/877a19adff83ee2332bbec45b6a9d599/material-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -43,11 +43,11 @@ MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/daviborges
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/4845f6702f4736d9f79a01bacea85bb7/play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/57f24e24baffb42915b09711270abbf3/firebase-measurement-connector-18.0.0/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e55249a9711b803c2e4efe802b679c64/play-services-ads-identifier-17.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e4c0917e1ac42a232a321a1f9768d48/fragment-1.2.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e2eb53ddab6a6767ec3c44cbfba8e638/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/ed993a18d23be55b3f5353904e56f228/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/5f8535b06c2b7ac2e334fad369c3c021/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/3d18f7e101b8ec02d3bbe67eaffde9bc/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/54bab4c190da89890e120f3e5c239297/appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/dcd53e8b247ed3172988a560e011e9e6/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1510786aec71034215dfb361a95a0446/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -111,8 +111,8 @@ application
 ADDED from /Users/daviborges/Desktop/projetos/-cartallum-app/android/app/src/main/AndroidManifest.xml:6:5-24:19
 MERGED from /Users/daviborges/Desktop/projetos/-cartallum-app/android/app/src/main/AndroidManifest.xml:6:5-24:19
 MERGED from /Users/daviborges/Desktop/projetos/-cartallum-app/android/app/src/main/AndroidManifest.xml:6:5-24:19
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/bfae56ef4a0813f00856d215c3463c6b/jetified-react-native-0.61.5/AndroidManifest.xml:11:5-20
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/bfae56ef4a0813f00856d215c3463c6b/jetified-react-native-0.61.5/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/39cea01f6533074142014edff3b2a8a2/jetified-react-native-0.61.5/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/39cea01f6533074142014edff3b2a8a2/jetified-react-native-0.61.5/AndroidManifest.xml:11:5-20
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/55840580b7c685d4debcd8b06954bdb9/firebase-core-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/55840580b7c685d4debcd8b06954bdb9/firebase-core-17.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/877a19adff83ee2332bbec45b6a9d599/material-1.1.0/AndroidManifest.xml:22:5-20
@@ -149,8 +149,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/d
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/57f24e24baffb42915b09711270abbf3/firebase-measurement-connector-18.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e55249a9711b803c2e4efe802b679c64/play-services-ads-identifier-17.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e55249a9711b803c2e4efe802b679c64/play-services-ads-identifier-17.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/f44a3650e4d5e7af4c24be0491004bd7/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/f44a3650e4d5e7af4c24be0491004bd7/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/a65d5390375d8ae867c1b9aeabb48eb0/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
@@ -225,8 +225,8 @@ MERGED from [:react-native-screens] /Users/daviborges/Desktop/projetos/-cartallu
 MERGED from [:react-native-screens] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/daviborges/Desktop/projetos/-cartallum-app/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/bfae56ef4a0813f00856d215c3463c6b/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/bfae56ef4a0813f00856d215c3463c6b/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/39cea01f6533074142014edff3b2a8a2/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/39cea01f6533074142014edff3b2a8a2/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/55840580b7c685d4debcd8b06954bdb9/firebase-core-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-core:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/55840580b7c685d4debcd8b06954bdb9/firebase-core-17.0.0/AndroidManifest.xml:5:5-44
 MERGED from [org.webkit:android-jsc:r245459] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/89eeed811addc0e181201ab6ba0dae9f/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
@@ -285,16 +285,16 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/d
 MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/57f24e24baffb42915b09711270abbf3/firebase-measurement-connector-18.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e55249a9711b803c2e4efe802b679c64/play-services-ads-identifier-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e55249a9711b803c2e4efe802b679c64/play-services-ads-identifier-17.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e4c0917e1ac42a232a321a1f9768d48/fragment-1.2.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.2.1] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e4c0917e1ac42a232a321a1f9768d48/fragment-1.2.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e2eb53ddab6a6767ec3c44cbfba8e638/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/e2eb53ddab6a6767ec3c44cbfba8e638/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/ed993a18d23be55b3f5353904e56f228/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/ed993a18d23be55b3f5353904e56f228/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/5f8535b06c2b7ac2e334fad369c3c021/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/5f8535b06c2b7ac2e334fad369c3c021/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/3d18f7e101b8ec02d3bbe67eaffde9bc/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/3d18f7e101b8ec02d3bbe67eaffde9bc/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/54bab4c190da89890e120f3e5c239297/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/54bab4c190da89890e120f3e5c239297/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/dcd53e8b247ed3172988a560e011e9e6/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -492,8 +492,8 @@ ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/daviborges/
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/8e8d08b3c082e1ff60fdbd2f3edc9025/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58

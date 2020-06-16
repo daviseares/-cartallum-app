@@ -148,14 +148,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
             />
 
             <ScrollView style={styles.scrollView}>
-                {/*  <TouchableOpacity
-                    style={styles.cadastrar}
-                    onPress={() => navigation.navigate('CadastrarFamilia')}
-                >
-                    <Text style={styles.txtCadastrar}>Cadastrar Nova Família </Text>
-                    <Icon name="chevron-right" size={30} color="#272936" />
-                </TouchableOpacity> */}
-
+             
                 <View style={styles.segment}>
                     <Text style={styles.txtCadastrar}> Buscar por:</Text>
                     <View style={{ marginBottom: -5 }}>
@@ -203,10 +196,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                             extraData={listaFamilia}
                             keyExtractor={(item, index) => index.toString()}
                             renderItem={({ item }) =>
-
                                 <Card item={item} isVisible={isVisible} navigation={navigation} />
-
-
                             }
                         />
                     }

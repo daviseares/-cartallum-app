@@ -16,6 +16,7 @@ import { connect } from "react-redux";
 import Toolbar from '../components/Toolbar';
 import * as parse from '../components/Parse';
 import Loading from '../components/Loading';
+import { formatCurrency } from '../util/Format';
 
 function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
     const [spinner, setSpinner] = useState(false);
@@ -75,7 +76,7 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
             })
 
             setItem(response.data.familia[0])
-           // familiaAll()
+            // familiaAll()
             setSpinner(false)
             parse.showToast("Sua cesta foi doada com sucesso! Agradecemos sua doação.")
 
@@ -143,7 +144,7 @@ function DetalhesFamilia({ navigation, familiaAll, instituicao }) {
                                 <Text style={styles.titulo}>Renda Familiar:</Text>
                             </ShimmerPlaceHolder>
                             <ShimmerPlaceHolder autoRun={!isVisible} visible={isVisible} width={60}>
-                                <Text>{"R$ " + item.rendaPercapita}</Text>
+                                <Text>{formatCurrency(item.rendaPercapita)}</Text>
                             </ShimmerPlaceHolder>
                         </View>
                         <View style={[styles.row, { marginBottom: 20 }]}>
@@ -270,7 +271,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 25,
     },
     container: {
-        margin:5,
+        margin: 5,
         backgroundColor: "#fff",
         paddingTop: 20,
         paddingBottom: 10,

@@ -47,7 +47,7 @@ class FormData extends Component {
                         const schema = Yup.object().shape({
                             nomeCompleto: Yup.string().required('Este campo é obrigatório'),
                             cpf: Yup.string().required('Este campo é obrigatório'),
-                            dataNascimento: Yup.date().required('Este campo é obrigatório'),
+                            dataNascimento: Yup.string().required('Este campo é obrigatório'),
                             telefone: Yup.string()
                         })
                         //função de validação

@@ -1,11 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback, forwardRef } from 'react';
 import { Text, TextInput, StyleSheet } from 'react-native';
 import { useField } from '@unform/core';
 
-function Input({ name, label, ...rest }) {
+function Input({ name, label, onChangeText, rawValue, ...rest }) {
     const inputRef = useRef(null);
-    //console.log(inputRef)
-    const { fieldName, registerField, defaultValue, error } = useField(name);
+
+    const { fieldName, registerField, defaultValue = '', error } = useField(name);
+
+    const handleOnChange = useCallback(
+        text => {
+            if (inputRef.current) inputRef.current.value = text;
+            if (onChangeText) onChangeText(text);
+        },
+        [onChangeText],
+    );
 
     useEffect(() => {
         registerField({
@@ -14,9 +22,9 @@ function Input({ name, label, ...rest }) {
             path: '_lastNativeText',
             getValue(ref) {
                 if (ref._lastNativeText == undefined) {
-                    return ref.props.defaultValue;
+                    return rawValue || ref.props.defaultValue || '';
                 } else {
-                    return ref._lastNativeText
+                    return rawValue || ref._lastNativeText || '';
                 }
 
             },
@@ -29,7 +37,7 @@ function Input({ name, label, ...rest }) {
                 ref._lastNativeText = '';
             }
         })
-    }, [fieldName, registerField]);
+    }, [fieldName, rawValue, registerField]);
 
     return (
         <>
@@ -38,6 +46,7 @@ function Input({ name, label, ...rest }) {
             <TextInput
                 style={styles.input}
                 ref={inputRef}
+                onChangeText={handleOnChange}
                 defaultValue={defaultValue}
                 {...rest}
             />
