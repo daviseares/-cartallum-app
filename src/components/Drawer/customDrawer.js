@@ -22,7 +22,7 @@ function CustomDrawer({ instituicao, items, ...props }) {
             <DrawerNavigatorItems items={filteredItems} {...props} activeTintColor="#5849be" />
 
             <View style={styles.creditos}>
-                <Text style={styles.txtCreditos}>BETA v1.0.1</Text>
+                <Text style={styles.txtCreditos}>BETA v1.2.1</Text>
             </View>
 
         </SafeAreaView>

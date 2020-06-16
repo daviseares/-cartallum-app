@@ -131,8 +131,8 @@ android {
         applicationId "br.com.cartallum"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.2"
+        versionCode 4
+        versionName "1.2.1"
     }
     splits {
         abi {
