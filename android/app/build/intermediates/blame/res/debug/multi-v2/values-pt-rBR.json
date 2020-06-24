@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
-                {
-                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/res/values-pt-rBR/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "203",
-                        "endOffsets": "454"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4013",
-                        "endColumns": "203",
-                        "endOffsets": "4212"
-                    }
-                },
                 {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/8e8d08b3c082e1ff60fdbd2f3edc9025/play-services-base-17.0.0/res/values-pt-rBR/values.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "2843,2950,3130,3259,3369,3595,3727,3879,4217,4446,4556,4751,4883,5099,5286,5385,5481",
                         "endColumns": "106,179,128,109,225,131,151,133,228,109,194,131,215,186,98,95,112",
                         "endOffsets": "2945,3125,3254,3364,3590,3722,3874,4008,4441,4551,4746,4878,5094,5281,5380,5476,5589"
+                    }
+                },
+                {
+                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/res/values-pt-rBR/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "203",
+                        "endOffsets": "454"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4013",
+                        "endColumns": "203",
+                        "endOffsets": "4212"
                     }
                 },
                 {

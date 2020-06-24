@@ -7,6 +7,7 @@ import {
     ScrollView,
     TextInput,
     FlatList,
+    BackHandler
 } from 'react-native';
 import RadioForm, {
     RadioButton,
@@ -47,6 +48,24 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
 
     }, []);
 
+    /**
+	 * define backhandler
+	 */
+    useEffect(() => {
+        BackHandler.addEventListener("hardwareBackPress", backButtonHandler);
+
+        return () => {
+            BackHandler.removeEventListener("hardwareBackPress", backButtonHandler);
+        };
+    }, [backButtonHandler]);
+
+    /**
+ * backhandler
+ */
+    function backButtonHandler() {     
+        return true;
+    }
+
     async function getAllFamilias() {
         console.log("teste")
         try {
@@ -55,7 +74,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
             }, 600);
             const response = await api.get('data/get_familia')
             console.log(response)
-            if (parse.isSuccess(response.data,navigation)) {
+            if (parse.isSuccess(response.data, navigation)) {
                 familiaAll(response.data.familia)
 
             }
@@ -111,7 +130,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                 })
                 console.log('response', response);
 
-                if (parse.isSuccess(response.data,navigation)) {
+                if (parse.isSuccess(response.data, navigation)) {
 
                     familiaFilter(response.data.familia);
                     setBusca(true);
@@ -121,7 +140,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
                     }, 1000);
 
                     return () => clearTimeout(timer);
-                }else {
+                } else {
                     setIsVisible(true)
                     parse.showToast("Nenhuma família encontrada.");
                     setErro(true)
@@ -148,7 +167,7 @@ function Main({ navigation, listaFamilia, familiaAll, familiaFilter, instituicao
             />
 
             <ScrollView style={styles.scrollView}>
-             
+
                 <View style={styles.segment}>
                     <Text style={styles.txtCadastrar}> Buscar por:</Text>
                     <View style={{ marginBottom: -5 }}>

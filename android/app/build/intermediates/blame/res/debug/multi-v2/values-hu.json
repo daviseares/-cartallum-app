@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
+            "outputFile": "/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
             "map": [
                 {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/8e8d08b3c082e1ff60fdbd2f3edc9025/play-services-base-17.0.0/res/values-hu/values.xml",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/res/values-hu/values.xml",
+                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/res/values-hu/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

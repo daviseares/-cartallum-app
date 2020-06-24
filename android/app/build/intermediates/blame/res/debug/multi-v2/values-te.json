@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-te/values-te.xml",
+            "outputFile": "/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-te/values-te.xml",
             "map": [
                 {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/98623f21376492342eff3011c59fa89c/appcompat-1.1.0/res/values-te/values-te.xml",
@@ -21,23 +21,6 @@
                     }
                 },
                 {
-                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/res/values-te/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "198",
-                        "endOffsets": "445"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3979",
-                        "endColumns": "198",
-                        "endOffsets": "4173"
-                    }
-                },
-                {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/f44a3650e4d5e7af4c24be0491004bd7/core-1.1.0/res/values-te/values-te.xml",
                     "from": {
                         "startLines": "2",
@@ -52,6 +35,23 @@
                         "startOffsets": "5602",
                         "endColumns": "100",
                         "endOffsets": "5698"
+                    }
+                },
+                {
+                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/res/values-te/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "198",
+                        "endOffsets": "445"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3979",
+                        "endColumns": "198",
+                        "endOffsets": "4173"
                     }
                 },
                 {

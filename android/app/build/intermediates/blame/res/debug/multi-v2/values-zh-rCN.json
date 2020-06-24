@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
             "map": [
-                {
-                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/res/values-zh-rCN/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "157",
-                        "endOffsets": "408"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3682",
-                        "endColumns": "157",
-                        "endOffsets": "3835"
-                    }
-                },
                 {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/98623f21376492342eff3011c59fa89c/appcompat-1.1.0/res/values-zh-rCN/values-zh-rCN.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "105,200,295,395,477,574,680,757,833,924,1016,1113,1209,1304,1397,1492,1584,1675,1766,1843,1939,2034,2129,2226,2322,2420,2568,4965",
                         "endColumns": "94,94,99,81,96,105,76,75,90,91,96,95,94,92,94,91,90,90,76,95,94,94,96,95,97,147,93,77",
                         "endOffsets": "195,290,390,472,569,675,752,828,919,1011,1108,1204,1299,1392,1487,1579,1670,1761,1838,1934,2029,2124,2221,2317,2415,2563,2657,5038"
+                    }
+                },
+                {
+                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/res/values-zh-rCN/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "157",
+                        "endOffsets": "408"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3682",
+                        "endColumns": "157",
+                        "endOffsets": "3835"
                     }
                 },
                 {

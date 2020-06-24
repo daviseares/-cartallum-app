@@ -1,4 +1,4 @@
-#Tue Jun 16 08:53:52 BRT 2020
-base.0=/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Wed Jun 24 18:38:36 BRT 2020
+base.0=/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

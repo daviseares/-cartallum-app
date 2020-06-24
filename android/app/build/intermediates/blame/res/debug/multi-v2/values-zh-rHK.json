@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daviborges/Desktop/projetos/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "/Users/daviborges/Desktop/projetos/familiasAlegre/-cartallum-app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/f44a3650e4d5e7af4c24be0491004bd7/core-1.1.0/res/values-zh-rHK/values-zh-rHK.xml",
@@ -18,6 +18,23 @@
                         "startOffsets": "5059",
                         "endColumns": "100",
                         "endOffsets": "5155"
+                    }
+                },
+                {
+                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/d3d7bf32a5534458f5fdc64cb5560b97/jetified-play-services-basement-17.0.0/res/values-zh-rHK/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "166",
+                        "endOffsets": "417"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3688",
+                        "endColumns": "166",
+                        "endOffsets": "3850"
                     }
                 },
                 {
@@ -52,23 +69,6 @@
                         "startOffsets": "105,200,293,393,475,572,680,757,833,925,1018,1109,1205,1301,1395,1491,1583,1675,1767,1844,1940,2035,2130,2227,2323,2421,2572,4981",
                         "endColumns": "94,92,99,81,96,107,76,75,91,92,90,95,95,93,95,91,91,91,76,95,94,94,96,95,97,150,93,77",
                         "endOffsets": "195,288,388,470,567,675,752,828,920,1013,1104,1200,1296,1390,1486,1578,1670,1762,1839,1935,2030,2125,2222,2318,2416,2567,2661,5054"
-                    }
-                },
-                {
-                    "source": "/Users/daviborges/.gradle/caches/transforms-2/files-2.1/1e0ee3f08aef74411cc3613b6ebbc7f4/jetified-play-services-basement-17.0.0/res/values-zh-rHK/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "166",
-                        "endOffsets": "417"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3688",
-                        "endColumns": "166",
-                        "endOffsets": "3850"
                     }
                 }
             ]
